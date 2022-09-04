@@ -1,0 +1,4 @@
+repository "hust777@ssl://unique-0fcc50cb-f515-4c08-8dd2-d107623a8902@sh03-plasticscm.unity.cn:8787"
+  path "/"
+    br "/main"
+    co "/main"
