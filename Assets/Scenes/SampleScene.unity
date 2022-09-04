@@ -725,15 +725,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1899665869}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5744fcd66bfe5c478c8e952043f457d, type: 3}
+  m_Script: {fileID: 11500000, guid: 86f12abdf3e83644293ad470fbd33c46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handleFrameId: -1
-  executeFrameId: -1
-  NextOperationNum: 1
-  gameStatus: 0
-  newFrameId: -1
-  isAddListener: 0
 --- !u!1 &2120004602
 GameObject:
   m_ObjectHideFlags: 0
