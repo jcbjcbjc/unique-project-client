@@ -1,23 +1,30 @@
-﻿using Assets.scripts.Message;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Services;
 
 namespace Assets.scripts.UI.UIPanels
 {
-    public class UIGameLoadIn:BaseUIForm
+    public class UIGameLoadIn : BaseUIForm
     {
+        private EventSystem eventSystem;
 
-        public void setMsg(string msg)
+        private void Awake()
+        {
+            eventSystem = ServiceLocator.Get<EventSystem>();
+        }
+
+        public override void Display()
+        {
+            base.Display();
+            eventSystem.AddListener<string>(EEvent.GameLoadIn, SetMsg);
+        }
+
+        public void SetMsg(string msg)
         {
             //this.msgLabel.string = msg;
         }
 
         public override void Close()
         {
-            MessageCenter.RemoveMsgListener(this);
+            eventSystem.RemoveListener<string>(EEvent.GameLoadIn, SetMsg);
             CloseUIForm();
         }
     }

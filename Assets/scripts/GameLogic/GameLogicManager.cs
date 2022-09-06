@@ -58,7 +58,7 @@ namespace Assets.scripts.GameLogic
             MessageCenter.AddMsgListener(MessageType.OnAddOptClient, this.AddPlayerOpt, this);
 
             UIGameLoadIn uIGameLoadIn= (UIGameLoadIn)UIManager.GetInstance() .ShowUIForms("");
-            uIGameLoadIn.setMsg("游戏拼命加载中...");
+            uIGameLoadIn.SetMsg("游戏拼命加载中...");
             
           
             CharacterManager.Instance.CreateCharacter(); 

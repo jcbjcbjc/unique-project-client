@@ -30,11 +30,11 @@ namespace Assets.scripts.UI
         /// </summary>
         public virtual void Display()
         {
-            this.gameObject.SetActive(true);
+            gameObject.SetActive(true);
             //设置模态窗体调用(必须是弹出窗体)
             if (_CurrentUIType.UIForms_Type == UIFormType.PopUp)
             {
-                UIMaskMgr.GetInstance().SetMaskWindow(this.gameObject, _CurrentUIType.UIForm_LucencyType);
+                UIMaskMgr.GetInstance().SetMaskWindow(gameObject, _CurrentUIType.UIForm_LucencyType);
             }
         }
 
@@ -43,7 +43,7 @@ namespace Assets.scripts.UI
         /// </summary>
         public virtual void Hiding()
         {
-            this.gameObject.SetActive(false);
+            gameObject.SetActive(false);
             //取消模态窗体调用
             if (_CurrentUIType.UIForms_Type == UIFormType.PopUp)
             {
@@ -56,11 +56,11 @@ namespace Assets.scripts.UI
         /// </summary>
         public virtual void Redisplay()
         {
-            this.gameObject.SetActive(true);
+            gameObject.SetActive(true);
             //设置模态窗体调用(必须是弹出窗体)
             if (_CurrentUIType.UIForms_Type == UIFormType.PopUp)
             {
-                UIMaskMgr.GetInstance().SetMaskWindow(this.gameObject, _CurrentUIType.UIForm_LucencyType);
+                UIMaskMgr.GetInstance().SetMaskWindow(gameObject, _CurrentUIType.UIForm_LucencyType);
             }
         }
 
@@ -69,7 +69,7 @@ namespace Assets.scripts.UI
         /// </summary>
         public virtual void Freeze()
         {
-            this.gameObject.SetActive(true);
+            gameObject.SetActive(true);
         }
 
 
