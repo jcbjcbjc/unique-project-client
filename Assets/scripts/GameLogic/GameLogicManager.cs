@@ -1,10 +1,9 @@
 ﻿using Assets.scripts.GameLogic;
 
-using Assets.scripts.GameLogic.Managers;
-using Assets.scripts.Message;
+
 using Assets.scripts.Models;
 using Assets.scripts.NetWork;
-using Assets.scripts.NetWork.Service;
+
 using Assets.scripts.UI.UIPanels;
 using Assets.scripts.Utils;
 using Assets.scripts.Utils.enums;
@@ -32,7 +31,7 @@ namespace Assets.scripts.GameLogic
         private TimerTask recordUserTimer;
 
 
-        private IGameCoreLogic gameLogic = new GameCoreLogic();
+        private GameCoreLogic gameLogic = new GameCoreLogic();
 
         // public isRecProFlag:boolean = true; //是否恢复进度中
 
@@ -41,7 +40,6 @@ namespace Assets.scripts.GameLogic
             if (GameData.isInGame) {
                 HandlerFrameResult handlerFrameResult = HandleFrame();
                 RepairFrameRequest(handlerFrameResult);
-                gameLogic.updateRender();
             }
         }
         public void Clear() {

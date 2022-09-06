@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Assets.scripts.Models;
-using Assets.scripts.NetWork.NetClient;
+
 using Assets.scripts.Utils;
 using C2BNet;
 /// <summary>
@@ -15,7 +15,7 @@ using C2BNet;
 /// @Date 2022/4/30
 /// </summary>
 
-namespace Assets.scripts.NetWork.Service
+namespace NetWork
 {
     public class GameLogicService
     {

@@ -1,5 +1,5 @@
 ﻿using Assets.scripts.Managers;
-using Assets.scripts.Message;
+
 using Assets.scripts.UI.Common;
 using C2GNet;
 using System;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.scripts.NetWork.Service
+namespace NetWork
 {
     class TipsService
     {

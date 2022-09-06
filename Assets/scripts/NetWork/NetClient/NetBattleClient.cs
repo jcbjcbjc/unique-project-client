@@ -11,8 +11,7 @@ using cocosocket4unity;
 using static MessageDispatcher;
 using System.Threading;
 using Assets.scripts.Utils;
-using Assets.scripts.NetWork.Service;
-using Assets.scripts.Message;
+
 using Google.Protobuf;
 /// <summary>
 /// GameLogicLoginService
@@ -21,7 +20,7 @@ using Google.Protobuf;
 /// 
 /// @Date 2022/4/30
 /// </summary>
-namespace Assets.scripts.NetWork.NetClient
+namespace NetWork
 {
     public class NetBattleClient:KcpClient
     {

@@ -1,7 +1,7 @@
 ﻿using Assets.scripts.Managers;
-using Assets.scripts.Message;
+
 using Assets.scripts.Models;
-using Assets.scripts.NetWork.NetClient;
+
 using C2GNet;
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 /// 
 /// @Date 2022/4/30
 /// </summary>
-namespace Assets.scripts.NetWork.Service
+namespace NetWork
 {
     public class ChatService
     {

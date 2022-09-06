@@ -1,8 +1,8 @@
 ﻿using Assets.scripts.GameLogic;
 using Assets.scripts.Managers;
-using Assets.scripts.Message;
+
 using Assets.scripts.Models;
-using Assets.scripts.NetWork.NetClient;
+
 using Assets.scripts.UI.Common;
 
 using Assets.scripts.Utils;
@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static Assets.scripts.Utils.enums.BattleModeEnum;
 
-namespace Assets.scripts.NetWork.Service
+namespace NetWork
 {
     public class RoomService
     {

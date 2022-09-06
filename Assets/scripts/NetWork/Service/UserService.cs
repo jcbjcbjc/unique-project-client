@@ -1,6 +1,6 @@
-﻿using Assets.scripts.NetWork.NetClient;
+﻿
 using Assets.scripts.Utils;
-using Assets.scripts.Message;
+
 using C2BNet;
 using C2GNet;
 using System;
@@ -14,7 +14,7 @@ using Assets.scripts.UI;
 using Assets.scripts.UI.Common;
 using Assets.scripts.Managers;
 
-namespace Assets.scripts.NetWork.Service
+namespace NetWork
 {
     public class UserService
     {

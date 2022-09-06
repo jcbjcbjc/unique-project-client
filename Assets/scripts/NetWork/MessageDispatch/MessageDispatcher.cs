@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.scripts.NetWork;
-using Assets.scripts.Message;
-using Assets.scripts.NetWork.NetClient;
+
 using C2BNet;
 using C2GNet;
 using System;

@@ -9,9 +9,9 @@ using UnityEngine;
 
 using static MessageDispatcher;
 using C2GNet;
-using Assets.scripts.NetWork.Service;
+
 using Assets.scripts.Utils;
-using Assets.scripts.Message;
+
 using System.IO;
 using Google.Protobuf;
 /// <summary>
@@ -21,7 +21,7 @@ using Google.Protobuf;
 /// 
 /// @Date 2022/4/30
 /// </summary>
-namespace Assets.scripts.NetWork.NetClient
+namespace NetWork
 {
     public class NetGameClient
     {
