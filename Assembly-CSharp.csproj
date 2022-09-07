@@ -55,6 +55,13 @@
   <ItemGroup>
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+    <Analyzer Include="E:\unique-project-client\Assets\scripts\ThirdParty\Protobuf\Google.Protobuf.dll" />
+    <Analyzer Include="E:\unique-project-client\Assets\scripts\ThirdParty\Protobuf\System.Buffers.dll" />
+    <Analyzer Include="E:\unique-project-client\Assets\scripts\ThirdParty\Protobuf\System.Memory.dll" />
+    <Analyzer Include="E:\unique-project-client\Assets\scripts\ThirdParty\Protobuf\System.Runtime.CompilerServices.Unsafe.dll" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\scripts\GameLogic\GameLogicGlobal.cs" />
@@ -103,7 +110,6 @@
     <Compile Include="Assets\scripts\Managers\DataManager.cs" />
     <Compile Include="Assets\scripts\GameLogic\GameLogicManager.cs" />
     <Compile Include="Assets\scripts\NetWork\Service\GameLogicService.cs" />
-    <Compile Include="Assets\butt.cs" />
     <Compile Include="Assets\scripts\LoadManager.cs" />
     <Compile Include="Assets\scripts\Utils\Tools\IConfigManager.cs" />
     <Compile Include="Assets\scripts\UI\UIPanel\RoomItem.cs" />
