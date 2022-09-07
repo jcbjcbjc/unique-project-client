@@ -3,6 +3,7 @@
 using Assets.scripts.Models;
 
 using C2GNet;
+using Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

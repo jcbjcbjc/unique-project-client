@@ -13,6 +13,7 @@ using System.Threading;
 using Assets.scripts.Utils;
 
 using Google.Protobuf;
+using Services;
 /// <summary>
 /// GameLogicLoginService
 /// 
@@ -24,6 +25,8 @@ namespace NetWork
 {
     public class NetBattleClient:KcpClient
     {
+        private EventSystem eventSystem=  ServiceLocator.Get<EventSystem>();
+
         private static NetBattleClient _instance = new NetBattleClient();
 
 
@@ -118,7 +121,7 @@ namespace NetWork
         public void Close() {
             try
             {
-                MessageCenter.RemoveMsgListener(this);
+                
                 StopHeartBeat();
             }
             catch (Exception ex)

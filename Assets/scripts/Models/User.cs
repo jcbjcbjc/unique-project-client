@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Services;
 using C2GNet;
 /// <summary>
 /// GameLogicLoginService
@@ -9,9 +10,9 @@ using C2GNet;
 /// 
 /// @Date 2022/4/30
 /// </summary>
-namespace Assets.scripts.Models
+namespace Models
 {
-    public class User 
+    public class User
     {
         public static User _instance;
         public static User Instance

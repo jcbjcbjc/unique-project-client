@@ -54,6 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+<<<<<<< Updated upstream
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\scripts\GameLogic\GameLogicGlobal.cs" />
@@ -123,6 +124,127 @@
     <None Include="Assets\scripts\ThirdParty\Protobuf\System.Buffers.dll" />
     <None Include="Assets\scripts\ThirdParty\Protobuf\Google.Protobuf.dll" />
     <None Include="Assets\scripts\ThirdParty\Protobuf\System.Runtime.CompilerServices.Unsafe.dll" />
+=======
+    <Analyzer Include="E:\unique-project-client\Assets\scripts\Runtime\ThirdParty\Protobuf\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Analyzer Include="E:\unique-project-client\Assets\scripts\Runtime\ThirdParty\Protobuf\Google.Protobuf.dll" />
+    <Analyzer Include="E:\unique-project-client\Assets\scripts\Runtime\ThirdParty\Protobuf\System.Buffers.dll" />
+    <Analyzer Include="E:\unique-project-client\Assets\scripts\Runtime\ThirdParty\Protobuf\System.Memory.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Addon\Service\Runtime\GameLauncher.cs" />
+    <Compile Include="Assets\Addon\Service\Runtime\GlobalGameCycle.cs" />
+    <Compile Include="Assets\scripts\Runtime\GameLogic\GameLogicGlobal.cs" />
+    <Compile Include="Assets\scripts\GameGlobal.cs" />
+    <Compile Include="Assets\scripts\Runtime\ThirdParty\KCP\ByteBuf.cs" />
+    <Compile Include="Assets\scripts\Runtime\NetWork\Protobuf\C2BNetMessage.cs" />
+    <Compile Include="Assets\scripts\Runtime\NetWork\Service\UserService.cs" />
+    <Compile Include="Assets\scripts\Runtime\UI\UIPanels\UIEnterGameLoad.cs" />
+    <Compile Include="Assets\scripts\Runtime\Managers\Scene_Manager.cs" />
+    <Compile Include="Assets\scripts\Runtime\UI\UIPanel\GameOver.cs" />
+    <Compile Include="Assets\scripts\Runtime\UI\UIPanel\StartPanel.cs" />
+    <Compile Include="Assets\scripts\Runtime\Managers\TipsManager.cs" />
+    <Compile Include="Assets\scripts\Utils\Fix64.cs" />
+    <Compile Include="Assets\Addon\ObjectPool\Runtime\MyObject.cs" />
+    <Compile Include="Assets\Addon\MyTimer\Runtime\ILerp\Sine.cs" />
+    <Compile Include="Assets\Addon\MyTimer\Runtime\ILerp\Vector3Lerp.cs" />
+    <Compile Include="Assets\scripts\Utils\UnityTools.cs" />
+    <Compile Include="Assets\scripts\Runtime\ThirdParty\KCP\Output.cs" />
+    <Compile Include="Assets\Addon\StateMathine\Runtime\State.cs" />
+    <Compile Include="Assets\scripts\Runtime\UI\Common\UIMessageBox.cs" />
+    <Compile Include="Assets\Addon\MyTimer\Runtime\ILerp\DefaultValue.cs" />
+    <Compile Include="Assets\scripts\Runtime\UI\UIType.cs" />
+    <Compile Include="Assets\Addon\MeshExtend\MeshExtendUtility.cs" />
+    <Compile Include="Assets\Addon\Service\Runtime\ServiceSettings.cs" />
+    <Compile Include="Assets\scripts\Runtime\GameLogic\GameLogicMonobehavior.cs" />
+    <Compile Include="Assets\scripts\Utils\Tools\ResourceMgr.cs" />
+    <Compile Include="Assets\Addon\Service\Runtime\ServiceLocator.cs" />
+    <Compile Include="Assets\scripts\Runtime\NetWork\Service\MatchService.cs" />
+    <Compile Include="Assets\Addon\ObjectPool\Runtime\IMyObject.cs" />
+    <Compile Include="Assets\scripts\Runtime\UI\UIPanels\UIMatchWait.cs" />
+    <Compile Include="Assets\scripts\Runtime\NetWork\Service\TipsService.cs" />
+    <Compile Include="Assets\Addon\ObjectPool\Runtime\ObjectManager.cs" />
+    <Compile Include="Assets\Addon\Service\Runtime\MyBuffer.cs" />
+    <Compile Include="Assets\scripts\Utils\enums\BattleMode.cs" />
+    <Compile Include="Assets\scripts\Runtime\UI\UIPanel\RegisterPanel.cs" />
+    <Compile Include="Assets\Addon\MyTimer\Runtime\UniformLinearMotion.cs" />
+    <Compile Include="Assets\Addon\MyEditor\Runtime\ShapeEditor\PolygonEditor.cs" />
+    <Compile Include="Assets\Addon\Service\Runtime\AssetLoader.cs" />
+    <Compile Include="Assets\scripts\Runtime\UI\UIPanels\UIGameOver.cs" />
+    <Compile Include="Assets\scripts\Utils\Tools\ConfigManagerByJson.cs" />
+    <Compile Include="Assets\scripts\Runtime\UI\UIPanels\UIGameLoadIn.cs" />
+    <Compile Include="Assets\Addon\Service\Runtime\Service.cs" />
+    <Compile Include="Assets\scripts\Runtime\Managers\LauguageMgr.cs" />
+    <Compile Include="Assets\Addon\Service\Runtime\SceneControllerBase.cs" />
+    <Compile Include="Assets\scripts\Runtime\UI\SysDefine.cs" />
+    <Compile Include="Assets\Addon\MeshExtend\MyImage.cs" />
+    <Compile Include="Assets\scripts\Utils\enums\HandlerFrameResult.cs" />
+    <Compile Include="Assets\Addon\ObjectPool\Runtime\ObjectPoolUtility.cs" />
+    <Compile Include="Assets\Addon\MyEditor\Runtime\ShapeEditor\RectEditor.cs" />
+    <Compile Include="Assets\Addon\MyTimer\Runtime\TypeWriter.cs" />
+    <Compile Include="Assets\scripts\Utils\enums\GameStatus.cs" />
+    <Compile Include="Assets\scripts\Runtime\GameLogic\GameCoreLogic.cs" />
+    <Compile Include="Assets\Addon\MyTimer\Runtime\ColorChange.cs" />
+    <Compile Include="Assets\scripts\Runtime\UI\BaseUIForm.cs" />
+    <Compile Include="Assets\Addon\Service\Runtime\ServiceInitializer.cs" />
+    <Compile Include="Assets\Addon\StateMathine\Runtime\StateMapper.cs" />
+    <Compile Include="Assets\scripts\Runtime\NetWork\Protobuf\C2GNetMessage.cs" />
+    <Compile Include="Assets\Addon\MyTimer\Runtime\ILerp\CurrentLerp.cs" />
+    <Compile Include="Assets\scripts\Runtime\UI\UIPanel\RoomPanel.cs" />
+    <Compile Include="Assets\scripts\Runtime\NetWork\NetConfig.cs" />
+    <Compile Include="Assets\scripts\Runtime\NetWork\MessageDispatch\MessageDispatcher.cs" />
+    <Compile Include="Assets\Addon\StateMathine\Runtime\StateMathine.cs" />
+    <Compile Include="Assets\scripts\Runtime\NetWork\NetClient\NetBattleClient.cs" />
+    <Compile Include="Assets\scripts\Runtime\ThirdParty\KCP\Kcp.cs" />
+    <Compile Include="Assets\Addon\MyEditor\Runtime\ShapeEditor\ShapeEditorSettings.cs" />
+    <Compile Include="Assets\Addon\Service\Runtime\EventSystem.cs" />
+    <Compile Include="Assets\Addon\ObjectPool\Runtime\ObjectManagerData.cs" />
+    <Compile Include="Assets\scripts\Runtime\UI\UIMaskMgr.cs" />
+    <Compile Include="Assets\Addon\MyTimer\Runtime\ILerp\StringLerp.cs" />
+    <Compile Include="Assets\scripts\Runtime\Managers\UIManager.cs" />
+    <Compile Include="Assets\scripts\Runtime\UI\EventTriggerListener.cs" />
+    <Compile Include="Assets\Addon\MyTimer\Runtime\ILerp\ColorLerp.cs" />
+    <Compile Include="Assets\Addon\MyTimer\Runtime\BaseTimer.cs" />
+    <Compile Include="Assets\scripts\Runtime\UI\UIPanel\RoomListPanel.cs" />
+    <Compile Include="Assets\scripts\Utils\Tools\UnityHelpercs.cs" />
+    <Compile Include="Assets\scripts\Runtime\NetWork\NetClient\NetGameClient.cs" />
+    <Compile Include="Assets\Addon\MeshExtend\MeshHelper.cs" />
+    <Compile Include="Assets\scripts\Runtime\Managers\DataManager.cs" />
+    <Compile Include="Assets\scripts\Runtime\GameLogic\GameLogicManager.cs" />
+    <Compile Include="Assets\scripts\Runtime\NetWork\Service\GameLogicService.cs" />
+    <Compile Include="Assets\Addon\Service\Runtime\EEvent.cs" />
+    <Compile Include="Assets\Addon\MyTimer\Runtime\Abstract\Timer.cs" />
+    <Compile Include="Assets\Addon\Service\Runtime\AssetLoader_Resoureces.cs" />
+    <Compile Include="Assets\Addon\MyTimer\Runtime\SineWave.cs" />
+    <Compile Include="Assets\Addon\MyTimer\Runtime\Abstract\ILerp.cs" />
+    <Compile Include="Assets\scripts\LoadManager.cs" />
+    <Compile Include="Assets\Addon\StateMathine\Runtime\GameCycle.cs" />
+    <Compile Include="Assets\scripts\Utils\Tools\IConfigManager.cs" />
+    <Compile Include="Assets\scripts\Runtime\UI\UIPanel\RoomItem.cs" />
+    <Compile Include="Assets\scripts\Runtime\ThirdParty\KCP\KcpClient.cs" />
+    <Compile Include="Assets\scripts\Runtime\NetWork\Service\ChatService.cs" />
+    <Compile Include="Assets\Addon\MyTimer\Runtime\ILerp\LinearLerp.cs" />
+    <Compile Include="Assets\scripts\Runtime\UI\UIPanel\LoginPanel.cs" />
+    <Compile Include="Assets\Addon\MyTimer\Runtime\ILerp\BeizierLerp.cs" />
+    <Compile Include="Assets\Addon\MyTimer\Runtime\BezierCurve.cs" />
+    <Compile Include="Assets\scripts\Utils\exception\JsonAnalysisException.cs" />
+    <Compile Include="Assets\scripts\Utils\enums\OptType.cs" />
+    <Compile Include="Assets\scripts\Runtime\GameLogic\GameData.cs" />
+    <Compile Include="Assets\Addon\ObjectPool\Runtime\ObjectPool.cs" />
+    <Compile Include="Assets\Addon\MyTimer\Runtime\GameCycle.cs" />
+    <Compile Include="Assets\scripts\Runtime\Models\User.cs" />
+    <Compile Include="Assets\Addon\ObjectPool\Runtime\ObjectPoolData.cs" />
+    <Compile Include="Assets\scripts\Runtime\NetWork\Service\RoomService.cs" />
+    <Compile Include="Assets\scripts\Runtime\ThirdParty\KCP\KcpOnUdp.cs" />
+    <Compile Include="Assets\Addon\MyTimer\Runtime\LinearTransformation.cs" />
+    <Compile Include="Assets\scripts\Runtime\UI\UIPanels\UIMain.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\scripts\Runtime\ThirdParty\Protobuf\System.Memory.dll" />
+    <None Include="Assets\scripts\Runtime\ThirdParty\Protobuf\Google.Protobuf.xml" />
+    <None Include="Assets\scripts\Runtime\ThirdParty\Protobuf\System.Buffers.dll" />
+    <None Include="Assets\scripts\Runtime\ThirdParty\Protobuf\Google.Protobuf.dll" />
+    <None Include="Assets\scripts\Runtime\ThirdParty\Protobuf\System.Runtime.CompilerServices.Unsafe.dll" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -372,6 +494,7 @@
       <HintPath>D:\unityEditor\2021.2.5f1c1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="System.Memory">
+<<<<<<< Updated upstream
       <HintPath>Assets\scripts\ThirdParty\Protobuf\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
@@ -379,12 +502,25 @@
     </Reference>
     <Reference Include="System.Buffers">
       <HintPath>Assets\scripts\ThirdParty\Protobuf\System.Buffers.dll</HintPath>
+=======
+      <HintPath>Assets\scripts\Runtime\ThirdParty\Protobuf\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe">
+      <HintPath>Assets\scripts\Runtime\ThirdParty\Protobuf\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers">
+      <HintPath>Assets\scripts\Runtime\ThirdParty\Protobuf\System.Buffers.dll</HintPath>
+>>>>>>> Stashed changes
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Google.Protobuf">
+<<<<<<< Updated upstream
       <HintPath>Assets\scripts\ThirdParty\Protobuf\Google.Protobuf.dll</HintPath>
+=======
+      <HintPath>Assets\scripts\Runtime\ThirdParty\Protobuf\Google.Protobuf.dll</HintPath>
+>>>>>>> Stashed changes
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>D:\unityEditor\2021.2.5f1c1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>

@@ -1,10 +1,10 @@
 ﻿using Assets.scripts.GameLogic;
-using Assets.scripts.Managers;
-using Assets.scripts.Message;
-using Assets.scripts.Models;
-using Assets.scripts.NetWork;
-using Assets.scripts.NetWork.NetClient;
-using Assets.scripts.NetWork.Service;
+using Managers;
+
+using Models;
+using NetWork;
+
+
 using Assets.scripts.Utils;
 using C2BNet;
 using C2GNet;

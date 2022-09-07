@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine.SceneManagement;
 
-namespace Assets.scripts.Managers
+namespace Managers
 {
     public class Scene_Manager
     {
