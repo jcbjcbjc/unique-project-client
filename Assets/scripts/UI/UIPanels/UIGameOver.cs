@@ -1,17 +1,24 @@
-﻿using Assets.scripts.Message;
+﻿
+using Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.scripts.UI.UIPanels
+namespace UI
 {
     public class UIGameOver:BaseUIForm
     {
+        private EventSystem eventSystem;
+
+        private void Awake()
+        {
+            eventSystem = ServiceLocator.Get<EventSystem>();
+        }
         public override void Close()
         {
-            MessageCenter.RemoveMsgListener(this);
+           
             CloseUIForm();
         }
     }

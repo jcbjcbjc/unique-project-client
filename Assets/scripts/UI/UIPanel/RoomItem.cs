@@ -4,52 +4,54 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-using Assets.scripts.UI;
-using Assets.scripts.Message;
 
-public class RoomItem : BaseUIForm
+namespace UI
 {
-	
-	public Text username;
-	public Text maxcount;
-	public Text count;
-	public Text gamepattern;
-	public Button _joinRoomButton;
-
-	void Start ()
+	public class RoomItem : BaseUIForm
 	{
-		
-	}
 
-	public void OnJoinRoomClick()
-	{
-       
-	}
+		public Text username;
+		public Text maxcount;
+		public Text count;
+		public Text gamepattern;
+		public Button _joinRoomButton;
 
-    
+		void Start()
+		{
 
-    string _userName = "";
-	string _count = "";
-	string _maxcount = "";
-	int game=-1;
-	void Update ()
-	{
-		
-		if (_userName != "" && _count != "" && _maxcount != "") {
-			username.text = _userName;
-			maxcount.text = "/" + _maxcount;
-			//_totalCountText.text.Replace ("\n", "\\n");
-			count.text = _count;
-			gamepattern.text = "";
 		}
-	}
 
-	
-	
+		public void OnJoinRoomClick()
+		{
 
-	public override void Close()
-	{
-		MessageCenter.RemoveMsgListener(this);
-		CloseUIForm();
+		}
+
+
+
+		string _userName = "";
+		string _count = "";
+		string _maxcount = "";
+		int game = -1;
+		void Update()
+		{
+
+			if (_userName != "" && _count != "" && _maxcount != "")
+			{
+				username.text = _userName;
+				maxcount.text = "/" + _maxcount;
+				//_totalCountText.text.Replace ("\n", "\\n");
+				count.text = _count;
+				gamepattern.text = "";
+			}
+		}
+
+
+
+
+		public override void Close()
+		{
+			
+			CloseUIForm();
+		}
 	}
 }
