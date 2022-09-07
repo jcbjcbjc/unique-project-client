@@ -1,65 +1,67 @@
-﻿using Assets.scripts.Message;
-using Assets.scripts.UI;
+﻿
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class StartPanel :BaseUIForm
-{
-	Button _loginButton;
-	Button _tutorButton;
-	Button _StartSetting;
-	Button _startaudio;
-
-    private void Awake()
-    {
-		
-	}
-    void Start ()
+namespace UI {
+	public class StartPanel : BaseUIForm
 	{
-		_loginButton =GameObject.Find("StartButton").GetComponent<Button> ();
-		_tutorButton = GameObject.Find("TutorPlay").GetComponent <Button> ();
-		_StartSetting=GameObject.Find("StartSetting").GetComponent<Button>();
-		_startaudio = GameObject.Find("StartAudio").GetComponent<Button>();
-		
-		_loginButton.onClick.AddListener (() => {
-			OnStartClick ();
-		});
-		_tutorButton.onClick.AddListener(() =>
-	    {
-		   OnStartTutor();
-	   });
-		_StartSetting.onClick.AddListener(() =>
+		Button _loginButton;
+		Button _tutorButton;
+		Button _StartSetting;
+		Button _startaudio;
+
+		private void Awake()
 		{
-			OnSetting();
-		});
-		_startaudio.onClick.AddListener(() =>
+
+		}
+		void Start()
 		{
-			OnAudio();
-		});
-	}
-	
-	void OnStartClick()
-	{
-		
-		CloseUIForm();
-	}
-	void OnStartTutor()
-	{
-		
-	}
-	void OnSetting() { 
+			_loginButton = GameObject.Find("StartButton").GetComponent<Button>();
+			_tutorButton = GameObject.Find("TutorPlay").GetComponent<Button>();
+			_StartSetting = GameObject.Find("StartSetting").GetComponent<Button>();
+			_startaudio = GameObject.Find("StartAudio").GetComponent<Button>();
 
-	}
-    void OnAudio()
-    {
-		
+			_loginButton.onClick.AddListener(() => {
+				OnStartClick();
+			});
+			_tutorButton.onClick.AddListener(() =>
+			{
+				OnStartTutor();
+			});
+			_StartSetting.onClick.AddListener(() =>
+			{
+				OnSetting();
+			});
+			_startaudio.onClick.AddListener(() =>
+			{
+				OnAudio();
+			});
+		}
+
+		void OnStartClick()
+		{
+
+			CloseUIForm();
+		}
+		void OnStartTutor()
+		{
+
+		}
+		void OnSetting()
+		{
+
+		}
+		void OnAudio()
+		{
+
+		}
+
+		public override void Close()
+		{
+			
+			CloseUIForm();
+		}
 	}
 
-	public override void Close()
-	{
-		MessageCenter.RemoveMsgListener(this);
-		CloseUIForm();
-	}
 }

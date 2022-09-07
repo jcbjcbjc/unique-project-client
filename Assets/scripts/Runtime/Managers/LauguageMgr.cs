@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Assets.scripts.Managers
+namespace Managers
 {
     public class LauguageMgr
     {

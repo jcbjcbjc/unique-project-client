@@ -1,6 +1,5 @@
 ﻿using Services;
 
-namespace Assets.scripts.UI.UIPanels
 {
     public class UIGameLoadIn : BaseUIForm
     {

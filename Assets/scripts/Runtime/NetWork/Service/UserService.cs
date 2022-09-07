@@ -16,7 +16,7 @@ using Assets.scripts.Managers;
 
 namespace NetWork
 {
-    public class UserService
+    public class UserService 
     {
         
         private static UserService _instance = new UserService();
@@ -34,6 +34,7 @@ namespace NetWork
        
         public void init()
         {
+
             MessageCenter.AddMsgListener(MessageType.OnUserLogin, this.OnUserLogin, this);
             MessageCenter.AddMsgListener(MessageType.OnUserRegister, this.OnUserRegister, this);
             //MessageCenter.AddMsgListener(MessageType.OnUnLock, this.OnUnLock, this);
@@ -49,7 +50,7 @@ namespace NetWork
 
         public void ConnectToServer(string ip, int port)
         {
-            LogUtil.log("ConnectToServer() Start ");
+            //LogUtil.log("ConnectToServer() Start ");
             NetGameClient.GetInstance().Connect(ip, port);
         }
 

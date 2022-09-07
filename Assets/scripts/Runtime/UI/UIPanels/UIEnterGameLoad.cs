@@ -1,34 +1,49 @@
 ﻿using Assets.scripts.GameLogic;
+<<<<<<< Updated upstream:Assets/scripts/UI/UIPanels/UIEnterGameLoad.cs
+using Managers;
+
+using Models;
+using NetWork;
+=======
 using Assets.scripts.Managers;
-using Assets.scripts.Message;
-using Assets.scripts.Models;
-using Assets.scripts.NetWork;
-using Assets.scripts.NetWork.NetClient;
-using Assets.scripts.NetWork.Service;
+
+using Models;
+>>>>>>> Stashed changes:Assets/scripts/Runtime/UI/UIPanels/UIEnterGameLoad.cs
+
+
 using Assets.scripts.Utils;
 using C2BNet;
 using C2GNet;
+using NetWork;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Assets.scripts.Utils.enums.BattleModeEnum;
+using MyTimer;
+using Services;
 
-namespace Assets.scripts.UI.UIPanels
+namespace UI
 {
     public class UIEnterGameLoad:BaseUIForm
     {
-        private TimerTask timer=null;
+        private Metronome timer;
+        private EventSystem eventSystem;
+
         private int percent_ = 0;   //加载进度百分比
         private bool isGoToBattleScene = false; //是否已跳转战斗场景
-        public void Start()
-        {
-           
-        }
+       
         public void Awake()
         {
+            eventSystem= ServiceLocator.Get<EventSystem>();
+            timer =new Metronome();
+        }
+        public void Start()
+        {
             
+            timer.Initialize(5000);
+
         }
 
         public void Init()
@@ -44,8 +59,7 @@ namespace Assets.scripts.UI.UIPanels
             //console.log('战斗服务器地址：'+NetConfig.websocketBattleUrl)
 
             NetBattleClient.GetInstance().Connect(NetConfig.UdpIp, NetConfig.UdpPort);
-
-            MessageCenter.AddMsgListener(MessageType.OnPercentForward, this.OnPercentForward, this);
+            eventSystem.AddListener<PercentForwardResponse>(EEvent.OnPercentForward, OnPercentForward);
 
             if (GameData.battleMode == BattleMode.Battle)
             {  //对局模式
@@ -70,9 +84,9 @@ namespace Assets.scripts.UI.UIPanels
             }
         }
 
-        private void OnPercentForward(object param)
+        private void OnPercentForward(PercentForwardResponse response)
         {
-            var response = param as PercentForwardResponse;
+            
             //console.log("OnPercentForward:{0} [{1}]", response.percentForward,response.allUserLoadSucess);
             var userId = response.PercentForward.UserId;
             var percent = response.PercentForward.Percent;
@@ -84,7 +98,7 @@ namespace Assets.scripts.UI.UIPanels
             {
                 this.isGoToBattleScene = true;
 
-                LogUtil.log("跳转战斗场景");
+                //LogUtil.log("跳转战斗场景");
                 Scene_Manager.Load(1); //跳转战斗场景
                 GameLogicMonobehavior.Instance.init();
                 Close();
@@ -124,7 +138,7 @@ namespace Assets.scripts.UI.UIPanels
             if (timer != null) { 
                 timer.Stop();
             }
-            MessageCenter.RemoveMsgListener(this);
+           
             CloseUIForm();
         }
     }

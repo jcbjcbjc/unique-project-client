@@ -1,8 +1,7 @@
 ﻿using Assets.scripts.Managers;
 using Assets.scripts.Models;
-using Assets.scripts.NetWork.NetClient;
-using Assets.scripts.NetWork.Service;
 using Assets.scripts.Utils;
+using NetWork;
 using System;
 using System.Collections.Generic;
 using System.Linq;

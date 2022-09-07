@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Assets.scripts.UI
+namespace UI
 {
     public class EventTriggerListener : UnityEngine.EventSystems.EventTrigger
     {

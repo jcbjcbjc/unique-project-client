@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.scripts.UI
+namespace UI
 {
     public class UIMaskMgr : MonoBehaviour
     {

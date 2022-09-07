@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-namespace Assets.scripts.UI
+namespace UI
 {
     
     public abstract class BaseUIForm : MonoBehaviour

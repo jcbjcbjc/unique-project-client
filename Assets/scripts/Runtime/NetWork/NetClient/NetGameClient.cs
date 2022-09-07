@@ -14,6 +14,7 @@ using Assets.scripts.Utils;
 
 using System.IO;
 using Google.Protobuf;
+using Services;
 /// <summary>
 /// GameLogicLoginService
 /// 
@@ -25,6 +26,7 @@ namespace NetWork
 {
     public class NetGameClient
     {
+		private EventSystem eventSystem = ServiceLocator.Get<EventSystem>();
 
 		private static NetGameClient _instance = new NetGameClient();
 
@@ -168,7 +170,7 @@ namespace NetWork
 		{
 			try
 			{
-				MessageCenter.RemoveMsgListener(this);
+				
 				if (timerTask1 != null) { timerTask1.Stop(); }
 				
 				TcpSocket.Close();
