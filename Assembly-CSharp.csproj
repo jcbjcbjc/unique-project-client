@@ -54,87 +54,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-    <Analyzer Include="E:\unique-project-client\Assets\scripts\ThirdParty\Protobuf\Google.Protobuf.dll" />
-    <Analyzer Include="E:\unique-project-client\Assets\scripts\ThirdParty\Protobuf\System.Buffers.dll" />
-    <Analyzer Include="E:\unique-project-client\Assets\scripts\ThirdParty\Protobuf\System.Memory.dll" />
-    <Analyzer Include="E:\unique-project-client\Assets\scripts\ThirdParty\Protobuf\System.Runtime.CompilerServices.Unsafe.dll" />
->>>>>>> Stashed changes
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Assets\scripts\GameLogic\GameLogicGlobal.cs" />
-    <Compile Include="Assets\scripts\GameGlobal.cs" />
-    <Compile Include="Assets\scripts\ThirdParty\KCP\ByteBuf.cs" />
-    <Compile Include="Assets\scripts\NetWork\Protobuf\C2BNetMessage.cs" />
-    <Compile Include="Assets\scripts\NetWork\Service\UserService.cs" />
-    <Compile Include="Assets\scripts\UI\UIPanels\UIEnterGameLoad.cs" />
-    <Compile Include="Assets\scripts\Managers\Scene_Manager.cs" />
-    <Compile Include="Assets\scripts\UI\UIPanel\GameOver.cs" />
-    <Compile Include="Assets\scripts\UI\UIPanel\StartPanel.cs" />
-    <Compile Include="Assets\scripts\Managers\TipsManager.cs" />
-    <Compile Include="Assets\scripts\Utils\Fix64.cs" />
-    <Compile Include="Assets\scripts\Utils\UnityTools.cs" />
-    <Compile Include="Assets\scripts\ThirdParty\KCP\Output.cs" />
-    <Compile Include="Assets\scripts\UI\Common\UIMessageBox.cs" />
-    <Compile Include="Assets\scripts\UI\UIType.cs" />
-    <Compile Include="Assets\scripts\GameLogic\GameLogicMonobehavior.cs" />
-    <Compile Include="Assets\scripts\Utils\Tools\ResourceMgr.cs" />
-    <Compile Include="Assets\scripts\NetWork\Service\MatchService.cs" />
-    <Compile Include="Assets\scripts\UI\UIPanels\UIMatchWait.cs" />
-    <Compile Include="Assets\scripts\NetWork\Service\TipsService.cs" />
-    <Compile Include="Assets\scripts\Utils\enums\BattleMode.cs" />
-    <Compile Include="Assets\scripts\UI\UIPanel\RegisterPanel.cs" />
-    <Compile Include="Assets\scripts\UI\UIPanels\UIGameOver.cs" />
-    <Compile Include="Assets\scripts\Utils\Tools\ConfigManagerByJson.cs" />
-    <Compile Include="Assets\scripts\UI\UIPanels\UIGameLoadIn.cs" />
-    <Compile Include="Assets\scripts\Managers\LauguageMgr.cs" />
-    <Compile Include="Assets\scripts\UI\SysDefine.cs" />
-    <Compile Include="Assets\scripts\Utils\enums\HandlerFrameResult.cs" />
-    <Compile Include="Assets\scripts\Utils\enums\GameStatus.cs" />
-    <Compile Include="Assets\scripts\GameLogic\GameCoreLogic.cs" />
-    <Compile Include="Assets\scripts\UI\BaseUIForm.cs" />
-    <Compile Include="Assets\scripts\NetWork\Protobuf\C2GNetMessage.cs" />
-    <Compile Include="Assets\scripts\UI\UIPanel\RoomPanel.cs" />
-    <Compile Include="Assets\scripts\NetWork\NetConfig.cs" />
-    <Compile Include="Assets\scripts\NetWork\MessageDispatch\MessageDispatcher.cs" />
-    <Compile Include="Assets\scripts\NetWork\NetClient\NetBattleClient.cs" />
-    <Compile Include="Assets\scripts\ThirdParty\KCP\Kcp.cs" />
-    <Compile Include="Assets\scripts\UI\UIMaskMgr.cs" />
-    <Compile Include="Assets\scripts\Managers\UIManager.cs" />
-    <Compile Include="Assets\scripts\UI\EventTriggerListener.cs" />
-    <Compile Include="Assets\scripts\UI\UIPanel\RoomListPanel.cs" />
-    <Compile Include="Assets\scripts\Utils\Tools\UnityHelpercs.cs" />
-    <Compile Include="Assets\scripts\NetWork\NetClient\NetGameClient.cs" />
-    <Compile Include="Assets\scripts\Managers\DataManager.cs" />
-    <Compile Include="Assets\scripts\GameLogic\GameLogicManager.cs" />
-    <Compile Include="Assets\scripts\NetWork\Service\GameLogicService.cs" />
-    <Compile Include="Assets\scripts\LoadManager.cs" />
-    <Compile Include="Assets\scripts\Utils\Tools\IConfigManager.cs" />
-    <Compile Include="Assets\scripts\UI\UIPanel\RoomItem.cs" />
-    <Compile Include="Assets\scripts\ThirdParty\KCP\KcpClient.cs" />
-    <Compile Include="Assets\scripts\NetWork\Service\ChatService.cs" />
-    <Compile Include="Assets\scripts\UI\UIPanel\LoginPanel.cs" />
-    <Compile Include="Assets\scripts\Utils\exception\JsonAnalysisException.cs" />
-    <Compile Include="Assets\scripts\Utils\enums\OptType.cs" />
-    <Compile Include="Assets\scripts\GameLogic\GameData.cs" />
-    <Compile Include="Assets\scripts\Models\User.cs" />
-    <Compile Include="Assets\scripts\NetWork\Service\RoomService.cs" />
-    <Compile Include="Assets\scripts\ThirdParty\KCP\KcpOnUdp.cs" />
-    <Compile Include="Assets\scripts\UI\UIPanels\UIMain.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\scripts\ThirdParty\Protobuf\System.Memory.dll" />
-    <None Include="Assets\scripts\ThirdParty\Protobuf\Google.Protobuf.xml" />
-    <None Include="Assets\scripts\ThirdParty\Protobuf\System.Buffers.dll" />
-    <None Include="Assets\scripts\ThirdParty\Protobuf\Google.Protobuf.dll" />
-    <None Include="Assets\scripts\ThirdParty\Protobuf\System.Runtime.CompilerServices.Unsafe.dll" />
-=======
-    <Analyzer Include="E:\unique-project-client\Assets\scripts\Runtime\ThirdParty\Protobuf\System.Runtime.CompilerServices.Unsafe.dll" />
-    <Analyzer Include="E:\unique-project-client\Assets\scripts\Runtime\ThirdParty\Protobuf\Google.Protobuf.dll" />
-    <Analyzer Include="E:\unique-project-client\Assets\scripts\Runtime\ThirdParty\Protobuf\System.Buffers.dll" />
-    <Analyzer Include="E:\unique-project-client\Assets\scripts\Runtime\ThirdParty\Protobuf\System.Memory.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Addon\Service\Runtime\GameLauncher.cs" />
@@ -250,7 +169,6 @@
     <None Include="Assets\scripts\Runtime\ThirdParty\Protobuf\System.Buffers.dll" />
     <None Include="Assets\scripts\Runtime\ThirdParty\Protobuf\Google.Protobuf.dll" />
     <None Include="Assets\scripts\Runtime\ThirdParty\Protobuf\System.Runtime.CompilerServices.Unsafe.dll" />
->>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -500,15 +418,6 @@
       <HintPath>D:\unityEditor\2021.2.5f1c1\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
     </Reference>
     <Reference Include="System.Memory">
-<<<<<<< Updated upstream
-      <HintPath>Assets\scripts\ThirdParty\Protobuf\System.Memory.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe">
-      <HintPath>Assets\scripts\ThirdParty\Protobuf\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Buffers">
-      <HintPath>Assets\scripts\ThirdParty\Protobuf\System.Buffers.dll</HintPath>
-=======
       <HintPath>Assets\scripts\Runtime\ThirdParty\Protobuf\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe">
@@ -516,17 +425,12 @@
     </Reference>
     <Reference Include="System.Buffers">
       <HintPath>Assets\scripts\Runtime\ThirdParty\Protobuf\System.Buffers.dll</HintPath>
->>>>>>> Stashed changes
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Google.Protobuf">
-<<<<<<< Updated upstream
-      <HintPath>Assets\scripts\ThirdParty\Protobuf\Google.Protobuf.dll</HintPath>
-=======
       <HintPath>Assets\scripts\Runtime\ThirdParty\Protobuf\Google.Protobuf.dll</HintPath>
->>>>>>> Stashed changes
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>D:\unityEditor\2021.2.5f1c1\Editor\Data\PlaybackEngines\iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
