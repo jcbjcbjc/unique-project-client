@@ -50,8 +50,8 @@ namespace C2BNet {
             "ChBIZWFydEJlYXRSZXF1ZXN0IhMKEUhlYXJ0QmVhdFJlc3BvbnNlIs4BCgtG",
             "cmFtZUhhbmRsZRITCgZ1c2VySWQYASABKAVIAIgBARIQCgNvcHQYAiABKAVI",
             "AYgBARIXCgpPcHJldGlvbklkGAMgASgFSAKIAQESFgoJb3B0VmFsdWUxGAQg",
-            "ASgCSAOIAQESFgoJb3B0VmFsdWUyGAUgASgCSASIAQESEQoJb3B0RGV0YWls",
-            "GAYgAygCQgkKB191c2VySWRCBgoEX29wdEINCgtfT3ByZXRpb25JZEIMCgpf",
+            "ASgFSAOIAQESFgoJb3B0VmFsdWUyGAUgASgFSASIAQESEQoJb3B0RGV0YWls",
+            "GAYgAygFQgkKB191c2VySWRCBgoEX29wdEINCgtfT3ByZXRpb25JZEIMCgpf",
             "b3B0VmFsdWUxQgwKCl9vcHRWYWx1ZTIiXgoTRnJhbWVIYW5kbGVSZXNwb25z",
             "ZRISCgVmcmFtZRgBIAEoBUgAiAEBEikKDGZyYW1lSGFuZGxlcxgCIAMoCzIT",
             "LkMyQk5ldC5GcmFtZUhhbmRsZUIICgZfZnJhbWUiYwoWRnJhbWVIYW5kbGVz",
@@ -1594,6 +1594,9 @@ namespace C2BNet {
     /// <summary>Field number for the "OpretionId" field.</summary>
     public const int OpretionIdFieldNumber = 3;
     private int opretionId_;
+    /// <summary>
+    ///operation seq
+    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int OpretionId {
@@ -1618,14 +1621,14 @@ namespace C2BNet {
 
     /// <summary>Field number for the "optValue1" field.</summary>
     public const int OptValue1FieldNumber = 4;
-    private float optValue1_;
+    private int optValue1_;
     /// <summary>
     ///值1
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float OptValue1 {
-      get { if ((_hasBits0 & 8) != 0) { return optValue1_; } else { return 0F; } }
+    public int OptValue1 {
+      get { if ((_hasBits0 & 8) != 0) { return optValue1_; } else { return 0; } }
       set {
         _hasBits0 |= 8;
         optValue1_ = value;
@@ -1646,14 +1649,14 @@ namespace C2BNet {
 
     /// <summary>Field number for the "optValue2" field.</summary>
     public const int OptValue2FieldNumber = 5;
-    private float optValue2_;
+    private int optValue2_;
     /// <summary>
     ///值2
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float OptValue2 {
-      get { if ((_hasBits0 & 16) != 0) { return optValue2_; } else { return 0F; } }
+    public int OptValue2 {
+      get { if ((_hasBits0 & 16) != 0) { return optValue2_; } else { return 0; } }
       set {
         _hasBits0 |= 16;
         optValue2_ = value;
@@ -1674,15 +1677,15 @@ namespace C2BNet {
 
     /// <summary>Field number for the "optDetail" field.</summary>
     public const int OptDetailFieldNumber = 6;
-    private static readonly pb::FieldCodec<float> _repeated_optDetail_codec
-        = pb::FieldCodec.ForFloat(50);
-    private readonly pbc::RepeatedField<float> optDetail_ = new pbc::RepeatedField<float>();
+    private static readonly pb::FieldCodec<int> _repeated_optDetail_codec
+        = pb::FieldCodec.ForInt32(50);
+    private readonly pbc::RepeatedField<int> optDetail_ = new pbc::RepeatedField<int>();
     /// <summary>
     ///值3
     /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<float> OptDetail {
+    public pbc::RepeatedField<int> OptDetail {
       get { return optDetail_; }
     }
 
@@ -1704,8 +1707,8 @@ namespace C2BNet {
       if (UserId != other.UserId) return false;
       if (Opt != other.Opt) return false;
       if (OpretionId != other.OpretionId) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(OptValue1, other.OptValue1)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(OptValue2, other.OptValue2)) return false;
+      if (OptValue1 != other.OptValue1) return false;
+      if (OptValue2 != other.OptValue2) return false;
       if(!optDetail_.Equals(other.optDetail_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -1717,8 +1720,8 @@ namespace C2BNet {
       if (HasUserId) hash ^= UserId.GetHashCode();
       if (HasOpt) hash ^= Opt.GetHashCode();
       if (HasOpretionId) hash ^= OpretionId.GetHashCode();
-      if (HasOptValue1) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(OptValue1);
-      if (HasOptValue2) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(OptValue2);
+      if (HasOptValue1) hash ^= OptValue1.GetHashCode();
+      if (HasOptValue2) hash ^= OptValue2.GetHashCode();
       hash ^= optDetail_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -1751,12 +1754,12 @@ namespace C2BNet {
         output.WriteInt32(OpretionId);
       }
       if (HasOptValue1) {
-        output.WriteRawTag(37);
-        output.WriteFloat(OptValue1);
+        output.WriteRawTag(32);
+        output.WriteInt32(OptValue1);
       }
       if (HasOptValue2) {
-        output.WriteRawTag(45);
-        output.WriteFloat(OptValue2);
+        output.WriteRawTag(40);
+        output.WriteInt32(OptValue2);
       }
       optDetail_.WriteTo(output, _repeated_optDetail_codec);
       if (_unknownFields != null) {
@@ -1782,12 +1785,12 @@ namespace C2BNet {
         output.WriteInt32(OpretionId);
       }
       if (HasOptValue1) {
-        output.WriteRawTag(37);
-        output.WriteFloat(OptValue1);
+        output.WriteRawTag(32);
+        output.WriteInt32(OptValue1);
       }
       if (HasOptValue2) {
-        output.WriteRawTag(45);
-        output.WriteFloat(OptValue2);
+        output.WriteRawTag(40);
+        output.WriteInt32(OptValue2);
       }
       optDetail_.WriteTo(ref output, _repeated_optDetail_codec);
       if (_unknownFields != null) {
@@ -1810,10 +1813,10 @@ namespace C2BNet {
         size += 1 + pb::CodedOutputStream.ComputeInt32Size(OpretionId);
       }
       if (HasOptValue1) {
-        size += 1 + 4;
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(OptValue1);
       }
       if (HasOptValue2) {
-        size += 1 + 4;
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(OptValue2);
       }
       size += optDetail_.CalculateSize(_repeated_optDetail_codec);
       if (_unknownFields != null) {
@@ -1871,16 +1874,16 @@ namespace C2BNet {
             OpretionId = input.ReadInt32();
             break;
           }
-          case 37: {
-            OptValue1 = input.ReadFloat();
+          case 32: {
+            OptValue1 = input.ReadInt32();
             break;
           }
-          case 45: {
-            OptValue2 = input.ReadFloat();
+          case 40: {
+            OptValue2 = input.ReadInt32();
             break;
           }
           case 50:
-          case 53: {
+          case 48: {
             optDetail_.AddEntriesFrom(input, _repeated_optDetail_codec);
             break;
           }
@@ -1911,16 +1914,16 @@ namespace C2BNet {
             OpretionId = input.ReadInt32();
             break;
           }
-          case 37: {
-            OptValue1 = input.ReadFloat();
+          case 32: {
+            OptValue1 = input.ReadInt32();
             break;
           }
-          case 45: {
-            OptValue2 = input.ReadFloat();
+          case 40: {
+            OptValue2 = input.ReadInt32();
             break;
           }
           case 50:
-          case 53: {
+          case 48: {
             optDetail_.AddEntriesFrom(ref input, _repeated_optDetail_codec);
             break;
           }

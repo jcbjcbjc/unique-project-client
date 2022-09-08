@@ -44,9 +44,9 @@ message FrameHandle{
     optional int32 userId = 1;  //用户id
     optional int32 opt = 2;  //操作1
     optional int32 OpretionId=3;//operation seq
-    optional float optValue1 = 4; //值1
-    optional float optValue2 = 5; //值2
-    repeated float optDetail = 6; //值3
+    optional int32 optValue1 = 4; //值1
+    optional int32 optValue2 = 5; //值2
+    repeated int32 optDetail = 6; //值3
  }
 
  message FrameHandleResponse{
