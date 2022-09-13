@@ -11,8 +11,10 @@ namespace NetWork
         public const int FrameTime = 50;
 
         public const int MessageDispatchSpeed = 15;
-        public static string UdpIp = "";
-        public static int UdpPort = 0;
+        //public static string UdpIp = "";
+        //public static int UdpPort = 0;
+        public static string UdpIp = "124.221.226.227";
+        public static int UdpPort = 8001;
 
         public static string BattleServerUDPIP = "";
         public static int BattleServerUDPPort = 0;
@@ -20,7 +22,8 @@ namespace NetWork
         public static string GameServerTCPIP = "";
         public static int GameServerTCPPort = 0;
 
-        public const string TcpIp = "127.0.0.1";
+        public const string TcpIp = "124.221.226.227";
+        //public const string TcpIp = "127.0.0.1";
         public const int TcpPort = 8000;
     }
 }
