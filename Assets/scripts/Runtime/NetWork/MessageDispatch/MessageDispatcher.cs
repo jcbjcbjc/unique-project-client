@@ -1,20 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Assets.scripts.NetWork;
+using NetWork;
 
 using C2BNet;
 using C2GNet;
 using System;
+using Services;
 
-public class MessageDispatcher : MonoBehaviour
+public class MessageDispatcher : Service
 {
+    EventSystem eventSystem;
     public static List<NetMessage> msgList = new List<NetMessage>();
 
-    // Start is called before the first frame update
-    void Start()
+
+    protected internal override void AfterInitailize()
     {
-        //NetBattleClient.Instance.connect("127.0.0.1",8001);
+        base.AfterInitailize();
+        eventSystem = ServiceLocator.Get<EventSystem>();
     }
 
     // Update is called once per frame
@@ -50,55 +53,52 @@ public class MessageDispatcher : MonoBehaviour
 
                     if (message.RepairFrameRes != null)
                     {
-
-                        MessageCenter.dispatch(MessageType.OnRepairFrame, message.RepairFrameRes);
-
+                        eventSystem.Invoke(EEvent.OnRepairFrame, message.RepairFrameRes);
+                        
                     }
                     if (message.FrameHandleRes != null)
                     {
-
-                        MessageCenter.dispatch(MessageType.OnFrameHandle, message.FrameHandleRes);
-
+                        eventSystem.Invoke(EEvent.OnFrameHandle, message.FrameHandleRes);
                     }
                     if (message.PercentForwardRes != null)
                     {
 
-                        MessageCenter.dispatch(MessageType.OnPercentForward, message.PercentForwardRes);
+                        eventSystem.Invoke(EEvent.OnPercentForward, message.PercentForwardRes);
 
                     }
                     if (message.LiveFrameRes != null)
                     {
 
-                        MessageCenter.dispatch(MessageType.OnLiveFrame, message.LiveFrameRes);
+                        eventSystem.Invoke(EEvent.OnLiveFrame, message.LiveFrameRes);
 
                     }
                     break;
                 case NetTypeBorG.FromG:
-                    NetMessageResponse messag=msg.C2G_NetMessage.Response;
+                    NetMessageResponse messag = msg.C2G_NetMessage.Response;
                     //´óÌü·þ
                     if (messag.UserRegister != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnUserRegister, messag.UserRegister);
+                        eventSystem.Invoke(EEvent.OnUserRegister, messag.UserRegister);
                     }
                     if (messag.UserLogin != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnUserLogin, messag.UserLogin);
+                        eventSystem.Invoke(EEvent.OnUserLogin, messag.UserLogin);
                     }
                     if (messag.UnLockRes != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnUnLock, messag.UnLockRes);
+                        eventSystem.Invoke(EEvent.OnUnLock, messag.UnLockRes);
                     }
                     if (messag.StatusNotify != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnStatusNotify, messag.StatusNotify);
+                        eventSystem.Invoke(EEvent.OnStatusNotify, messag.StatusNotify);
                     }
                     if (messag.CharacterDetail != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnCharacterDetail, messag.CharacterDetail);
+                        eventSystem.Invoke(EEvent.OnCharacterDetail, messag.CharacterDetail);
                     }
                     if (messag.SwitchCharacterRes != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnSwitchCharacter, messag.SwitchCharacterRes);
+                        eventSystem.Invoke(EEvent.OnSwitchCharacter, messag.SwitchCharacterRes);
                     }
                     //if (messag.AttrPromote != null)
                     //{
@@ -118,11 +118,11 @@ public class MessageDispatcher : MonoBehaviour
                     //}
                     if (messag.FollowRes != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnFollowRes, messag.FollowRes);
+                        eventSystem.Invoke(EEvent.OnFollowRes, messag.FollowRes);
                     }
                     if (messag.UserStatusChangeRes != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnUserStatusChange, messag.UserStatusChangeRes);
+                        eventSystem.Invoke(EEvent.OnUserStatusChange, messag.UserStatusChangeRes);
                     }
                     //if (messag.QueryTranRes != null)
                     //{
@@ -134,7 +134,7 @@ public class MessageDispatcher : MonoBehaviour
                     //}
                     if (messag.HeartBeatRes != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnHeartBeat, messag.HeartBeatRes);
+                        eventSystem.Invoke(EEvent.OnHeartBeat, messag.HeartBeatRes);
                     }
                     //if (messag.OfferPriceRes != null)
                     //{
@@ -150,80 +150,80 @@ public class MessageDispatcher : MonoBehaviour
                     //}
                     if (messag.TipsRes != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnTips, messag.TipsRes);
+                        eventSystem.Invoke(EEvent.OnTips, messag.TipsRes);
                     }
                     if (messag.MyRoomRes != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnMyRoom, messag.MyRoomRes);
+                        eventSystem.Invoke(EEvent.OnMyRoom, messag.MyRoomRes);
                     }
                     if (messag.InviteRes != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnInviteResponse, messag.InviteRes);
+                        eventSystem.Invoke(EEvent.OnInviteResponse, messag.InviteRes);
                     }
                     if (messag.InviteReq != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnInviteRequest, messag.InviteReq);
+                        eventSystem.Invoke(EEvent.OnInviteRequest, messag.InviteReq);
                     }
                     if (messag.KickOutRes != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnKickOut, messag.KickOutRes);
+                        eventSystem.Invoke(EEvent.OnKickOut, messag.KickOutRes);
                     }
                     if (messag.RoomStartGameRes != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnRoomStartGame, messag.RoomStartGameRes);
+                        eventSystem.Invoke(EEvent.OnRoomStartGame, messag.RoomStartGameRes);
                     }
                     if (messag.NickNameSearchRes != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnNickNameSearch, messag.NickNameSearchRes);
+                        eventSystem.Invoke(EEvent.OnNickNameSearch, messag.NickNameSearchRes);
                     }
                     if (messag.AddRoomReq != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnAddRoomRequest, messag.AddRoomReq);
+                        eventSystem.Invoke(EEvent.OnAddRoomRequest, messag.AddRoomReq);
                     }
                     if (messag.AddRoomRes != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnAddRoomResponse, messag.AddRoomRes);
+                        eventSystem.Invoke(EEvent.OnAddRoomResponse, messag.AddRoomRes);
                     }
                     if (messag.OutRoomRes != null)
-                    { 
-                        MessageCenter.dispatch(MessageType.OnOutRoom, messag.OutRoomRes);
+                    {
+                        eventSystem.Invoke(EEvent.OnOutRoom, messag.OutRoomRes);
                     }
                     if (messag.FollowListRes != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnFollowList, messag.FollowListRes);
+                        eventSystem.Invoke(EEvent.OnFollowList, messag.FollowListRes);
                     }
                     if (messag.ChatRes != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnChat, messag.ChatRes);
+                        eventSystem.Invoke(EEvent.OnChat, messag.ChatRes);
                     }
                     if (messag.UserStatusQueryRes != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnUserStatusQuery, messag.UserStatusQueryRes);
+                        eventSystem.Invoke(EEvent.OnUserStatusQuery, messag.UserStatusQueryRes);
                     }
                     if (messag.StartMatchRes != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnStartMatch, messag.StartMatchRes);
+                        eventSystem.Invoke(EEvent.OnStartMatch, messag.StartMatchRes);
                     }
                     if (messag.MatchRes != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnMatchResponse, messag.MatchRes);
+                        eventSystem.Invoke(EEvent.OnMatchResponse, messag.MatchRes);
                     }
                     if (messag.AddLiveRes != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnAddLiveResponse, messag.AddLiveRes);
+                        eventSystem.Invoke(EEvent.OnAddLiveResponse, messag.AddLiveRes);
                     }
                     if (messag.ValidateOpenRoomRes != null)
                     {
-                        MessageCenter.dispatch(MessageType.OnValidateOpenRoom, messag.ValidateOpenRoomRes);
+                        eventSystem.Invoke(EEvent.OnValidateOpenRoom, messag.ValidateOpenRoomRes);
                     }
                     break;
             }
         }
         catch (Exception ex)
-			{
-            
-                Debug.Log( ex.Message);
-            
+        {
+
+            Debug.Log(ex.Message);
+
         }
         return true;
     }
@@ -237,8 +237,9 @@ public class MessageDispatcher : MonoBehaviour
     }
 
 
-    public enum NetTypeBorG { 
-        FromB=0,
+    public enum NetTypeBorG
+    {
+        FromB = 0,
         FromG
     }
     public class NetMessage
@@ -246,17 +247,20 @@ public class MessageDispatcher : MonoBehaviour
         NetTypeBorG netTypeBorG;
         C2GNetMessage c2GNetMessage;
         C2BNetMessage c2BNetMessage;
-        public NetTypeBorG Net_TypeBorG { 
+        public NetTypeBorG Net_TypeBorG
+        {
             get { return netTypeBorG; }
-            set { netTypeBorG = value;}
+            set { netTypeBorG = value; }
         }
-        public C2GNetMessage C2G_NetMessage { 
+        public C2GNetMessage C2G_NetMessage
+        {
             get { return c2GNetMessage; }
-            set { c2GNetMessage = value;}
+            set { c2GNetMessage = value; }
         }
-        public C2BNetMessage C2B_NetMessage { 
-            get { return c2BNetMessage;}
-            set { c2BNetMessage = value;} 
+        public C2BNetMessage C2B_NetMessage
+        {
+            get { return c2BNetMessage; }
+            set { c2BNetMessage = value; }
         }
 
         public NetMessage(C2GNetMessage _c2GNetMessage)
@@ -264,7 +268,7 @@ public class MessageDispatcher : MonoBehaviour
             this.netTypeBorG = NetTypeBorG.FromG;
             this.c2GNetMessage = _c2GNetMessage;
         }
-        public NetMessage( C2BNetMessage _c2BNetMessage)
+        public NetMessage(C2BNetMessage _c2BNetMessage)
         {
             this.netTypeBorG = NetTypeBorG.FromB;
             this.c2BNetMessage = _c2BNetMessage;

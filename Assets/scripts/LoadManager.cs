@@ -1,5 +1,5 @@
-﻿using Assets.scripts.Managers;
-using Assets.scripts.Models;
+﻿using Managers;
+using Models;
 using Assets.scripts.Utils;
 using NetWork;
 using System;
@@ -15,61 +15,20 @@ using UnityEngine;
 /// 
 /// @Date 2022/4/30
 /// </summary>
+/// 
+using Services;
 namespace Assets.scripts
 {
-    public class LoadManager
+    public class LoadManager :Service
     {
-        private static LoadManager _instance;
-        public static LoadManager Instance
+        protected internal override void AfterInitailize()
         {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new LoadManager();
+            base.AfterInitailize();
 
-                }
-                return _instance;
-            }
-        }
+            DontDestroyOnLoad(this);
 
-        public bool init() {
-            try {
-                //DateUtil.InitExtend();
-                User.Instance.isLogin = false;
-                //UIManager.GetInstance().Init();
-                //DataManager.Instance.Load();
-                UIManager.GetInstance().ShowUIForms("UIMain");
-
-
-               
-                UserService.GetInstance().init();
-                //StatusService.Instance.Init();
-
-
-                TipsService.GetInstance().Init();
-                RoomService.GetInstance().init();
-                //FollowManager.Instance.Init();
-                ChatService.GetInstance().init();
-                MatchService.GetInstance().init();
-                GameLogicService.GetInstance().init();
-                //FollowService.Instance.Init();
-                //CombatPowerRankingManager.Instance.Init();
-                
-
-
-
-                NetGameClient.GetInstance().Init();
-                NetBattleClient.GetInstance().Init();
-
-
-                return true;
-            }
-            catch (Exception ex) { 
-                Debug.LogException(ex);
-                return false;
-            }
-           
+            NetGameClient.GetInstance().Init();
+            NetBattleClient.GetInstance().Init();
         }
 
         public bool Close() {
@@ -77,7 +36,7 @@ namespace Assets.scripts
             {
                 NetGameClient.GetInstance().Close();
                 NetBattleClient.GetInstance().Close();
-                LocalStorageUtil.RemoveItem(LocalStorageUtil.allFrameHandlesKey);
+                //LocalStorageUtil.RemoveItem(LocalStorageUtil.allFrameHandlesKey);
                 return true;
             }
             catch (Exception ex) { return false; }

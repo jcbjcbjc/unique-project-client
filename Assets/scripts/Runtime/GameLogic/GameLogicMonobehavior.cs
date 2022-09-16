@@ -11,13 +11,14 @@ namespace Assets.scripts.GameLogic
         /* 字段 */
         public static GameLogicMonobehavior Instance;
 
-        GameLogicManager gameLogic = new GameLogicManager();
+        GameLogicManager gameLogic;
 
         public void Awake()
         {
             if (Instance != null)
                 Destroy(gameObject);
             Instance = this;
+            gameLogic = new GameLogicManager();
         }
 
         // Use this for initialization

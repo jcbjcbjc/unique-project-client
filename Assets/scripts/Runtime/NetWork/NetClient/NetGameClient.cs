@@ -15,6 +15,7 @@ using Assets.scripts.Utils;
 using System.IO;
 using Google.Protobuf;
 using Services;
+using MyTimer;
 /// <summary>
 /// GameLogicLoginService
 /// 
@@ -27,7 +28,6 @@ namespace NetWork
     public class NetGameClient
     {
 		private EventSystem eventSystem = ServiceLocator.Get<EventSystem>();
-
 		private static NetGameClient _instance = new NetGameClient();
 
 
@@ -41,8 +41,9 @@ namespace NetWork
 			return _instance;
 		}
 
-		TimerTask timerTask1 = null;
-		
+
+		Metronome timerTask1;
+
 		Socket TcpSocket;
 		
 		byte[] TCPreadbuf = new byte[1024 * 1024];
@@ -51,19 +52,18 @@ namespace NetWork
 		int buflen = 0;
 
 		public void Init() {
-			
+			timerTask1 = new Metronome();
 			Connect(NetConfig.TcpIp,NetConfig.TcpPort);
 			
 		}
 
 		public void StartHeartBeat() {
-			timerTask1 = new TimerTask(1000, HeartBeat);
-			timerTask1.execute();
+			timerTask1.OnComplete += HeartBeat;
+			timerTask1.Initialize(0.5f);
 		}
 
-		private void HeartBeat() {
-			
-			UserService.GetInstance().SendHeartBeat();
+		private void HeartBeat(float p) {
+			ServiceLocator.Get<UserService>().SendHeartBeat();
 		}
 
 
@@ -81,7 +81,7 @@ namespace NetWork
 				Start();
 
 
-				UserService.GetInstance().SendLogin("123456789","123456789");
+				ServiceLocator.Get<UserService>().SendLogin("123456789","123456789");
 
 				StartHeartBeat();
 
@@ -120,7 +120,7 @@ namespace NetWork
 					
 					
 
-                    MessageDispatcher.AddTask(new NetMessage(msg));
+                    //MessageDispatcher.AddTask(new NetMessage(msg));
 
                     TcpSocket.BeginReceive(TCPreadbuf, 0, TCPreadbuf.Length, SocketFlags.None, StartReceiveCallback, TcpSocket);
                 }
@@ -171,7 +171,7 @@ namespace NetWork
 			try
 			{
 				
-				if (timerTask1 != null) { timerTask1.Stop(); }
+				//if (timerTask1 != null) { timerTask1.Stop(); }
 				
 				TcpSocket.Close();
 			}

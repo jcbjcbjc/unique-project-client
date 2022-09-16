@@ -83,10 +83,8 @@ public class GameData {
         
          handleFrameId = -1;
 
-        
          executeFrameId = -1;
-
-                         
+      
          allFrameHandles = new SortedDictionary<int, IList<FrameHandle>>();  
 
          PredictedInput = new List<FrameHandle>();
@@ -113,11 +111,6 @@ public class GameData {
     // 
     // @return none
     public static void release() {
-        g_listPlaybackEvent.Clear();
-
-        g_listUserControlEvent.Clear();
-
-        GameData.g_actionMainManager.release();
 
         release_data_for_steplock();
         release_data_for_gamestatus();

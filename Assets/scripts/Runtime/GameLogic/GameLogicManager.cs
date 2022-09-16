@@ -1,10 +1,10 @@
 ﻿using Assets.scripts.GameLogic;
 
 
-using Assets.scripts.Models;
-using Assets.scripts.NetWork;
+using Models;
+using NetWork;
 
-using Assets.scripts.UI.UIPanels;
+using UI;
 using Assets.scripts.Utils;
 using Assets.scripts.Utils.enums;
 using C2BNet;
@@ -14,24 +14,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-using Assets.scripts.Managers;
+using Managers;
+using MyTimer;
 using static Assets.scripts.Utils.enums.BattleModeEnum;
 using static Assets.scripts.Utils.enums.GameStatusEnum;
 using static Assets.scripts.Utils.enums.HandlerFrameResultEnum;
 
 using static Assets.scripts.Utils.enums.OptTypeEnum;
+using Services;
 
 namespace Assets.scripts.GameLogic
 {
     public class GameLogicManager
     {
-        private TimerTask timer;
-        private TimerTask recProTimer;
-        private TimerTask handleFrameTimer;
-        private TimerTask recordUserTimer;
+        private Metronome timer;
+        private Metronome recProTimer;
+        private Metronome handleFrameTimer;
+        private Metronome recordUserTimer;
+
+        private EventSystem eventSystem = ServiceLocator.Get<EventSystem>();
 
 
-        private GameCoreLogic gameLogic = new GameCoreLogic();
+        //private GameCoreLogic gameLogic = new GameCoreLogic();
 
         // public isRecProFlag:boolean = true; //是否恢复进度中
 
@@ -43,33 +47,38 @@ namespace Assets.scripts.GameLogic
             }
         }
         public void Clear() {
-            if(handleFrameTimer!=null) handleFrameTimer.Stop();
-            if(recordUserTimer!=null) recordUserTimer.Stop();
+            if(handleFrameTimer!=null) handleFrameTimer.Paused=true;
+            if(recordUserTimer!=null) recordUserTimer.Paused = true;
 
             GameData.release();
-            
-            MessageCenter.RemoveMsgListener(this);
+           
+            eventSystem.RemoveListener<FrameHandleResponse>(EEvent.OnFrameHandle, this.OnFrameHandle);
+            eventSystem.RemoveListener<RepairFrameResponse>(EEvent.OnRepairFrame, this.OnRepairFrame);
+            eventSystem.RemoveListener<LiveFrameResponse>(EEvent.OnLiveFrame, this.OnLiveFrame);
+            eventSystem.RemoveListener<FrameHandle>(EEvent.OnAddOptClient, this.AddPlayerOpt);
         }
        
         public void init() {
-            MessageCenter.AddMsgListener(MessageType.OnFrameHandle, this.OnFrameHandle, this);
-            MessageCenter.AddMsgListener(MessageType.OnRepairFrame, this.OnRepairFrame, this);
-            MessageCenter.AddMsgListener(MessageType.OnLiveFrame, this.OnLiveFrame, this);
-            MessageCenter.AddMsgListener(MessageType.OnAddOptClient, this.AddPlayerOpt, this);
+            eventSystem.AddListener<FrameHandleResponse>(EEvent.OnFrameHandle, this.OnFrameHandle);
+            eventSystem.AddListener<RepairFrameResponse>(EEvent.OnRepairFrame, this.OnRepairFrame);
+            eventSystem.AddListener<LiveFrameResponse>(EEvent.OnLiveFrame, this.OnLiveFrame);
+            eventSystem.AddListener<FrameHandle>(EEvent.OnAddOptClient, this.AddPlayerOpt);
 
             UIGameLoadIn uIGameLoadIn= (UIGameLoadIn)UIManager.GetInstance() .ShowUIForms("");
             uIGameLoadIn.SetMsg("游戏拼命加载中...");
             
           
-            CharacterManager.Instance.CreateCharacter(); 
+            //CharacterManager.Instance.CreateCharacter(); 
+
+
+
 
             // change the GameData
             GameData.gameStatus = GameStatus.GameIn;
             GameData.isInGame = true;
 
 
-            MessageCenter.dispatch(MessageType.OnBattleGameIn,0);
-
+            eventSystem.Invoke(EEvent.OnBattleGameIn);
 
             //var allFrameHandlesStr = LocalStorageUtil.GetItem(LocalStorageUtil.allFrameHandlesKey);
             //if (allFrameHandlesStr!=null)
@@ -85,8 +94,8 @@ namespace Assets.scripts.GameLogic
             //}
             if (GameData.battleMode == BattleMode.Battle)
             {    //对局模式
-                handleFrameTimer = new TimerTask(NetConfig.FrameTime, CapturePlayerOpts);
-                handleFrameTimer.execute();
+                //handleFrameTimer = new TimerTask(NetConfig.FrameTime, CapturePlayerOpts);
+                //handleFrameTimer.execute();
             }
             else if (GameData.battleMode == BattleMode.Live)
             {  //观看直播模式
@@ -114,9 +123,8 @@ namespace Assets.scripts.GameLogic
         /**
         * 帧操作响应
         */
-        public void OnFrameHandle(object obj)
+        public void OnFrameHandle(FrameHandleResponse param)
         {
-            FrameHandleResponse param= obj as FrameHandleResponse;
             //计算接收两帧之间的时间间隔
             float currentFrameTime = Time.time;
             if (GameData.lastReceiveFrameTime != 0 && currentFrameTime - GameData.lastCheckFrameTime > 3000)
@@ -161,9 +169,9 @@ namespace Assets.scripts.GameLogic
          * 直播帧响应
          * @param param 
          */
-        public void OnLiveFrame(object obj)
+        public void OnLiveFrame(LiveFrameResponse param)
         {
-            LiveFrameResponse param= obj as LiveFrameResponse;    
+            
             // let response = param[0] as LiveFrameResponse;
             var response = param;
             var liveFrames = response.LiveFrames;
@@ -178,8 +186,7 @@ namespace Assets.scripts.GameLogic
             // this.liveNotExecuteFrameCount += liveFrames.length;
         }
 
-        private void OnRepairFrame(object obj)  {
-            RepairFrameResponse response = obj as RepairFrameResponse;
+        private void OnRepairFrame(RepairFrameResponse response)  {
             // console.log("OnRepairFrame:{0}", JSON.stringify(response.repairFrames));
             foreach (RepairFrame repairFrame in response.RepairFrames) {
                 if (!GameData.allFrameHandles.ContainsKey(repairFrame.Frame)) {
@@ -216,7 +223,7 @@ namespace Assets.scripts.GameLogic
             //update executeFrameId
             GameData.executeFrameId = frameId;
 
-            gameLogic.update(frameHandles);
+            //gameLogic.update(frameHandles);
 
             //update handleFrameId
             GameData.handleFrameId = frameId; 
@@ -245,7 +252,7 @@ namespace Assets.scripts.GameLogic
                 return ;
             }
             //console.log('补帧请求 start=' + start + '，' + end + '，handleFrameId=' + this.handleFrameId)
-                GameLogicService.GetInstance().SendRepairFrame(start, end);
+                ServiceLocator.Get<GameLogicService>().SendRepairFrame(start, end);
                     GameData.currentRepairFrame = GameData.repairWaitFrameCount;
         }else{
                     GameData.currentRepairFrame--;
@@ -280,19 +287,18 @@ namespace Assets.scripts.GameLogic
                return;
             }
 
-            GameData.frameHandles.UserId= User.Instance.user.Id ;
-           // LogUtil.log(this.frameHandle);
+            GameData.frameHandles.UserId = ServiceLocator.Get<User>().user.Id ;
+            // LogUtil.log(this.frameHandle);
             //发送操作
 
-            GameLogicService.GetInstance().SendFrameHandle(GameData.frameHandles);
+            ServiceLocator.Get<GameLogicService>().SendFrameHandle(GameData.frameHandles);
 
             GameData.frameHandles =new FrameHandlesFromClient();
         }
 
-        public void AddPlayerOpt(object obj)
+        public void AddPlayerOpt(FrameHandle frameHandle)
         {
-            FrameHandle frameHandle=obj as FrameHandle;
-            frameHandle.UserId = User.Instance.user.Id;
+            frameHandle.UserId = ServiceLocator.Get<User>().user.Id;
             frameHandle.OpretionId= GameData.NextOperationId++;
             GameData.PredictedInput.Add(frameHandle);
             GameData.frameHandles.FrameHandles.Add(frameHandle);

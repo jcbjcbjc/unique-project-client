@@ -9,43 +9,34 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
-using Assets.scripts.Models;
-using Assets.scripts.UI;
-using Assets.scripts.UI.Common;
-using Assets.scripts.Managers;
+using Models;
+using UI;
+
+using Managers;
+using Services;
 
 namespace NetWork
 {
-    public class UserService 
+    public class UserService :Service
     {
-        
-        private static UserService _instance = new UserService();
-
-        
-        private UserService()
+        EventSystem eventSystem;
+        protected internal override void AfterInitailize()
         {
-        }
+            base.AfterInitailize();
+            eventSystem = ServiceLocator.Get<EventSystem>();
 
-        
-        public static UserService GetInstance()
-        {
-            return _instance;
-        }
-       
-        public void init()
-        {
+            eventSystem.AddListener<UserLoginResponse>(EEvent.OnUserLogin, this.OnUserLogin);
+            eventSystem.AddListener<UserRegisterResponse>(EEvent.OnUserRegister, this.OnUserRegister);
+            //eventSystem.AddListener<>(MessageType.OnUnLock, this.OnUnLock);
+            //eventSystem.AddListener<>(MessageType.OnCharacterDetail, this.OnCharacterDetail);
+            //eventSystem.AddListener<>(MessageType.OnSwitchCharacter, this.OnSwitchCharacter);
+            //eventSystem.AddListener<>(MessageType.OnAttrPromoteInfo, this.OnAttrPromoteInfo);
+            //eventSystem.AddListener<>(MessageType.OnCombatPowerRanking, this.OnCombatPowerRanking);
+            //eventSystem.AddListener<>(MessageType.OnFollowRes, this.OnFollowRes);
+            eventSystem.AddListener<UserStatusChangeResponse>(EEvent.OnUserStatusChange, this.OnUserStatusChange);
+            eventSystem.AddListener<C2GNet.HeartBeatResponse>(EEvent.OnHeartBeat, this.OnHeartBeat);
+            eventSystem.AddListener<UserStatusQueryResponse>(EEvent.OnUserStatusQuery, this.OnUserStatusQuery);
 
-            MessageCenter.AddMsgListener(MessageType.OnUserLogin, this.OnUserLogin, this);
-            MessageCenter.AddMsgListener(MessageType.OnUserRegister, this.OnUserRegister, this);
-            //MessageCenter.AddMsgListener(MessageType.OnUnLock, this.OnUnLock, this);
-            //MessageCenter.AddMsgListener(MessageType.OnCharacterDetail, this.OnCharacterDetail, this);
-            //MessageCenter.AddMsgListener(MessageType.OnSwitchCharacter, this.OnSwitchCharacter, this);
-            //MessageCenter.AddMsgListener(MessageType.OnAttrPromoteInfo, this.OnAttrPromoteInfo, this);
-            //MessageCenter.AddMsgListener(MessageType.OnCombatPowerRanking, this.OnCombatPowerRanking, this);
-            //MessageCenter.AddMsgListener(MessageType.OnFollowRes, this.OnFollowRes, this);
-            MessageCenter.AddMsgListener(MessageType.OnUserStatusChange, this.OnUserStatusChange, this);
-            MessageCenter.AddMsgListener(MessageType.OnHeartBeat, this.OnHeartBeat, this);
-            MessageCenter.AddMsgListener(MessageType.OnUserStatusQuery, this.OnUserStatusQuery, this);
         }
 
         public void ConnectToServer(string ip, int port)
@@ -80,7 +71,7 @@ namespace NetWork
             C2GNet.HeartBeatResponse response = any as C2GNet.HeartBeatResponse;
             LogUtil.log("HeartBeatResponse");
 
-            MessageCenter.dispatch(MessageType.OnHeartBeat_UI, response);
+            //MessageCenter.dispatch(MessageType.OnHeartBeat_UI, response);
         }
 
 
@@ -141,16 +132,16 @@ namespace NetWork
          * 登录响应
          * @param param 
          */
-        public void OnUserLogin(object param)
+        public void OnUserLogin(UserLoginResponse response)
         {
-            var response = param as UserLoginResponse;
+            
             LogUtil.log("OnLogin:{0} [{1}]", response.Result, response.Errormsg);
 
             if (response.Result == Result.Success)
             {//登陆成功逻辑
                 Debug.Log("登陆成功逻辑");
-                User.Instance.isLogin = true;
-                User.Instance.user = response.User;
+                ServiceLocator.Get<User>().isLogin = true;
+                ServiceLocator.Get<User>().user = response.User;
 
                 //SoundManager.Instance.PlayMusic(SoundDefine.Music_Login);
 
@@ -228,7 +219,7 @@ namespace NetWork
         {
             var response = param as UserStatusChangeResponse;
             LogUtil.log("UserStatusChangeResponse");
-            MessageCenter.dispatch(MessageType.OnUserStatusChange_UI, response);
+            //MessageCenter.dispatch(MessageType.OnUserStatusChange_UI, response);
         }
 
         /**
@@ -258,7 +249,7 @@ namespace NetWork
         {
             var response = param as UserStatusQueryResponse;
             LogUtil.log("OnUserStatusQuery");
-            MessageCenter.dispatch(MessageType.OnUserStatusQuery_UI, response.Status);
+            //MessageCenter.dispatch(MessageType.OnUserStatusQuery_UI, response.Status);
         }
     }
 }

@@ -64,6 +64,6 @@ public class GameLauncher : MonoBehaviour
     private void StartGame()
     {
         ServiceSettings settings = ServiceInitializer.Instance.serviceSettings;
-        ServiceLocator.Get<SceneController>().LoadScene(settings == null ? 1 : settings.index_startGame);
+        ServiceLocator.Get<SceneControllerBase>().LoadScene(1);
     }
 }

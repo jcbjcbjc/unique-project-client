@@ -1,14 +1,12 @@
 ﻿using Assets.scripts.GameLogic;
-<<<<<<< Updated upstream:Assets/scripts/UI/UIPanels/UIEnterGameLoad.cs
 using Managers;
 
 using Models;
 using NetWork;
-=======
-using Assets.scripts.Managers;
+using Managers;
 
 using Models;
->>>>>>> Stashed changes:Assets/scripts/Runtime/UI/UIPanels/UIEnterGameLoad.cs
+
 
 
 using Assets.scripts.Utils;
@@ -42,17 +40,17 @@ namespace UI
         public void Start()
         {
             
-            timer.Initialize(5000);
+            timer.Initialize(1,false);
 
         }
 
         public void Init()
         {
 
-            this.InitTeamUser(User.Instance.room);
+            this.InitTeamUser(ServiceLocator.Get<User>().room);
 
             //连接到战斗服务器
-            var ipPortArr = User.Instance.room.IpPortStr.Split(":");
+            var ipPortArr = ServiceLocator.Get<User>().room.IpPortStr.Split(":");
             NetConfig.UdpIp = ipPortArr[0];
             NetConfig.UdpPort = int.Parse(ipPortArr[2]);
 
@@ -64,15 +62,16 @@ namespace UI
             if (GameData.battleMode == BattleMode.Battle)
             {  //对局模式
                //上传加载进度，需要等所有用户资源都加载完成
-                timer = new TimerTask(5000, () =>
-                {
+                timer.OnComplete += (x) =>
+                 {
                     //console.log('uploadProgress percent_=' + this_.percent_)
-                    GameLogicService.GetInstance().SendPercentForward(this.percent_);
-                    if (this.percent_ < 100)
-                    {
-                        this.percent_ += 20;
-                    }
-                });
+                    ServiceLocator.Get<GameLogicService>().SendPercentForward(this.percent_);
+                     
+                     if (this.percent_ < 100)
+                     {
+                         this.percent_ += 20;
+                     }
+                 };
             }
             else if (GameData.battleMode == BattleMode.Live)
             {  //观看直播模式
@@ -123,7 +122,7 @@ namespace UI
         private void UpdateTeamUserPercent(int userId, int percent)
         {
 
-            foreach (AllTeam allTeam in User.Instance.room.AllTeam) {
+            foreach (AllTeam allTeam in ServiceLocator.Get<User>().room.AllTeam) {
                 foreach (RoomUser roomUser in allTeam.Team) {
                     if (roomUser.UserId == userId)
                     {
@@ -136,7 +135,7 @@ namespace UI
         public override void Close()
         {
             if (timer != null) { 
-                timer.Stop();
+                timer.Paused=true;
             }
            
             CloseUIForm();

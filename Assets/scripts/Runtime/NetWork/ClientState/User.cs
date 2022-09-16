@@ -12,20 +12,9 @@ using C2GNet;
 /// </summary>
 namespace Models
 {
-    public class User
+    public class User :Service
     {
-        public static User _instance;
-        public static User Instance
-        {
-            get
-            {
-                if (_instance == null)
-                {
-                    _instance = new User();
-                }
-                return _instance;
-            }
-        }
+        
 
         public NUser user=null;
         public bool isLogin = false;  //ÊÇ·ñµÇÂ¼

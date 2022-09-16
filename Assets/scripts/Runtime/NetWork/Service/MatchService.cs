@@ -1,10 +1,9 @@
 ﻿using Assets.scripts.GameLogic;
-using Assets.scripts.Managers;
+using Managers;
 
-using Assets.scripts.Models;
+using Models;
 
-using Assets.scripts.UI;
-using Assets.scripts.UI.UIPanels;
+using UI;
 using Assets.scripts.Utils;
 using C2GNet;
 using System;
@@ -13,31 +12,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Assets.scripts.Utils.enums.BattleModeEnum;
+using Services;
 
 namespace NetWork
 {
-    public class MatchService
+    public class MatchService :Service
     {
-        private static MatchService _instance = new MatchService();
 
-
-        private MatchService()
+        EventSystem eventSystem;
+        protected internal override void AfterInitailize()
         {
-        }
-
-
-        public static MatchService GetInstance()
-        {
-            return _instance;
+            base.AfterInitailize();
+            eventSystem = ServiceLocator.Get<EventSystem>();
+            eventSystem.AddListener<StartMatchResponse>(EEvent.OnStartMatch, this.OnStartMatch);
+            eventSystem.AddListener<MatchResponse>(EEvent.OnMatchResponse, this.OnMatchResponse);
         }
 
         BaseUIForm uiMatchWait = null;
-        
-        public void init()
-        {
-            MessageCenter.AddMsgListener(MessageType.OnStartMatch, this.OnStartMatch, this);
-            MessageCenter.AddMsgListener(MessageType.OnMatchResponse, this.OnMatchResponse, this);
-        }
+       
 
         /**
      * 开始匹配请求
@@ -61,10 +53,8 @@ namespace NetWork
         /** 
          * 开始匹配响应
          */
-        private /*async*/ void OnStartMatch(object param)
-        {
-            var response = param as StartMatchResponse;
-            
+        private /*async*/ void OnStartMatch(StartMatchResponse response)
+        {   
             LogUtil.log("OnStartMatch:{0}", response.Result,response.Errormsg);
             if (response.Result == Result.Success)
             {
@@ -79,9 +69,8 @@ namespace NetWork
         /**
          * 匹配响应
          */
-        public void OnMatchResponse(object param)
+        public void OnMatchResponse(MatchResponse response)
         {
-            var response = param as MatchResponse;
             LogUtil.log("OnMatchResponse:{0}", response.Result, response.Errormsg);
             TipsManager.Instance.showTips(response.Errormsg);
             if (this.uiMatchWait)
@@ -91,10 +80,10 @@ namespace NetWork
             }
             if (response.Result == Result.Success)
             {  //匹配成功
-                LocalStorageUtil.RemoveItem(LocalStorageUtil.allFrameHandlesKey);  //清除上一次的帧操作
+               // LocalStorageUtil.RemoveItem(LocalStorageUtil.allFrameHandlesKey);  //清除上一次的帧操作
                 GameData.battleMode = BattleMode.Battle;  //设置为对局模式
 
-                User.Instance.room = response.Room;
+                ServiceLocator.Get<User>().room = response.Room;
                 RandomUtil.seed = response.Room.RandomSeed;   //设置战斗随机数种子
                                                               //director.loadScene('EnterGameLoad');
                                                               //SoundManager.Instance.PlayMusic(SoundDefine.Music_Select);

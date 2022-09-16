@@ -1,4 +1,4 @@
-﻿using Assets.scripts.Managers;
+﻿using Managers;
 using Assets.scripts.Utils.Tools;
 using System;
 using System.Collections.Generic;

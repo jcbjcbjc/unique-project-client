@@ -29,7 +29,8 @@ namespace UI
 
         public void Match()
         {
-            MatchService.GetInstance().SendStartMatch();
+            ServiceLocator.Get<MatchService>().SendStartMatch();
+       
         }
     }
 }
