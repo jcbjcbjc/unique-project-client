@@ -1,8 +1,9 @@
-﻿using Assets.scripts.Managers;
+﻿using Managers;
 
-using Assets.scripts.Models;
+using Models;
 
 using C2GNet;
+using Services;
 using Models;
 using System;
 using System.Collections.Generic;
@@ -16,25 +17,20 @@ using System.Threading.Tasks;
 /// 
 /// @Date 2022/4/30
 /// </summary>
+/// 
+using Services;
+using Managers;
+
 namespace NetWork
 {
-    public class ChatService
+    public class ChatService:Service
     {
-        private static ChatService _instance = new ChatService();
-
-
-        private ChatService()
+        EventSystem eventSystem;
+        protected internal override void AfterInitailize()
         {
-        }
-
-
-        public static ChatService GetInstance()
-        {
-            return _instance;
-        }
-
-        public void init() {
-            MessageCenter.AddMsgListener(MessageType.OnChat, this.OnChat, this);
+            base.AfterInitailize();
+            eventSystem = ServiceLocator.Get<EventSystem>();
+            eventSystem.AddListener<ChatResponse>(EEvent.OnChat, this.OnChat);
         }
         /**
      * 发送聊天
@@ -48,12 +44,13 @@ namespace NetWork
                     ChatReq = new ChatRequest {
                         ChatMessage = new ChatMessage {
                             ChatChannel = chatChannel,
-                            FromId = User.Instance.user.Id,
+                            FromId = ServiceLocator.Get<User>().user.Id,
+                           
                             ToId = toId,
                             ToName = toName,
                             ToLevel = toLevel,
                             ToCCharacterId = toCCharacterId,
-                            FromName = User.Instance.user.Nickname,
+                            FromName = ServiceLocator.Get<User>().user.Nickname,
                             //FromLevel = User.Instance.user.Character.Level,
                             //FromCCharacterId = User.Instance.user.Character.Cid,
                             ChatRoomType = chatRoomType,

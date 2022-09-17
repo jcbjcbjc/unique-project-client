@@ -27,7 +27,7 @@ namespace Services
 
         internal static void Register(Service service)
         {
-            ServiceInitializer.Instance.RefreshWaitTime();
+            
             Type type = service.GetType();
             if (serviceDict.ContainsKey(type))
             {

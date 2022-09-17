@@ -11,7 +11,7 @@ using cocosocket4unity;
 using static MessageDispatcher;
 using System.Threading;
 using Assets.scripts.Utils;
-
+using MyTimer;
 using Google.Protobuf;
 using Services;
 /// <summary>
@@ -41,14 +41,16 @@ namespace NetWork
         }
 
 
-        TimerTask timerTask1 = null;
-        TimerTask timerTask2 = null;
+        Metronome timerTask1;
+        Metronome timerTask2;
 
         protected override void HandleReceive(ByteBuf buf)
         {
             int length = buf.ReadableBytes();
             
             C2BNetMessage msg = C2BNetMessage.Parser.ParseFrom(buf.GetRaw(),0, length);
+
+
 
             MessageDispatcher.AddTask(new NetMessage( msg));
         }
@@ -85,20 +87,23 @@ namespace NetWork
 
         public void Init()
         {
-            
+            timerTask1 = new Metronome();
+            timerTask2 = new Metronome();
         }
 
         private void StartHeartBeat()
         {
-            timerTask1 = new TimerTask(1000, () => { UserService.GetInstance().SendBattleHeartBeat(); });
-            timerTask1.execute();
+            timerTask1.OnComplete += (p) => {ServiceLocator.Get<UserService>().SendBattleHeartBeat(); };
+            timerTask1.Initialize(1);
+             
         }
         private void StopHeartBeat()
         {
-            if (timerTask1 != null) {
-                timerTask1.Stop();
+            if (timerTask1 != null)
+            {
+                timerTask1.Paused=true;
             }
-            
+
         }
 
         public int SendMessage(C2BNetMessage msg)

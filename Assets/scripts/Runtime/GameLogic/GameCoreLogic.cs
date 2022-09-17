@@ -6,57 +6,59 @@ using System.Text;
 using System.Threading.Tasks;
 using Assets.scripts.GameLogic;
 
-using Assets.scripts.Managers;
-using Assets.scripts.Models;
+using Managers;
+using Models;
 using C2BNet;
 using UnityEngine;
 using static Assets.scripts.Utils.enums.BattleModeEnum;
 
 namespace Assets.scripts.GameLogic
 {
-    public class GameCoreLogic:IGameCoreLogic
-    {
+    //public class GameCoreLogic 
+    //{
 
-        public void update(IList<FrameHandle> frameHandles)
-        {
-            updateLogic(frameHandles);
-        }
-        private void updateLogic(IList<FrameHandle> frameHandles) {
-            recordLastPos();
+    //    public void update(IList<FrameHandle> frameHandles)
+    //    {
+    //        updateLogic(frameHandles);
+    //    }
+    //    private void updateLogic(IList<FrameHandle> frameHandles)
+    //    {
+    //        recordLastPos();
 
-            var characterList = CharacterManager.Instance.characterList;
+    //        var characterList = CharacterManager.Instance.characterList;
 
-            //foreach (FrameHandle fh in frameHandles)
-            //{
-            //    if (fh.UserId == User.Instance.user.Id)
-            //    {
-            //        foreach (FrameHandle frameHandle in GameLogicManager.PredictedInput) {
-            //            if (frameHandle.OpretionId == fh.OpretionId) {
-            //                GameLogicManager.PredictedInput.Remove(frameHandle);
-            //            }
-            //        }
-            //    }
-            //}
+    //        //foreach (FrameHandle fh in frameHandles)
+    //        //{
+    //        //    if (fh.UserId == User.Instance.user.Id)
+    //        //    {
+    //        //        foreach (FrameHandle frameHandle in GameLogicManager.PredictedInput) {
+    //        //            if (frameHandle.OpretionId == fh.OpretionId) {
+    //        //                GameLogicManager.PredictedInput.Remove(frameHandle);
+    //        //            }
+    //        //        }
+    //        //    }
+    //        //}
 
 
-            foreach (var character in characterList)
-            {
+    //        foreach (var character in characterList)
+    //        {
 
-                foreach (FrameHandle fh in frameHandles)
-                {
-                    if (fh.UserId == character.user.Id)
-                    {
-                        character.CharacterUpdate(fh);
-                    }
-                }
-            }
-        }
+    //            foreach (FrameHandle fh in frameHandles)
+    //            {
+    //                if (fh.UserId == character.user.Id)
+    //                {
+    //                    character.CharacterUpdate(fh);
+    //                }
+    //            }
+    //        }
+    //    }
 
-        private void recordLastPos()
-        {
-            
-        }
-        public void updateRender() { 
-        }
-    }
+    //    private void recordLastPos()
+    //    {
+
+    //    }
+    //    public void updateRender()
+    //    {
+    //    }
+    //}
 }

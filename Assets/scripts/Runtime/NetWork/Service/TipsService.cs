@@ -1,33 +1,27 @@
-﻿using Assets.scripts.Managers;
+﻿using Managers;
 
-using Assets.scripts.UI.Common;
+using UI;
 using C2GNet;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Services;
 
 namespace NetWork
 {
-    class TipsService
+    class TipsService:Service
     {
-        private static TipsService _instance = new TipsService();
+        EventSystem eventSystem;
 
-
-        private TipsService()
+        protected internal override void AfterInitailize()
         {
+            base.AfterInitailize();
+            eventSystem = ServiceLocator.Get<EventSystem>();
+            eventSystem.AddListener<TipsResponse>(EEvent.OnTips, this.OnTips);
         }
-
-
-        public static TipsService GetInstance()
-        {
-            return _instance;
-        }
-        public void Init()
-        {
-            MessageCenter.AddMsgListener(MessageType.OnTips, this.OnTips, this);
-        }
+        
 
         /**
          * 提示响应
@@ -50,7 +44,7 @@ namespace NetWork
             //console.log('isOutRoom：' + (response.tipsWorkType == TipsWorkType.OutRoom))
             if (response.TipsWorkType == TipsWorkType.AuctionResult)
             {  //拍卖结算
-                MessageCenter.dispatch(MessageType.AuctionRefreshUI, 0);
+                //MessageCenter.dispatch(MessageType.AuctionRefreshUI, 0);
             }
             else if (response.TipsWorkType == TipsWorkType.DismissRoom)
             {  //解散房间
@@ -62,8 +56,8 @@ namespace NetWork
             }
             else if (response.TipsWorkType == TipsWorkType.OutRoom)
             {  //退出房间
-
-                MessageCenter.dispatch(MessageType.OnMyRoom_RefieshUI, 0);
+                eventSystem.Invoke(EEvent.OnMyRoom_RefieshUI);
+               
             }
 
         }

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Assets.scripts.Models;
-
+using Models;
+using Services;
 using Assets.scripts.Utils;
 using C2BNet;
 /// <summary>
@@ -17,30 +17,21 @@ using C2BNet;
 
 namespace NetWork
 {
-    public class GameLogicService
+    public class GameLogicService :Service
     {
-        private static GameLogicService _instance = new GameLogicService();
-
-
-        private GameLogicService()
+        
+        EventSystem eventSystem;
+        protected internal override void AfterInitailize()
         {
-        }
-
-
-        public static GameLogicService GetInstance()
-        {
-            return _instance;
-        }
-
-        public void init()
-        {
+            base.AfterInitailize();
+            eventSystem = ServiceLocator.Get<EventSystem>();
             
         }
 
         public void SendFrameHandle(FrameHandlesFromClient frameHandles)
         {
             //LogUtil.log("SendFrameHandle",frameHandle);
-            var userId = User.Instance.user.Id;
+            var userId = ServiceLocator.Get<User>().user.Id;
 
             frameHandles.UserId=userId ;
 
@@ -63,7 +54,7 @@ namespace NetWork
         public void SendPercentForward(int percent)
         {
             LogUtil.log("SendPercentForward");
-            var userId = User.Instance.user.Id;
+            var userId = ServiceLocator.Get<User>().user.Id;
             var Net = new C2BNetMessage
             {
                 Request = new C2BNetMessageRequest
@@ -88,7 +79,7 @@ namespace NetWork
         public void SendGameOver()
         {
             //LogUtil.log("SendGameOver");
-            var userId = User.Instance.user.Id;
+            var userId = ServiceLocator.Get<User>().user.Id;
             var Net = new C2BNetMessage
             {
                 Request = new C2BNetMessageRequest
@@ -109,7 +100,7 @@ namespace NetWork
         public void SendRepairFrame(int startFrame, int endFrame)
         {
             // LogUtil.log("SendRepairFrame");
-            var userId = User.Instance.user.Id;
+            var userId = ServiceLocator.Get<User>().user.Id;
 
             var Net = new C2BNetMessage
             {
@@ -132,7 +123,7 @@ namespace NetWork
          */
         public void SendRecordUser()
         {
-            var userId = User.Instance.user.Id;
+            var userId = ServiceLocator.Get<User>().user.Id;
             //console.log('SendRecordUser')
             var Net = new C2BNetMessage
             {

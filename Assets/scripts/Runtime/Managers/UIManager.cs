@@ -1,4 +1,4 @@
-﻿using Assets.scripts.UI;
+﻿using UI;
 using Assets.scripts.Utils.Tools;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,6 @@ using UnityEngine;
 
 namespace Managers
 {
-    
         public class UIManager : MonoBehaviour
         {
             /* 字段 */

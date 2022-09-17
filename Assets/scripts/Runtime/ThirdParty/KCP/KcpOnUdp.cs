@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Net.Sockets;
 using System.Net;
-using Assets.scripts.NetWork.NetClient;
+using NetWork;
 
 namespace cocosocket4unity
 {

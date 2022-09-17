@@ -1,9 +1,9 @@
-﻿using Assets.scripts.GameLogic;
-using Assets.scripts.Managers;
+﻿
+using Managers;
 
-using Assets.scripts.Models;
+using Models;
 
-using Assets.scripts.UI.Common;
+using UI;
 
 using Assets.scripts.Utils;
 using C2GNet;
@@ -13,38 +13,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Assets.scripts.Utils.enums.BattleModeEnum;
+using Assets.scripts.GameLogic;
+using Services;
 
 namespace NetWork
 {
-    public class RoomService
+    public class RoomService : Service
     {
-        private static RoomService _instance = new RoomService();
+        EventSystem eventSystem;
 
-
-        private RoomService()
-        {
-        }
-
-
-        public static RoomService GetInstance()
-        {
-            return _instance;
-        }
-
-
-        public void init()
-        {
-            MessageCenter.AddMsgListener(MessageType.OnMyRoom, this.OnMyRoom, this);
-            MessageCenter.AddMsgListener(MessageType.OnInviteResponse, this.OnInviteResponse, this);
-            MessageCenter.AddMsgListener(MessageType.OnInviteRequest, this.OnInviteRequest, this);
-            MessageCenter.AddMsgListener(MessageType.OnKickOut, this.OnKickOut, this);
-            MessageCenter.AddMsgListener(MessageType.OnRoomStartGame, this.OnRoomStartGame, this);
-            MessageCenter.AddMsgListener(MessageType.OnNickNameSearch, this.OnNickNameSearch, this);
-            MessageCenter.AddMsgListener(MessageType.OnAddRoomRequest, this.OnAddRoomRequest, this);
-            MessageCenter.AddMsgListener(MessageType.OnAddRoomResponse, this.OnAddRoomResponse, this);
-            MessageCenter.AddMsgListener(MessageType.OnOutRoom, this.OnOutRoom, this);
-            MessageCenter.AddMsgListener(MessageType.OnAddLiveResponse, this.OnAddLiveResponse, this);
-            MessageCenter.AddMsgListener(MessageType.OnValidateOpenRoom, this.OnValidateOpenRoom, this);
+        protected internal override void AfterInitailize() {
+            base.AfterInitailize();
+            eventSystem =ServiceLocator.Get<EventSystem>();
+            eventSystem.AddListener<MyRoomResponse>(EEvent.OnMyRoom, this.OnMyRoom);
+            eventSystem.AddListener<InviteResponse>(EEvent.OnInviteResponse, this.OnInviteResponse);
+            eventSystem.AddListener<InviteRequest>(EEvent.OnInviteRequest, this.OnInviteRequest);
+            eventSystem.AddListener<KickOutResponse>(EEvent.OnKickOut, this.OnKickOut);
+            eventSystem.AddListener<RoomStartGameResponse>(EEvent.OnRoomStartGame, this.OnRoomStartGame);
+            eventSystem.AddListener<NickNameSearchResponse>(EEvent.OnNickNameSearch, this.OnNickNameSearch);
+            eventSystem.AddListener<AddRoomRequest>(EEvent.OnAddRoomRequest, this.OnAddRoomRequest);
+            eventSystem.AddListener<AddRoomResponse>(EEvent.OnAddRoomResponse, this.OnAddRoomResponse);
+            eventSystem.AddListener<OutRoomResponse>(EEvent.OnOutRoom, this.OnOutRoom);
+            eventSystem.AddListener<AddLiveResponse>(EEvent.OnAddLiveResponse, this.OnAddLiveResponse);
+            eventSystem.AddListener<ValidateOpenRoomResponse>(EEvent.OnValidateOpenRoom, this.OnValidateOpenRoom);
         }
         /**
         * 请求我的房间
@@ -66,11 +57,11 @@ namespace NetWork
         /**
      * 我的房间响应
      */
-        private void OnMyRoom(object param)
+        private void OnMyRoom(MyRoomResponse response)
         {
-            var response = param as MyRoomResponse;
             LogUtil.log("OnMyRoom:{0}", response.Room);
-            MessageCenter.dispatch(MessageType.OnMyRoom_UI, response.Room);
+            eventSystem.Invoke(EEvent.OnMyRoom_UI, response.Room);
+            
         }
 
         /**
@@ -85,8 +76,8 @@ namespace NetWork
                 {
                     InviteReq = new InviteRequest
                     {
-                        FromUserId = User.Instance.user.Id,
-                        FromNickName = User.Instance.user.Nickname,
+                        FromUserId = ServiceLocator.Get<User>().user.Id,
+                        FromNickName = ServiceLocator.Get<User>().user.Nickname,
                         ToUserId = toUserId,
                         ToNickName = toNickName,
                         TeamId = teamId
@@ -126,25 +117,25 @@ namespace NetWork
         /**
     * 收到邀请请求
     */
-        private async void OnInviteRequest(object param)
+        private async void OnInviteRequest(InviteRequest request)
         {
-            var request = param as InviteRequest;
+           
             LogUtil.log("OnInviteRequest", request);
             var confirmObj = await TipsManager.Instance.Show(request.FromNickName + "邀请你加入房间？", "邀请请求", MessageBoxType.Confirm, "接受", "拒绝");
             var this_ = this;
-            MessageCenter.AddMsgListener(MessageType.UIMessageBox_OnClickYes, (p) => { SendInviteResponse(true, request); }, confirmObj);
-            MessageCenter.AddMsgListener(MessageType.UIMessageBox_OnClickNo, (p) =>
+            eventSystem.AddListener(EEvent.UIMessageBox_OnClickYes, () => { SendInviteResponse(true, request); });
+            eventSystem.AddListener(EEvent.UIMessageBox_OnClickNo, () =>
             {
                 this_.SendInviteResponse(false, request);
-            }, confirmObj);
+            });
         }
 
         /**
          * 收到邀请响应
          */
-        private void OnInviteResponse(object param)
+        private void OnInviteResponse(InviteResponse response)
         {
-            var response = param as InviteResponse;
+         
             LogUtil.log("OnInviteResponse:{0}{1}", response.Resultmsg,response.Errormsg);
             
             TipsManager.Instance.showTips(response.Errormsg);
@@ -152,7 +143,7 @@ namespace NetWork
             if (response.Resultmsg == Result.Success)
             {
                 //被邀请者是当前用户
-                if (response.InviteRequest.ToUserId == User.Instance.user.Id)
+                if (response.InviteRequest.ToUserId == ServiceLocator.Get<User>().user.Id)
                 {
                     /**************************
                    director.loadScene('Room');
@@ -160,7 +151,7 @@ namespace NetWork
                 }
                 else
                 {
-                    MessageCenter.dispatch(MessageType.OnMyRoom_RefieshUI, 0);
+                    eventSystem.Invoke(EEvent.OnMyRoom_RefieshUI);
                 }
             }
         }
@@ -168,12 +159,13 @@ namespace NetWork
         /**
      * 踢出响应
      */
-        private void OnKickOut(object param)
+        private void OnKickOut(KickOutResponse response)
         {
-            var response = param as KickOutResponse;
+            
             LogUtil.log("OnKickOut:{0}{1}", response.Result,response.Errormsg);
-            MessageCenter.dispatch(MessageType.OnKickOut_UI,response); 
-            MessageCenter.dispatch(MessageType.OnMyRoom_RefieshUI, 0);
+            eventSystem.Invoke(EEvent.OnKickOut_UI, response);
+            eventSystem.Invoke(EEvent.OnMyRoom_RefieshUI);
+            
             TipsManager.Instance.showTips(response.Errormsg);
         }
 
@@ -199,11 +191,10 @@ namespace NetWork
         /**
          * 开始游戏响应
          */
-        public void OnRoomStartGame(object param)
+        public void OnRoomStartGame(RoomStartGameResponse response)
         {
-            var response = param as RoomStartGameResponse;
             LogUtil.log("OnRoomStartGame{0}{1}：", response.Result, response.Errormsg);
-            MessageCenter.dispatch(MessageType.OnRoomStartGame_UI, response);
+            eventSystem.Invoke(EEvent.OnRoomStartGame_UI, response);
             TipsManager.Instance.showTips(response.Errormsg);
         }
 
@@ -234,7 +225,7 @@ namespace NetWork
         {
             var response = param as NickNameSearchResponse;
             LogUtil.log("OnNickNameSearch");
-            MessageCenter.dispatch(MessageType.OnNickNameSearch_UI, response.RoomUser);
+            eventSystem.Invoke(EEvent.OnNickNameSearch_UI, response.RoomUser);
         }
 
         /**
@@ -249,8 +240,8 @@ namespace NetWork
                     AddRoomReq = new AddRoomRequest
                     {
                         RoomId = roomId,
-                        FromUserId = User.Instance.user.Id,
-                        FromNickName = User.Instance.user.Nickname
+                        FromUserId = ServiceLocator.Get<User>().user.Id,
+                        FromNickName = ServiceLocator.Get<User>().user.Nickname
 
                     },
                 }
@@ -293,22 +284,22 @@ namespace NetWork
             LogUtil.log("OnAddRoomRequest", request);
             var confirmObj = await TipsManager.Instance.Show(request.FromNickName + "加入房间？", "加入房间", MessageBoxType.Confirm, "接受", "拒绝");
             var this_ = this;
-            MessageCenter.AddMsgListener(MessageType.UIMessageBox_OnClickYes, async (p) =>
+            eventSystem.AddListener(EEvent.UIMessageBox_OnClickYes, async () =>
             {
                 var teamConfirmObj = await TipsManager.Instance.Show("请选择" + request.FromNickName + "加入队伍！", "选择队伍", MessageBoxType.Confirm, "友队", "敌队");
-                MessageCenter.AddMsgListener(MessageType.UIMessageBox_OnClickYes, (p) =>
+                eventSystem.AddListener(EEvent.UIMessageBox_OnClickYes, () =>
                 {
                     this_.SendAddRoomResponse(true, 0, request);
-                }, teamConfirmObj);
-                MessageCenter.AddMsgListener(MessageType.UIMessageBox_OnClickNo, (p) =>
+                });
+                eventSystem.AddListener(EEvent.UIMessageBox_OnClickNo, () =>
                 {
                     this_.SendAddRoomResponse(true, 1, request);
-                }, teamConfirmObj);
-            }, confirmObj);
-            MessageCenter.AddMsgListener(MessageType.UIMessageBox_OnClickNo, /*async */(p) =>
+                });
+            });
+            eventSystem.AddListener(EEvent.UIMessageBox_OnClickNo, /*async */() =>
             {
                 this_.SendAddRoomResponse(false, 0, request);
-            }, confirmObj);
+            });
         }
 
 
@@ -323,7 +314,7 @@ namespace NetWork
             if (response.Result == Result.Success)
             {
                 //加入者是当前用户
-                if (response.AddRoomRequest.FromUserId == User.Instance.user.Id)
+                if (response.AddRoomRequest.FromUserId == ServiceLocator.Get<User>().user.Id)
                 {
                     /*******************************
                     //director.loadScene('Room');
@@ -331,7 +322,7 @@ namespace NetWork
                 }
                 else
                 {
-                    MessageCenter.dispatch(MessageType.OnMyRoom_RefieshUI, 0);
+                    eventSystem.Invoke(EEvent.OnMyRoom_RefieshUI);
                 }
             }
         }
@@ -375,7 +366,7 @@ namespace NetWork
                 {
                     GameOver2Req = new GameOver2Request
                     {
-                        IpPortStr = User.Instance.room.IpPortStr
+                        IpPortStr = ServiceLocator.Get<User>().room.IpPortStr
                     },
                 }
             };
@@ -435,10 +426,10 @@ namespace NetWork
             TipsManager.Instance.showTips(response.Errormsg);
             if (response.Result == Result.Success)
             {  //进入直播房间
-                LocalStorageUtil.RemoveItem(LocalStorageUtil.allFrameHandlesKey);
+                //LocalStorageUtil.RemoveItem(LocalStorageUtil.allFrameHandlesKey);
                 GameData.battleMode = BattleMode.Live;
 
-                User.Instance.room = response.Room;
+                ServiceLocator.Get<User>().room = response.Room;
                 RandomUtil.seed = response.Room.RandomSeed;   //设置战斗随机数种子
 
                 //director.loadScene('EnterGameLoad');

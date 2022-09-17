@@ -1,5 +1,5 @@
 ﻿using Services;
-
+namespace UI 
 {
     public class UIGameLoadIn : BaseUIForm
     {
@@ -21,10 +21,11 @@
             //this.msgLabel.string = msg;
         }
 
-        public override void Close()
+        
+        protected internal override void CloseUIForm()
         {
             eventSystem.RemoveListener<string>(EEvent.GameLoadIn, SetMsg);
-            CloseUIForm();
+            base.CloseUIForm();
         }
     }
 }

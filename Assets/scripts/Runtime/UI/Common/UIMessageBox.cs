@@ -1,18 +1,21 @@
-﻿using Assets.scripts.Managers;
-using Assets.scripts.Message;
+﻿using Managers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Services;
 namespace UI
 {
     public class UIMessageBox : BaseUIForm
     {
 
+        EventSystem eventSystem;
+
         private void Awake()
         {
+            eventSystem = ServiceLocator.Get<EventSystem>();
+
             base.CurrentUIType.UIForms_Type = UIFormType.PopUp;
 
             base.CurrentUIType.UIForm_LucencyType = UIFormLucenyType.Translucence/*.Pentrate*/;
@@ -28,22 +31,21 @@ namespace UI
         {
             //console.log('OnClickYes')
             //SoundManager.Instance.PlaySound(SoundDefine.SFX_UI_Confirm);
-            MessageCenter.dispatch(MessageType.UIMessageBox_OnClickYes, 0);
-            Close();
+
+            eventSystem.Invoke(EEvent.UIMessageBox_OnClickYes);
+
+            CloseUIForm();
         }
 
         private void OnClickNo()
         {
             //console.log('OnClickNo'+this.uuid)
             //SoundManager.Instance.PlaySound(SoundDefine.SFX_UI_Win_Close);
-            MessageCenter.dispatch(MessageType.UIMessageBox_OnClickNo, 0);
-            Close();
-        }
-
-        public override void Close() {
-            MessageCenter.RemoveMsgListener(this);
+            eventSystem.Invoke(EEvent.UIMessageBox_OnClickNo);
             CloseUIForm();
         }
+
+        
 
     }
 

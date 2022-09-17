@@ -8,8 +8,7 @@ public class SceneControllerBase : Service
 {
     [Other]
     protected EventSystem eventSystem;
-    [Other]
-    protected SaveManager saveManager;
+    
     public static int Index => SceneManager.GetActiveScene().buildIndex;
     public static string SceneName => SceneManager.GetActiveScene().name;
 
