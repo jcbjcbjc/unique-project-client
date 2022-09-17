@@ -75,7 +75,7 @@ namespace NetWork
             TipsManager.Instance.showTips(response.Errormsg);
             if (this.uiMatchWait)
             {   //关闭匹配弹窗 
-                this.uiMatchWait.Close();
+                this.uiMatchWait.CloseUIForm();
                 this.uiMatchWait = null;
             }
             if (response.Result == Result.Success)

@@ -137,10 +137,7 @@ namespace UI
 
 		string _data = "";
 
-		public override void Close()
-		{
-			
-			CloseUIForm();
-		}
+		
+		
 	}
 }

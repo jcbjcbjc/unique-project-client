@@ -25,16 +25,20 @@ using Services;
 
 namespace Assets.scripts.GameLogic
 {
-    public class GameLogicManager
+    public class GameLogicManager:Service
     {
         private Metronome timer;
         private Metronome recProTimer;
         private Metronome handleFrameTimer;
         private Metronome recordUserTimer;
 
-        private EventSystem eventSystem = ServiceLocator.Get<EventSystem>();
+        private EventSystem eventSystem;
 
-
+        protected internal override void AfterInitailize()
+        {
+            base.AfterInitailize();
+            eventSystem = ServiceLocator.Get<EventSystem>();
+        }
         //private GameCoreLogic gameLogic = new GameCoreLogic();
 
         // public isRecProFlag:boolean = true; //是否恢复进度中
@@ -59,6 +63,8 @@ namespace Assets.scripts.GameLogic
         }
        
         public void init() {
+            Clear();
+
             eventSystem.AddListener<FrameHandleResponse>(EEvent.OnFrameHandle, this.OnFrameHandle);
             eventSystem.AddListener<RepairFrameResponse>(EEvent.OnRepairFrame, this.OnRepairFrame);
             eventSystem.AddListener<LiveFrameResponse>(EEvent.OnLiveFrame, this.OnLiveFrame);
@@ -223,7 +229,13 @@ namespace Assets.scripts.GameLogic
             //update executeFrameId
             GameData.executeFrameId = frameId;
 
+
+
+
             //gameLogic.update(frameHandles);
+
+
+
 
             //update handleFrameId
             GameData.handleFrameId = frameId; 

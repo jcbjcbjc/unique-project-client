@@ -15,9 +15,6 @@ namespace UI
         {
             eventSystem = ServiceLocator.Get<EventSystem>();
         }
-        public override void Close()
-        {
-            
-        }
+       
     }
 }

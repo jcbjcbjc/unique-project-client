@@ -60,10 +60,6 @@ namespace UI
 			CloseUIForm();
 		}
 
-		public override void Close()
-		{
-			
-			CloseUIForm();
-		}
+		
 	}
 }

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>9.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,6 +53,9 @@
     <UnityVersion>2021.2.5f1c1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\Addon\Service\Runtime\GameLauncher.cs" />
     <Compile Include="Assets\Addon\Service\Runtime\GlobalGameCycle.cs" />
     <Compile Include="Assets\scripts\Runtime\GameLogic\GameLogicGlobal.cs" />
@@ -76,7 +79,6 @@
     <Compile Include="Assets\Addon\MyTimer\Runtime\ILerp\DefaultValue.cs" />
     <Compile Include="Assets\scripts\Runtime\UI\UIType.cs" />
     <Compile Include="Assets\Addon\Service\Runtime\ServiceSettings.cs" />
-    <Compile Include="Assets\scripts\Runtime\GameLogic\GameLogicMonobehavior.cs" />
     <Compile Include="Assets\scripts\Utils\Tools\ResourceMgr.cs" />
     <Compile Include="Assets\Addon\Service\Runtime\ServiceLocator.cs" />
     <Compile Include="Assets\scripts\Runtime\NetWork\Service\MatchService.cs" />
@@ -103,7 +105,6 @@
     <Compile Include="Assets\scripts\Runtime\GameLogic\GameCoreLogic.cs" />
     <Compile Include="Assets\Addon\MyTimer\Runtime\ColorChange.cs" />
     <Compile Include="Assets\scripts\Runtime\UI\BaseUIForm.cs" />
-    <Compile Include="Assets\Addon\Service\Runtime\ServiceInitializer.cs" />
     <Compile Include="Assets\Addon\StateMathine\Runtime\StateMapper.cs" />
     <Compile Include="Assets\scripts\Runtime\NetWork\Protobuf\C2GNetMessage.cs" />
     <Compile Include="Assets\Addon\MyTimer\Runtime\ILerp\CurrentLerp.cs" />

@@ -17,7 +17,6 @@ namespace Services
         protected virtual void Awake()
         {
             ServiceLocator.Register(this);
-            enabled = false;
         }
 
         /// <summary>
@@ -25,11 +24,14 @@ namespace Services
         /// </summary>
         protected internal virtual void AfterInitailize()
         {
-            enabled = true;
+            
         }
 
         // 禁止重写此方法
-        protected void Start() { return; }
+        protected void Start() {
+            GetOtherService();
+            AfterInitailize();
+        }
 
         internal void GetOtherService()
         {

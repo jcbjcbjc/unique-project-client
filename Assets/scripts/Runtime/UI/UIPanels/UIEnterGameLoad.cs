@@ -39,9 +39,7 @@ namespace UI
         }
         public void Start()
         {
-            
             timer.Initialize(1,false);
-
         }
 
         public void Init()
@@ -99,8 +97,10 @@ namespace UI
 
                 //LogUtil.log("跳转战斗场景");
                 Scene_Manager.Load(1); //跳转战斗场景
-                GameLogicMonobehavior.Instance.init();
-                Close();
+
+                ServiceLocator.Get<GameLogicManager>().init();
+
+                CloseUIForm();
             }
         }
         /**
@@ -131,14 +131,13 @@ namespace UI
                 }
             }
         }
-
-        public override void Close()
-        {
-            if (timer != null) { 
-                timer.Paused=true;
+        protected internal override void CloseUIForm() {
+            if (timer != null)
+            {
+                timer.Paused = true;
             }
-           
-            CloseUIForm();
+            base.CloseUIForm();
+
         }
     }
 }

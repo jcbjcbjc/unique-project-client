@@ -46,7 +46,7 @@ public class GameLauncher : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        ServiceInitializer.Instance.AfterService += Initialize;
+       
         count_incomplete = 1;
     }
 
@@ -58,12 +58,12 @@ public class GameLauncher : MonoBehaviour
             (obj as IInitialize)?.Initialize();
         }
         AfterInitializeScriptableObject?.Invoke();
-        count_incomplete--;
+        Count_Incomplete--;
     }
 
     private void StartGame()
     {
-        ServiceSettings settings = ServiceInitializer.Instance.serviceSettings;
+        
         ServiceLocator.Get<SceneControllerBase>().LoadScene(1);
     }
 }

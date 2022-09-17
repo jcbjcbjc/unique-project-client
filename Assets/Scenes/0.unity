@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 821395823}
   - component: {fileID: 821395822}
   - component: {fileID: 821395829}
+  - component: {fileID: 821395830}
   m_Layer: 0
   m_Name: Service
   m_TagString: Untagged
@@ -285,6 +286,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604073a1d35c124408912335dca5cedc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &821395830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821395818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5744fcd66bfe5c478c8e952043f457d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1226610415
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +307,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1226610416}
-  - component: {fileID: 1226610418}
   - component: {fileID: 1226610417}
   m_Layer: 0
   m_Name: Initializer
@@ -332,19 +344,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scripts: []
   count_incomplete: 0
---- !u!114 &1226610418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226610415}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11fde30062499a74abe1b1d33c5c5209, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  t_wait: 0
 --- !u!1 &1945862101
 GameObject:
   m_ObjectHideFlags: 0

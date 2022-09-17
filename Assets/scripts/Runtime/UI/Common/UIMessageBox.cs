@@ -33,8 +33,8 @@ namespace UI
             //SoundManager.Instance.PlaySound(SoundDefine.SFX_UI_Confirm);
 
             eventSystem.Invoke(EEvent.UIMessageBox_OnClickYes);
-   
-            Close();
+
+            CloseUIForm();
         }
 
         private void OnClickNo()
@@ -42,13 +42,10 @@ namespace UI
             //console.log('OnClickNo'+this.uuid)
             //SoundManager.Instance.PlaySound(SoundDefine.SFX_UI_Win_Close);
             eventSystem.Invoke(EEvent.UIMessageBox_OnClickNo);
-            Close();
-        }
-
-        public override void Close() {
-
             CloseUIForm();
         }
+
+        
 
     }
 

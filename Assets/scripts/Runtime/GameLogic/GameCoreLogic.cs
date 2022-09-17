@@ -14,14 +14,15 @@ using static Assets.scripts.Utils.enums.BattleModeEnum;
 
 namespace Assets.scripts.GameLogic
 {
-    //public class GameCoreLogic:IGameCoreLogic
+    //public class GameCoreLogic 
     //{
 
     //    public void update(IList<FrameHandle> frameHandles)
     //    {
     //        updateLogic(frameHandles);
     //    }
-    //    private void updateLogic(IList<FrameHandle> frameHandles) {
+    //    private void updateLogic(IList<FrameHandle> frameHandles)
+    //    {
     //        recordLastPos();
 
     //        var characterList = CharacterManager.Instance.characterList;
@@ -54,9 +55,10 @@ namespace Assets.scripts.GameLogic
 
     //    private void recordLastPos()
     //    {
-            
+
     //    }
-    //    public void updateRender() { 
+    //    public void updateRender()
+    //    {
     //    }
     //}
 }

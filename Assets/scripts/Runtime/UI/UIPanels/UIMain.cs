@@ -21,11 +21,7 @@ namespace UI
             //this.msgLabel.string = msg;
         }
 
-        public override void Close()
-        {
-            
-            CloseUIForm();
-        }
+        
 
         public void Match()
         {

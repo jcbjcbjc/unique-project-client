@@ -104,7 +104,7 @@ namespace UI
         /// <summary>
         /// 关闭当前UI窗体
         /// </summary>
-        protected void CloseUIForm()
+        protected internal virtual void CloseUIForm()
         {
             string strUIFromName = string.Empty;            //处理后的UIFrom 名称
             int intPosition = -1;
@@ -119,8 +119,6 @@ namespace UI
             
             UIManager.GetInstance().CloseUIForms(strUIFromName);
         }
-
-        public abstract void Close();
 
         /// <summary>
         /// 发送消息
