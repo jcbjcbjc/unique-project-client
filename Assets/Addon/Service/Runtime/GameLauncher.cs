@@ -48,6 +48,7 @@ public class GameLauncher : MonoBehaviour
         Instance = this;
        
         count_incomplete = 1;
+        Invoke(nameof(Initialize),1f);
     }
 
     private void Initialize()

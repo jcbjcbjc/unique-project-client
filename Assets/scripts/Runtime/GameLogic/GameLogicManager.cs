@@ -1,9 +1,5 @@
-﻿using Assets.scripts.GameLogic;
-
-
-using Models;
+﻿
 using NetWork;
-
 using UI;
 using Assets.scripts.Utils;
 using Assets.scripts.Utils.enums;
@@ -23,12 +19,18 @@ using static Assets.scripts.Utils.enums.HandlerFrameResultEnum;
 using static Assets.scripts.Utils.enums.OptTypeEnum;
 using Services;
 
-namespace Assets.scripts.GameLogic
+
+namespace GameLogic
 {
     public class GameLogicManager:Service
     {
-        private Metronome timer;
-        private Metronome recProTimer;
+        EntityManager entityManager_;
+        CharacterManager characterManager_;
+        GameCoreLogic gameLogic_;
+
+
+
+       
         private Metronome handleFrameTimer;
         private Metronome recordUserTimer;
 
@@ -39,7 +41,7 @@ namespace Assets.scripts.GameLogic
             base.AfterInitailize();
             eventSystem = ServiceLocator.Get<EventSystem>();
         }
-        //private GameCoreLogic gameLogic = new GameCoreLogic();
+        
 
         // public isRecProFlag:boolean = true; //是否恢复进度中
 
@@ -70,13 +72,20 @@ namespace Assets.scripts.GameLogic
             eventSystem.AddListener<LiveFrameResponse>(EEvent.OnLiveFrame, this.OnLiveFrame);
             eventSystem.AddListener<FrameHandle>(EEvent.OnAddOptClient, this.AddPlayerOpt);
 
+            entityManager_ = new EntityManager();
+            characterManager_=new CharacterManager();
+            gameLogic_.Init(characterManager_, entityManager_);
+
+            handleFrameTimer = new Metronome();
+            recordUserTimer=new Metronome();
+
+            ////////////////////////////////////////////////////////////////////////////////////////////
+
             UIGameLoadIn uIGameLoadIn= (UIGameLoadIn)UIManager.GetInstance() .ShowUIForms("");
             uIGameLoadIn.SetMsg("游戏拼命加载中...");
             
           
-            //CharacterManager.Instance.CreateCharacter(); 
-
-
+            characterManager_.CreateCharacter(); 
 
 
             // change the GameData
@@ -100,8 +109,8 @@ namespace Assets.scripts.GameLogic
             //}
             if (GameData.battleMode == BattleMode.Battle)
             {    //对局模式
-                //handleFrameTimer = new TimerTask(NetConfig.FrameTime, CapturePlayerOpts);
-                //handleFrameTimer.execute();
+                handleFrameTimer.OnComplete += CapturePlayerOpts;
+                handleFrameTimer.Initialize(NetConfig.FrameTime/1000);
             }
             else if (GameData.battleMode == BattleMode.Live)
             {  //观看直播模式
@@ -231,8 +240,8 @@ namespace Assets.scripts.GameLogic
 
 
 
-
-            //gameLogic.update(frameHandles);
+            //update
+            gameLogic_.update(frameHandles);
 
 
 
@@ -293,7 +302,7 @@ namespace Assets.scripts.GameLogic
          * *****************************************************************************************************/
 
 
-        public void CapturePlayerOpts(){
+        public void CapturePlayerOpts(float p){
             //无操作
             if(GameData.frameHandles.FrameHandles.Count==0){
                return;

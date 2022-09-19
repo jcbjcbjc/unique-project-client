@@ -124,30 +124,10 @@ public class MessageDispatcher : Service
                     {
                         eventSystem.Invoke(EEvent.OnUserStatusChange, messag.UserStatusChangeRes);
                     }
-                    //if (messag.QueryTranRes != null)
-                    //{
-                    //    MessageCenter.dispatch(MessageType.OnQueryTran, message.queryTranRes);
-                    //}
-                    //if (messag.BuyTranRes != null)
-                    //{
-                    //    MessageCenter.dispatch(MessageType.OnBuyTran, message.buyTranRes);
-                    //}
                     if (messag.HeartBeatRes != null)
                     {
                         eventSystem.Invoke(EEvent.OnHeartBeat, messag.HeartBeatRes);
                     }
-                    //if (messag.OfferPriceRes != null)
-                    //{
-                    //    MessageCenter.dispatch(MessageType.OnOfferPrice, message.offerPriceRes);
-                    //}
-                    //if (messag.AuctionRes != null)
-                    //{
-                    //    MessageCenter.dispatch(MessageType.OnAuction, message.auctionRes);
-                    //}
-                    //if (message.getAuctionListRes != null)
-                    //{
-                    //    MessageCenter.dispatch(MessageType.OnGetAuctionList, message.getAuctionListRes);
-                    //}
                     if (messag.TipsRes != null)
                     {
                         eventSystem.Invoke(EEvent.OnTips, messag.TipsRes);

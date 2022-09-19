@@ -1,5 +1,5 @@
 ﻿using Managers;
-using Models;
+ 
 using Assets.scripts.Utils;
 using NetWork;
 using System;
@@ -29,6 +29,8 @@ namespace Assets.scripts
 
             NetGameClient.GetInstance().Init();
             NetBattleClient.GetInstance().Init();
+
+            UIManager.GetInstance().ShowUIForms("UIMain");
         }
 
         public bool Close() {
