@@ -14,19 +14,22 @@ namespace UI
         private void Awake()
         {
             eventSystem = ServiceLocator.Get<EventSystem>();
+            
         }
-       
+        private void Start()
+        {
+            RigisterButtonObjectEvent("MatchButton", Match);
+        }
+
         public void setMsg(string msg)
         {
             //this.msgLabel.string = msg;
         }
 
         
-
-        public void Match()
+        public void Match(GameObject go)
         {
             ServiceLocator.Get<MatchService>().SendStartMatch();
-       
         }
     }
 }

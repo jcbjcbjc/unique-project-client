@@ -1,7 +1,7 @@
 ﻿
 using Managers;
 
-using Models;
+
 
 using UI;
 
@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static Assets.scripts.Utils.enums.BattleModeEnum;
-using Assets.scripts.GameLogic;
+using GameLogic;
 using Services;
 
 namespace NetWork

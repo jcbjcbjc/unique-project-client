@@ -10,7 +10,7 @@ using C2GNet;
 /// 
 /// @Date 2022/4/30
 /// </summary>
-namespace Models
+namespace NetWork
 {
     public class User :Service
     {

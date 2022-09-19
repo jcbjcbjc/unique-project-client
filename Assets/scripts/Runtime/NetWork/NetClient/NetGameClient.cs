@@ -77,9 +77,7 @@ namespace NetWork
 
 				Debug.Log("连接服务器成功");
 
-
 				Start();
-
 
 				ServiceLocator.Get<UserService>().SendLogin("123456789","123456789");
 
@@ -120,7 +118,7 @@ namespace NetWork
 					
 					
 
-                    //MessageDispatcher.AddTask(new NetMessage(msg));
+                    MessageDispatcher.AddTask(new NetMessage(msg));
 
                     TcpSocket.BeginReceive(TCPreadbuf, 0, TCPreadbuf.Length, SocketFlags.None, StartReceiveCallback, TcpSocket);
                 }
