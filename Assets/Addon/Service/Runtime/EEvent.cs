@@ -91,5 +91,5 @@ public enum EEvent
      OnItemBuy_UI,
      OnWorldElementExecuteOnceSuccess ,
      OnAddOptClient ,
-
+     OnEnterGameProcess,
 }
