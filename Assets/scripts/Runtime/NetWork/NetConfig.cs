@@ -22,8 +22,8 @@ namespace NetWork
         public static string GameServerTCPIP = "";
         public static int GameServerTCPPort = 0;
 
-        public const string TcpIp = "124.221.226.227";
-        //public const string TcpIp = "127.0.0.1";
+        //public const string TcpIp = "124.221.226.227";
+        public const string TcpIp = "127.0.0.1";
         public const int TcpPort = 8000;
     }
 }

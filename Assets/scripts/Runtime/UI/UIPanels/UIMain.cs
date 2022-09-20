@@ -14,7 +14,10 @@ namespace UI
         private void Awake()
         {
             eventSystem = ServiceLocator.Get<EventSystem>();
-            
+            eventSystem.AddListener(EEvent.OnEnterGameProcess, () =>
+            {
+                CloseUIForm();
+            });
         }
         private void Start()
         {

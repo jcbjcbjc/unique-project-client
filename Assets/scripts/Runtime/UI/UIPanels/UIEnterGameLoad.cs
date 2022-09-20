@@ -29,15 +29,15 @@ namespace UI
         {
             eventSystem= ServiceLocator.Get<EventSystem>();
             timer =new Metronome();
+            eventSystem.AddListener(EEvent.OnEnterGameProcess, OnEnterGame);
         }
         public void Start()
         {
             timer.Initialize(1,false);
         }
 
-        public void Init()
+        public void OnEnterGame()
         {
-
             this.InitTeamUser(ServiceLocator.Get<User>().room);
 
             //连接到战斗服务器
@@ -65,11 +65,11 @@ namespace UI
                  };
             }
             else if (GameData.battleMode == BattleMode.Live)
-            {  //观看直播模式
+            {  //旁观模式
                //加载资源，只需要当前用户的资源加载完成即可
                //跳转战斗场景
 
-                //director.loadScene('Map01');
+               
 
             }
         }
@@ -88,8 +88,8 @@ namespace UI
             {
                 this.isGoToBattleScene = true;
 
-                //LogUtil.log("跳转战斗场景");
-                Scene_Manager.Load(1); //跳转战斗场景
+                LogUtil.log("跳转战斗场景");
+                //Scene_Manager.Load(1); //跳转战斗场景
 
                 ServiceLocator.Get<GameLogicManager>().init();
 

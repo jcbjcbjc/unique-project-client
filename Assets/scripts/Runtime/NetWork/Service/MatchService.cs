@@ -85,8 +85,8 @@ namespace NetWork
 
                 ServiceLocator.Get<User>().room = response.Room;
                 RandomUtil.seed = response.Room.RandomSeed;   //设置战斗随机数种子
-                                                              //director.loadScene('EnterGameLoad');
-                                                              //SoundManager.Instance.PlayMusic(SoundDefine.Music_Select);
+                UIManager.GetInstance().ShowUIForms("UIEnterGameLoad");                                            //director.loadScene('EnterGameLoad');
+                eventSystem.Invoke(EEvent.OnEnterGameProcess);                                              //SoundManager.Instance.PlayMusic(SoundDefine.Music_Select);
             }
         }
     }

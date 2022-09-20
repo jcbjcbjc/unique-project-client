@@ -25,7 +25,6 @@ namespace NetWork
         {
             base.AfterInitailize();
             eventSystem = ServiceLocator.Get<EventSystem>();
-            
         }
 
         public void SendFrameHandle(FrameHandlesFromClient frameHandles)
