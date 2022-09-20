@@ -33,7 +33,7 @@ namespace UI
         }
         public void Start()
         {
-            timer.Initialize(1,false);
+            
         }
 
         public void OnEnterGame()
@@ -45,9 +45,9 @@ namespace UI
             NetConfig.UdpIp = ipPortArr[0];
             NetConfig.UdpPort = int.Parse(ipPortArr[2]);
 
-            //console.log('战斗服务器地址：'+NetConfig.websocketBattleUrl)
+            LogUtil.log("战斗服务器地址：" + NetConfig.UdpIp + NetConfig.UdpPort);
 
-            NetBattleClient.GetInstance().Connect(NetConfig.UdpIp, NetConfig.UdpPort);
+            NetBattleClient.GetInstance().connectToServer(NetConfig.UdpIp, NetConfig.UdpPort);
             eventSystem.AddListener<PercentForwardResponse>(EEvent.OnPercentForward, OnPercentForward);
 
             if (GameData.battleMode == BattleMode.Battle)
@@ -63,6 +63,7 @@ namespace UI
                          this.percent_ += 20;
                      }
                  };
+                timer.Initialize(0.5f);
             }
             else if (GameData.battleMode == BattleMode.Live)
             {  //旁观模式
@@ -76,8 +77,7 @@ namespace UI
 
         private void OnPercentForward(PercentForwardResponse response)
         {
-            
-            //console.log("OnPercentForward:{0} [{1}]", response.percentForward,response.allUserLoadSucess);
+            LogUtil.log("OnPercentForward:{0} [{1}]", response.PercentForward ,response.AllUserLoadSucess);
             var userId = response.PercentForward.UserId;
             var percent = response.PercentForward.Percent;
 

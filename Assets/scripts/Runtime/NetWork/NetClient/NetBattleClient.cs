@@ -1,146 +1,191 @@
-Ôªøusing System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Net.Sockets;
 using System.Net;
+using System.Net.Sockets;
 using UnityEngine;
-using C2BNet;
-using cocosocket4unity;
+
 using static MessageDispatcher;
-using System.Threading;
+using C2BNet;
+
 using Assets.scripts.Utils;
-using MyTimer;
+
+using System.IO;
 using Google.Protobuf;
 using Services;
+using MyTimer;
 /// <summary>
 /// GameLogicLoginService
 /// 
-/// @Author Ë¥æË∂ÖÂçö
+/// @Author º÷≥¨≤©
 /// 
 /// @Date 2022/4/30
 /// </summary>
 namespace NetWork
 {
-    public class NetBattleClient:KcpClient
-    {
-        private EventSystem eventSystem=  ServiceLocator.Get<EventSystem>();
-
-        private static NetBattleClient _instance = new NetBattleClient();
-
-
-        private NetBattleClient()
-        {
-        }
+	public class NetBattleClient
+	{
+		private EventSystem eventSystem = ServiceLocator.Get<EventSystem>();
+		private static NetBattleClient _instance = new NetBattleClient();
 
 
-        public static NetBattleClient GetInstance()
-        {
-            return _instance;
-        }
+		private NetBattleClient()
+		{
+		}
 
 
-        Metronome timerTask1;
-        Metronome timerTask2;
-
-        protected override void HandleReceive(ByteBuf buf)
-        {
-            int length = buf.ReadableBytes();
-            
-            C2BNetMessage msg = C2BNetMessage.Parser.ParseFrom(buf.GetRaw(),0, length);
+		public static NetBattleClient GetInstance()
+		{
+			return _instance;
+		}
 
 
+		Metronome timerTask1;
 
-            MessageDispatcher.AddTask(new NetMessage( msg));
-        }
-        /// <summary>
-        /// ÂºÇÂ∏∏
-        /// </summary>
-        /// <param name="ex"></param>
-        protected override void HandleException(Exception ex)
-        {
-            base.HandleException(ex);
-        }
-        /// <summary>
-        /// Ë∂ÖÊó∂
-        /// </summary>
-        protected override void HandleTimeout()
-        {
-            StopHeartBeat();
-            base.HandleTimeout();
-        }
-        public void connect(string ip,int port) {
-            KcpClient client = _instance; /*new NetBattleClient();*/
-            client.NoDelay(1, 10, 2, 1);//fast
-            client.WndSize(64, 64);
-            client.Timeout(10 * 1000);
-            client.SetMtu(512);
-            client.SetMinRto(10);
-            client.SetConv(121106);
-            
-            client.Connect(ip, port);
-            client.Start();
+		Socket TcpSocket;
 
-            StartHeartBeat();
-        }
+		byte[] TCPreadbuf = new byte[1024 * 1024];
+		byte[] TCPlenBytes = new byte[sizeof(UInt32)];
 
-        public void Init()
-        {
-            timerTask1 = new Metronome();
-            timerTask2 = new Metronome();
-        }
+		int buflen = 0;
 
-        private void StartHeartBeat()
-        {
-            timerTask1.OnComplete += (p) => {ServiceLocator.Get<UserService>().SendBattleHeartBeat(); };
-            timerTask1.Initialize(1);
-             
-        }
-        private void StopHeartBeat()
-        {
-            if (timerTask1 != null)
-            {
-                timerTask1.Paused=true;
-            }
+		public void Init()
+		{
+			timerTask1 = new Metronome();
+		}
 
-        }
+		public void StartHeartBeat()
+		{
+			timerTask1.OnComplete += HeartBeat;
+			timerTask1.Initialize(0.5f);
+		}
 
-        public int SendMessage(C2BNetMessage msg)
-        {
-            try
-            {
-                byte[] buffer = msg.ToByteArray();
-               
-                ByteBuf bb = new ByteBuf(buffer);
-                this.Send(bb);
-            }
-            catch (Exception ex)
-            {
-                Debug.Log( ex.Message);
-                
-            }
-            return -1;
-        }
+		private void HeartBeat(float p)
+		{
+			ServiceLocator.Get<UserService>().SendBattleHeartBeat();
+		}
 
-        public void Close() {
-            try
-            {
-                
-                StopHeartBeat();
-            }
-            catch (Exception ex)
-            {
-                Debug.Log("Êó†Ê≥ïÂÖ≥Èó≠ËøûÊé•Ôºö" + ex.Message);
 
-            }
-        }
+		public void connectToServer(string ip, int port)
+		{
+			TcpSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+			try
+			{
+				TcpSocket.Connect(ip, port);
 
-        //private void reconnect(int time) {
-        //    timerTask2 = new TimerTask(1000, () => {
-        //        _instance = new NetBattleClient();
-        //        connect();
-        //    });
-        //}
-    }
+
+				Debug.Log("¡¨Ω”∑˛ŒÒ∆˜≥…π¶");
+
+				Start();
+
+				StartHeartBeat();
+
+			}
+			catch (Exception ex)
+			{
+				Debug.Log(ex);
+			}
+		}
+		void Start()
+		{
+			TcpSocket.BeginReceive(TCPreadbuf, 0, TCPreadbuf.Length, SocketFlags.None, StartReceiveCallback, TcpSocket);
+		}
+		void StartReceiveCallback(IAsyncResult ar)
+		{
+			try
+			{
+				int length = TcpSocket.EndReceive(ar);
+				if (length > 0)
+				{
+					//buflen += length;
+					//Array.Copy(TCPreadbuf, TCPlenBytes, sizeof(Int32));
+					//int msgLength = BitConverter.ToInt32(TCPlenBytes, 0);
+					//if (buflen >= sizeof(Int32) + msgLength)
+					//{
+					//    C2GNetMessage msgs = C2GNetMessage.Parser.ParseFrom(TCPreadbuf, sizeof(Int32), msgLength);
+					//    MessageDispatcher.AddTask(new NetMessage(msgs.MessageType, msgs.Response));
+					//    Array.Copy(TCPreadbuf, sizeof(Int32) + msgLength, TCPreadbuf, 0, length);
+					//    buflen -= sizeof(Int32) + msgLength;
+					//}
+					//TcpSocket.BeginReceive(TCPreadbuf, buflen, TCPreadbuf.Length - buflen, SocketFlags.None, StartReceiveCallback, TcpSocket);
+
+
+					C2BNetMessage msg = C2BNetMessage.Parser.ParseFrom(TCPreadbuf, 0, length);
+
+
+
+
+					MessageDispatcher.AddTask(new NetMessage(msg));
+
+					TcpSocket.BeginReceive(TCPreadbuf, 0, TCPreadbuf.Length, SocketFlags.None, StartReceiveCallback, TcpSocket);
+				}
+				else
+				{
+					Close();
+				}
+			}
+			catch (Exception ex)
+			{
+				if (Connected == false)
+				{
+					Debug.Log("∑˛ŒÒ∂À∂œø™¡À¡¨Ω”«ÎºÏ≤ÈÕ¯¬Á «∑Ò¡¨Ω”ªÚ÷ÿ∆ÙøÕªß∂À£¨‘≠“Ú£∫" + ex.Message);
+				}
+				else
+				{
+					Debug.Log("Œﬁ∑®Ω” ’œ˚œ¢£∫" + ex.Message);
+				}
+			}
+		}
+
+		public int SendMessage(C2BNetMessage msg)
+		{
+			try
+			{
+
+				byte[] buffer = msg.ToByteArray();
+
+				return TcpSocket.Send(buffer);
+			}
+			catch (Exception ex)
+			{
+				if (Connected == false)
+				{
+					Debug.Log("Œﬁ∑®∑¢ÀÕœ˚œ¢£∫«ÎºÏ≤ÈÕ¯¬Á¡¨Ω”ªÚ÷ÿ∆ÙøÕªß∂À£¨‘≠“Ú£∫" + ex.Message);
+
+				}
+				else
+				{
+					Debug.Log("Œﬁ∑®∑¢ÀÕœ˚œ¢£∫" + ex.Message);
+				}
+			}
+			return -1;
+		}
+
+		public void Close()
+		{
+			try
+			{
+
+				//if (timerTask1 != null) { timerTask1.Stop(); }
+
+				TcpSocket.Close();
+			}
+			catch (Exception ex)
+			{
+				Debug.Log("Œﬁ∑®πÿ±’¡¨Ω”£∫" + ex.Message);
+			}
+		}
+		public void Reconnect()
+		{
+
+		}
+		public void OnLoseConnect()
+		{
+
+		}
+		public bool Connected { get { return TcpSocket != null && TcpSocket.Connected == true; } }
+
+	}
 }

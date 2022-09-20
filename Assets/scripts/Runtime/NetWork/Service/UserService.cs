@@ -81,10 +81,12 @@ namespace NetWork
         public void SendBattleHeartBeat()
         {
             LogUtil.log("HeartBeatRequest");
+            var userId = ServiceLocator.Get<User>().user.Id;
             C2BNetMessage message = new C2BNetMessage
             {
                 Request = new C2BNet.C2BNetMessageRequest
                 {
+                    UserId = userId,
                     HeartBeatRequest = new C2BNet.HeartBeatRequest()
                 }
             };
