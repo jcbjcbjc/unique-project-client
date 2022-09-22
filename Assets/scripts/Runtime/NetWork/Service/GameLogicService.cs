@@ -52,7 +52,6 @@ namespace NetWork
          */
         public void SendPercentForward(int percent)
         {
-            LogUtil.log("SendPercentForward");
             var userId = ServiceLocator.Get<User>().user.Id;
             var Net = new C2BNetMessage
             {
