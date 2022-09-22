@@ -50,7 +50,7 @@ public enum EEvent
      OnAddLiveResponse,
      OnLiveFrame,
      OnValidateOpenRoom,
-
+     OnGameOver2,
 
      UIMessageBox_OnClickYes,
      UIMessageBox_OnClickNo,
@@ -92,4 +92,5 @@ public enum EEvent
      OnWorldElementExecuteOnceSuccess ,
      OnAddOptClient ,
      OnEnterGameProcess,
+
 }

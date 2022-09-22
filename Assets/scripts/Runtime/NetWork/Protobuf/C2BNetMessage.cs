@@ -37,45 +37,47 @@ namespace C2BNet {
             "YW1lUmVxdWVzdEgEiAEBEjcKEGhlYXJ0QmVhdFJlcXVlc3QYBiABKAsyGC5D",
             "MkJOZXQuSGVhcnRCZWF0UmVxdWVzdEgFiAEBQgkKB191c2VySWRCDwoNX2Zy",
             "YW1lSGFuZGxlc0IRCg9fcGVyY2VudEZvcndhcmRCDgoMX2dhbWVPdmVyUmVx",
-            "QhEKD19yZXBhaXJGcmFtZVJlcUITChFfaGVhcnRCZWF0UmVxdWVzdCKVAwoV",
+            "QhEKD19yZXBhaXJGcmFtZVJlcUITChFfaGVhcnRCZWF0UmVxdWVzdCLZAwoV",
             "QzJCTmV0TWVzc2FnZVJlc3BvbnNlEjgKDmZyYW1lSGFuZGxlUmVzGAEgASgL",
             "MhsuQzJCTmV0LkZyYW1lSGFuZGxlUmVzcG9uc2VIAIgBARI+ChFwZXJjZW50",
             "Rm9yd2FyZFJlcxgCIAEoCzIeLkMyQk5ldC5QZXJjZW50Rm9yd2FyZFJlc3Bv",
             "bnNlSAGIAQESOAoOcmVwYWlyRnJhbWVSZXMYAyABKAsyGy5DMkJOZXQuUmVw",
             "YWlyRnJhbWVSZXNwb25zZUgCiAEBEjQKDGxpdmVGcmFtZVJlcxgEIAEoCzIZ",
             "LkMyQk5ldC5MaXZlRnJhbWVSZXNwb25zZUgDiAEBEjQKDGhlYXJ0QmVhdFJl",
-            "cxgFIAEoCzIZLkMyQk5ldC5IZWFydEJlYXRSZXNwb25zZUgEiAEBQhEKD19m",
-            "cmFtZUhhbmRsZVJlc0IUChJfcGVyY2VudEZvcndhcmRSZXNCEQoPX3JlcGFp",
-            "ckZyYW1lUmVzQg8KDV9saXZlRnJhbWVSZXNCDwoNX2hlYXJ0QmVhdFJlcyIS",
-            "ChBIZWFydEJlYXRSZXF1ZXN0IhMKEUhlYXJ0QmVhdFJlc3BvbnNlIs4BCgtG",
-            "cmFtZUhhbmRsZRITCgZ1c2VySWQYASABKAVIAIgBARIQCgNvcHQYAiABKAVI",
-            "AYgBARIXCgpPcHJldGlvbklkGAMgASgFSAKIAQESFgoJb3B0VmFsdWUxGAQg",
-            "ASgFSAOIAQESFgoJb3B0VmFsdWUyGAUgASgFSASIAQESEQoJb3B0RGV0YWls",
-            "GAYgAygFQgkKB191c2VySWRCBgoEX29wdEINCgtfT3ByZXRpb25JZEIMCgpf",
-            "b3B0VmFsdWUxQgwKCl9vcHRWYWx1ZTIiXgoTRnJhbWVIYW5kbGVSZXNwb25z",
-            "ZRISCgVmcmFtZRgBIAEoBUgAiAEBEikKDGZyYW1lSGFuZGxlcxgCIAMoCzIT",
-            "LkMyQk5ldC5GcmFtZUhhbmRsZUIICgZfZnJhbWUiYwoWRnJhbWVIYW5kbGVz",
-            "RnJvbUNsaWVudBITCgZ1c2VySWQYASABKAVIAIgBARIpCgxmcmFtZUhhbmRs",
-            "ZXMYAiADKAsyEy5DMkJOZXQuRnJhbWVIYW5kbGVCCQoHX3VzZXJJZCJSCg5Q",
-            "ZXJjZW50Rm9yd2FyZBITCgZ1c2VySWQYASABKAVIAIgBARIUCgdwZXJjZW50",
-            "GAIgASgFSAGIAQFCCQoHX3VzZXJJZEIKCghfcGVyY2VudCKWAQoWUGVyY2Vu",
-            "dEZvcndhcmRSZXNwb25zZRIzCg5wZXJjZW50Rm9yd2FyZBgBIAEoCzIWLkMy",
-            "Qk5ldC5QZXJjZW50Rm9yd2FyZEgAiAEBEh4KEWFsbFVzZXJMb2FkU3VjZXNz",
-            "GAIgASgISAGIAQFCEQoPX3BlcmNlbnRGb3J3YXJkQhQKEl9hbGxVc2VyTG9h",
-            "ZFN1Y2VzcyIRCg9HYW1lT3ZlclJlcXVlc3QiYAoSUmVwYWlyRnJhbWVSZXF1",
-            "ZXN0EhcKCnN0YXJ0RnJhbWUYASABKAVIAIgBARIVCghlbmRGcmFtZRgCIAEo",
-            "BUgBiAEBQg0KC19zdGFydEZyYW1lQgsKCV9lbmRGcmFtZSJAChNSZXBhaXJG",
-            "cmFtZVJlc3BvbnNlEikKDHJlcGFpckZyYW1lcxgBIAMoCzITLkMyQk5ldC5S",
-            "ZXBhaXJGcmFtZSJWCgtSZXBhaXJGcmFtZRISCgVmcmFtZRgBIAEoBUgAiAEB",
-            "EikKDGZyYW1lSGFuZGxlcxgCIAMoCzITLkMyQk5ldC5GcmFtZUhhbmRsZUII",
-            "CgZfZnJhbWUiPAoRTGl2ZUZyYW1lUmVzcG9uc2USJwoKbGl2ZUZyYW1lcxgB",
-            "IAMoCzITLkMyQk5ldC5SZXBhaXJGcmFtZWIGcHJvdG8z"));
+            "cxgFIAEoCzIZLkMyQk5ldC5IZWFydEJlYXRSZXNwb25zZUgEiAEBEjIKC2dh",
+            "bWVPdmVyUmVzGAYgASgLMhguQzJCTmV0LkdhbWVPdmVyUmVzcG9uc2VIBYgB",
+            "AUIRCg9fZnJhbWVIYW5kbGVSZXNCFAoSX3BlcmNlbnRGb3J3YXJkUmVzQhEK",
+            "D19yZXBhaXJGcmFtZVJlc0IPCg1fbGl2ZUZyYW1lUmVzQg8KDV9oZWFydEJl",
+            "YXRSZXNCDgoMX2dhbWVPdmVyUmVzIhIKEEhlYXJ0QmVhdFJlcXVlc3QiEwoR",
+            "SGVhcnRCZWF0UmVzcG9uc2UizgEKC0ZyYW1lSGFuZGxlEhMKBnVzZXJJZBgB",
+            "IAEoBUgAiAEBEhAKA29wdBgCIAEoBUgBiAEBEhcKCk9wcmV0aW9uSWQYAyAB",
+            "KAVIAogBARIWCglvcHRWYWx1ZTEYBCABKAVIA4gBARIWCglvcHRWYWx1ZTIY",
+            "BSABKAVIBIgBARIRCglvcHREZXRhaWwYBiADKAVCCQoHX3VzZXJJZEIGCgRf",
+            "b3B0Qg0KC19PcHJldGlvbklkQgwKCl9vcHRWYWx1ZTFCDAoKX29wdFZhbHVl",
+            "MiJeChNGcmFtZUhhbmRsZVJlc3BvbnNlEhIKBWZyYW1lGAEgASgFSACIAQES",
+            "KQoMZnJhbWVIYW5kbGVzGAIgAygLMhMuQzJCTmV0LkZyYW1lSGFuZGxlQggK",
+            "Bl9mcmFtZSJjChZGcmFtZUhhbmRsZXNGcm9tQ2xpZW50EhMKBnVzZXJJZBgB",
+            "IAEoBUgAiAEBEikKDGZyYW1lSGFuZGxlcxgCIAMoCzITLkMyQk5ldC5GcmFt",
+            "ZUhhbmRsZUIJCgdfdXNlcklkIlIKDlBlcmNlbnRGb3J3YXJkEhMKBnVzZXJJ",
+            "ZBgBIAEoBUgAiAEBEhQKB3BlcmNlbnQYAiABKAVIAYgBAUIJCgdfdXNlcklk",
+            "QgoKCF9wZXJjZW50IpYBChZQZXJjZW50Rm9yd2FyZFJlc3BvbnNlEjMKDnBl",
+            "cmNlbnRGb3J3YXJkGAEgASgLMhYuQzJCTmV0LlBlcmNlbnRGb3J3YXJkSACI",
+            "AQESHgoRYWxsVXNlckxvYWRTdWNlc3MYAiABKAhIAYgBAUIRCg9fcGVyY2Vu",
+            "dEZvcndhcmRCFAoSX2FsbFVzZXJMb2FkU3VjZXNzIhEKD0dhbWVPdmVyUmVx",
+            "dWVzdCISChBHYW1lT3ZlclJlc3BvbnNlImAKElJlcGFpckZyYW1lUmVxdWVz",
+            "dBIXCgpzdGFydEZyYW1lGAEgASgFSACIAQESFQoIZW5kRnJhbWUYAiABKAVI",
+            "AYgBAUINCgtfc3RhcnRGcmFtZUILCglfZW5kRnJhbWUiQAoTUmVwYWlyRnJh",
+            "bWVSZXNwb25zZRIpCgxyZXBhaXJGcmFtZXMYASADKAsyEy5DMkJOZXQuUmVw",
+            "YWlyRnJhbWUiVgoLUmVwYWlyRnJhbWUSEgoFZnJhbWUYASABKAVIAIgBARIp",
+            "CgxmcmFtZUhhbmRsZXMYAiADKAsyEy5DMkJOZXQuRnJhbWVIYW5kbGVCCAoG",
+            "X2ZyYW1lIjwKEUxpdmVGcmFtZVJlc3BvbnNlEicKCmxpdmVGcmFtZXMYASAD",
+            "KAsyEy5DMkJOZXQuUmVwYWlyRnJhbWVCAkgBYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::C2BNet.C2BNetMessage), global::C2BNet.C2BNetMessage.Parser, new[]{ "MessageType", "Request", "Response" }, new[]{ "Request", "Response" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::C2BNet.C2BNetMessageRequest), global::C2BNet.C2BNetMessageRequest.Parser, new[]{ "UserId", "FrameHandles", "PercentForward", "GameOverReq", "RepairFrameReq", "HeartBeatRequest" }, new[]{ "UserId", "FrameHandles", "PercentForward", "GameOverReq", "RepairFrameReq", "HeartBeatRequest" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::C2BNet.C2BNetMessageResponse), global::C2BNet.C2BNetMessageResponse.Parser, new[]{ "FrameHandleRes", "PercentForwardRes", "RepairFrameRes", "LiveFrameRes", "HeartBeatRes" }, new[]{ "FrameHandleRes", "PercentForwardRes", "RepairFrameRes", "LiveFrameRes", "HeartBeatRes" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::C2BNet.C2BNetMessageResponse), global::C2BNet.C2BNetMessageResponse.Parser, new[]{ "FrameHandleRes", "PercentForwardRes", "RepairFrameRes", "LiveFrameRes", "HeartBeatRes", "GameOverRes" }, new[]{ "FrameHandleRes", "PercentForwardRes", "RepairFrameRes", "LiveFrameRes", "HeartBeatRes", "GameOverRes" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::C2BNet.HeartBeatRequest), global::C2BNet.HeartBeatRequest.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::C2BNet.HeartBeatResponse), global::C2BNet.HeartBeatResponse.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::C2BNet.FrameHandle), global::C2BNet.FrameHandle.Parser, new[]{ "UserId", "Opt", "OpretionId", "OptValue1", "OptValue2", "OptDetail" }, new[]{ "UserId", "Opt", "OpretionId", "OptValue1", "OptValue2" }, null, null, null),
@@ -84,6 +86,7 @@ namespace C2BNet {
             new pbr::GeneratedClrTypeInfo(typeof(global::C2BNet.PercentForward), global::C2BNet.PercentForward.Parser, new[]{ "UserId", "Percent" }, new[]{ "UserId", "Percent" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::C2BNet.PercentForwardResponse), global::C2BNet.PercentForwardResponse.Parser, new[]{ "PercentForward", "AllUserLoadSucess" }, new[]{ "PercentForward", "AllUserLoadSucess" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::C2BNet.GameOverRequest), global::C2BNet.GameOverRequest.Parser, null, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::C2BNet.GameOverResponse), global::C2BNet.GameOverResponse.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::C2BNet.RepairFrameRequest), global::C2BNet.RepairFrameRequest.Parser, new[]{ "StartFrame", "EndFrame" }, new[]{ "StartFrame", "EndFrame" }, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::C2BNet.RepairFrameResponse), global::C2BNet.RepairFrameResponse.Parser, new[]{ "RepairFrames" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::C2BNet.RepairFrame), global::C2BNet.RepairFrame.Parser, new[]{ "Frame", "FrameHandles" }, new[]{ "Frame" }, null, null, null),
@@ -837,6 +840,7 @@ namespace C2BNet {
       repairFrameRes_ = other.repairFrameRes_ != null ? other.repairFrameRes_.Clone() : null;
       liveFrameRes_ = other.liveFrameRes_ != null ? other.liveFrameRes_.Clone() : null;
       heartBeatRes_ = other.heartBeatRes_ != null ? other.heartBeatRes_.Clone() : null;
+      gameOverRes_ = other.gameOverRes_ != null ? other.gameOverRes_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -906,6 +910,18 @@ namespace C2BNet {
       }
     }
 
+    /// <summary>Field number for the "gameOverRes" field.</summary>
+    public const int GameOverResFieldNumber = 6;
+    private global::C2BNet.GameOverResponse gameOverRes_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::C2BNet.GameOverResponse GameOverRes {
+      get { return gameOverRes_; }
+      set {
+        gameOverRes_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override bool Equals(object other) {
@@ -926,6 +942,7 @@ namespace C2BNet {
       if (!object.Equals(RepairFrameRes, other.RepairFrameRes)) return false;
       if (!object.Equals(LiveFrameRes, other.LiveFrameRes)) return false;
       if (!object.Equals(HeartBeatRes, other.HeartBeatRes)) return false;
+      if (!object.Equals(GameOverRes, other.GameOverRes)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -938,6 +955,7 @@ namespace C2BNet {
       if (repairFrameRes_ != null) hash ^= RepairFrameRes.GetHashCode();
       if (liveFrameRes_ != null) hash ^= LiveFrameRes.GetHashCode();
       if (heartBeatRes_ != null) hash ^= HeartBeatRes.GetHashCode();
+      if (gameOverRes_ != null) hash ^= GameOverRes.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -976,6 +994,10 @@ namespace C2BNet {
         output.WriteRawTag(42);
         output.WriteMessage(HeartBeatRes);
       }
+      if (gameOverRes_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(GameOverRes);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -1006,6 +1028,10 @@ namespace C2BNet {
         output.WriteRawTag(42);
         output.WriteMessage(HeartBeatRes);
       }
+      if (gameOverRes_ != null) {
+        output.WriteRawTag(50);
+        output.WriteMessage(GameOverRes);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -1030,6 +1056,9 @@ namespace C2BNet {
       }
       if (heartBeatRes_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(HeartBeatRes);
+      }
+      if (gameOverRes_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(GameOverRes);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1072,6 +1101,12 @@ namespace C2BNet {
           HeartBeatRes = new global::C2BNet.HeartBeatResponse();
         }
         HeartBeatRes.MergeFrom(other.HeartBeatRes);
+      }
+      if (other.gameOverRes_ != null) {
+        if (gameOverRes_ == null) {
+          GameOverRes = new global::C2BNet.GameOverResponse();
+        }
+        GameOverRes.MergeFrom(other.GameOverRes);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1123,6 +1158,13 @@ namespace C2BNet {
             input.ReadMessage(HeartBeatRes);
             break;
           }
+          case 50: {
+            if (gameOverRes_ == null) {
+              GameOverRes = new global::C2BNet.GameOverResponse();
+            }
+            input.ReadMessage(GameOverRes);
+            break;
+          }
         }
       }
     #endif
@@ -1171,6 +1213,13 @@ namespace C2BNet {
               HeartBeatRes = new global::C2BNet.HeartBeatResponse();
             }
             input.ReadMessage(HeartBeatRes);
+            break;
+          }
+          case 50: {
+            if (gameOverRes_ == null) {
+              GameOverRes = new global::C2BNet.GameOverResponse();
+            }
+            input.ReadMessage(GameOverRes);
             break;
           }
         }
@@ -1594,9 +1643,6 @@ namespace C2BNet {
     /// <summary>Field number for the "OpretionId" field.</summary>
     public const int OpretionIdFieldNumber = 3;
     private int opretionId_;
-    /// <summary>
-    ///operation seq
-    /// </summary>
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int OpretionId {
@@ -3074,6 +3120,158 @@ namespace C2BNet {
 
   }
 
+  public sealed partial class GameOverResponse : pb::IMessage<GameOverResponse>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<GameOverResponse> _parser = new pb::MessageParser<GameOverResponse>(() => new GameOverResponse());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<GameOverResponse> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::C2BNet.C2BNetMessageReflection.Descriptor.MessageTypes[11]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GameOverResponse() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GameOverResponse(GameOverResponse other) : this() {
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public GameOverResponse Clone() {
+      return new GameOverResponse(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as GameOverResponse);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(GameOverResponse other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(GameOverResponse other) {
+      if (other == null) {
+        return;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class RepairFrameRequest : pb::IMessage<RepairFrameRequest>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -3089,7 +3287,7 @@ namespace C2BNet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::C2BNet.C2BNetMessageReflection.Descriptor.MessageTypes[11]; }
+      get { return global::C2BNet.C2BNetMessageReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3348,7 +3546,7 @@ namespace C2BNet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::C2BNet.C2BNetMessageReflection.Descriptor.MessageTypes[12]; }
+      get { return global::C2BNet.C2BNetMessageReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3527,7 +3725,7 @@ namespace C2BNet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::C2BNet.C2BNetMessageReflection.Descriptor.MessageTypes[13]; }
+      get { return global::C2BNet.C2BNetMessageReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3762,7 +3960,7 @@ namespace C2BNet {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::C2BNet.C2BNetMessageReflection.Descriptor.MessageTypes[14]; }
+      get { return global::C2BNet.C2BNetMessageReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

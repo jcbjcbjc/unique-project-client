@@ -36,6 +36,7 @@ namespace NetWork
             eventSystem.AddListener<OutRoomResponse>(EEvent.OnOutRoom, this.OnOutRoom);
             eventSystem.AddListener<AddLiveResponse>(EEvent.OnAddLiveResponse, this.OnAddLiveResponse);
             eventSystem.AddListener<ValidateOpenRoomResponse>(EEvent.OnValidateOpenRoom, this.OnValidateOpenRoom);
+            eventSystem.AddListener(EEvent.OnGameOver2,this.OnGameOver2);
         }
         /**
         * 请求我的房间
@@ -373,6 +374,10 @@ namespace NetWork
 
             NetGameClient.GetInstance().SendMessage(Net);
             LogUtil.log("SendGameOver2");
+        }
+
+        public void OnGameOver2() {
+            LogUtil.log("GameOver2");
         }
 
         /**

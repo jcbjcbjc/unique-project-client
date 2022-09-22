@@ -54,7 +54,7 @@ namespace UI
             {  //对局模式
                //上传加载进度，需要等所有用户资源都加载完成
                 timer.OnComplete += (x) =>
-                 {
+                {
                     //console.log('uploadProgress percent_=' + this_.percent_)
                     ServiceLocator.Get<GameLogicService>().SendPercentForward(this.percent_);
                      
@@ -62,7 +62,7 @@ namespace UI
                      {
                          this.percent_ += 20;
                      }
-                 };
+                };
                 timer.Initialize(0.5f);
             }
             else if (GameData.battleMode == BattleMode.Live)
@@ -77,7 +77,7 @@ namespace UI
 
         private void OnPercentForward(PercentForwardResponse response)
         {
-            LogUtil.log("OnPercentForward:{0} [{1}]", response.PercentForward ,response.AllUserLoadSucess);
+            //LogUtil.log("OnPercentForward:{0} [{1}]", response.PercentForward ,response.AllUserLoadSucess);
             var userId = response.PercentForward.UserId;
             var percent = response.PercentForward.Percent;
 
