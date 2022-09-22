@@ -11,7 +11,7 @@ namespace GameLogic
         List<Character> characterList_ = new List<Character>();
 
         public void CreateCharacter() {
-            LogUtil.log("create");
+           
             AddCharacter(new Character());
         }
         public void AddCharacter(Character character) {

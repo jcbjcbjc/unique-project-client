@@ -89,7 +89,6 @@ namespace UI
                 this.isGoToBattleScene = true;
 
                 LogUtil.log("跳转战斗场景");
-
                 ServiceLocator.Get<GameLogicManager>().init();
 
                 CloseUIForm();
@@ -128,6 +127,8 @@ namespace UI
             {
                 timer.Paused = true;
             }
+            percent_ = 0;
+            isGoToBattleScene = false;
             base.CloseUIForm();
 
         }

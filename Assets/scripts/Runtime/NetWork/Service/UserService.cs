@@ -81,6 +81,7 @@ namespace NetWork
         public void SendBattleHeartBeat()
         {
             LogUtil.log("HeartBeatRequest");
+
             var userId = ServiceLocator.Get<User>().user.Id;
             C2BNetMessage message = new C2BNetMessage
             {
