@@ -77,7 +77,7 @@ namespace NetWork
         */
         public void SendGameOver()
         {
-            //LogUtil.log("SendGameOver");
+            LogUtil.log("SendGameOver");
             var userId = ServiceLocator.Get<User>().user.Id;
             var Net = new C2BNetMessage
             {
@@ -89,8 +89,6 @@ namespace NetWork
             };
 
             NetBattleClient.GetInstance().SendMessage(Net);
-
-
         }
 
         /**

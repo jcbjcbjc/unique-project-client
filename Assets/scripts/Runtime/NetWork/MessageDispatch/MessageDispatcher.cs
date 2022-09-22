@@ -7,6 +7,7 @@ using C2BNet;
 using C2GNet;
 using System;
 using Services;
+using Assets.scripts.Utils;
 
 public class MessageDispatcher : Service
 {
@@ -50,14 +51,14 @@ public class MessageDispatcher : Service
                     C2BNetMessageResponse message = msg.C2B_NetMessage.Response;
 
                     //Õ½¶··þ
-
+                    
                     if (message.RepairFrameRes != null)
                     {
                         eventSystem.Invoke(EEvent.OnRepairFrame, message.RepairFrameRes);
-                        
                     }
                     if (message.FrameHandleRes != null)
                     {
+                        
                         eventSystem.Invoke(EEvent.OnFrameHandle, message.FrameHandleRes);
                     }
                     if (message.PercentForwardRes != null)
@@ -99,6 +100,9 @@ public class MessageDispatcher : Service
                     if (messag.SwitchCharacterRes != null)
                     {
                         eventSystem.Invoke(EEvent.OnSwitchCharacter, messag.SwitchCharacterRes);
+                    }
+                    if (messag.GameOver2Res != null) {
+                        eventSystem.Invoke(EEvent.OnGameOver2,messag.GameOver2Res);
                     }
                     //if (messag.AttrPromote != null)
                     //{

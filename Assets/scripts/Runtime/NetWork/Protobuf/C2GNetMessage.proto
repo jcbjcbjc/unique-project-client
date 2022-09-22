@@ -1,4 +1,5 @@
 syntax = "proto3";
+option optimize_for = SPEED;
 
 package C2GNet;
 
@@ -156,7 +157,7 @@ message NetMessageResponse{
     optional CharacterDetailResponse characterDetail = 3;
     optional UpdateNickNameResponse updateNickName = 4;
     optional FollowResponse followRes = 8;
-
+	optional GameOver2Response gameOver2Res=9;
     optional UnLockResponse unLockRes = 10;
     optional SwitchCharacterResponse switchCharacterRes=11;
     optional UserStatusChangeResponse userStatusChangeRes=13;
@@ -509,6 +510,9 @@ message MatchResponse{
 message GameOver2Request{
 	optional  string ipPortStr = 1;
   
+}
+message GameOver2Response{
+	
 }
 
 //进入直播请求

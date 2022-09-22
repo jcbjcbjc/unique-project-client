@@ -31,6 +31,7 @@ namespace Assets.scripts
             NetBattleClient.GetInstance().Init();
 
             UIManager.GetInstance().ShowUIForms("UIMain");
+            UIManager.GetInstance().ShowUIForms("GameOverPanel");
         }
 
         public bool Close() {
