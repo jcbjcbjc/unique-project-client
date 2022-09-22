@@ -30,6 +30,7 @@ public class MessageDispatcher : Service
             if (msgList.Count > 0)
             {
                 Dispatch(msgList[0]);
+
                 lock (msgList)
                 {
                     msgList.RemoveAt(0);

@@ -41,9 +41,14 @@ namespace GameLogic
             base.AfterInitailize();
             eventSystem = ServiceLocator.Get<EventSystem>();
         }
-        
+
 
         // public isRecProFlag:boolean = true; //是否恢复进度中
+
+        public void Update()
+        {
+            updateLogic();
+        }
 
         public void updateLogic()
         {
@@ -290,10 +295,10 @@ namespace GameLogic
         */
         private int GetEndFrameId(int startFrameId)
         {
-            var frameIds = GameData.allFrameHandles.Keys;
-           
-           
-            return frameIds.Max();
+            if (GameData.allFrameHandles.Count != 0) {
+                return GameData.allFrameHandles.Keys.Max();
+            }
+            return 0;
         }
 
 
