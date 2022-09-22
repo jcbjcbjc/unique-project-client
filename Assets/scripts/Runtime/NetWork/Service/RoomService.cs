@@ -377,6 +377,7 @@ namespace NetWork
         }
 
         public void OnGameOver2() {
+            NetBattleClient.GetInstance().Close();
             LogUtil.log("GameOver2");
         }
 

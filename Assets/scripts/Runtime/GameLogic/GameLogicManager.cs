@@ -72,6 +72,8 @@ namespace GameLogic
             eventSystem.AddListener<LiveFrameResponse>(EEvent.OnLiveFrame, this.OnLiveFrame);
             eventSystem.AddListener<FrameHandle>(EEvent.OnAddOptClient, this.AddPlayerOpt);
 
+            gameLogic_ = new GameCoreLogic();
+
             entityManager_ = new EntityManager();
             characterManager_=new CharacterManager();
             gameLogic_.Init(characterManager_, entityManager_);
@@ -81,12 +83,11 @@ namespace GameLogic
 
             ////////////////////////////////////////////////////////////////////////////////////////////
 
-            UIGameLoadIn uIGameLoadIn= (UIGameLoadIn)UIManager.GetInstance() .ShowUIForms("");
+            UIGameLoadIn uIGameLoadIn= (UIGameLoadIn)UIManager.GetInstance().ShowUIForms("UIGameLoadIn");
             uIGameLoadIn.SetMsg("游戏拼命加载中...");
             
           
-            characterManager_.CreateCharacter(); 
-
+            characterManager_.CreateCharacter();
 
             // change the GameData
             GameData.gameStatus = GameStatus.GameIn;
