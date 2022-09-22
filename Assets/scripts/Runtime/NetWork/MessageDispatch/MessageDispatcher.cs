@@ -102,7 +102,7 @@ public class MessageDispatcher : Service
                         eventSystem.Invoke(EEvent.OnSwitchCharacter, messag.SwitchCharacterRes);
                     }
                     if (messag.GameOver2Res != null) {
-                        eventSystem.Invoke(EEvent.OnGameOver2,messag.GameOver2Res);
+                        eventSystem.Invoke(EEvent.OnGameOver2);
                     }
                     //if (messag.AttrPromote != null)
                     //{
