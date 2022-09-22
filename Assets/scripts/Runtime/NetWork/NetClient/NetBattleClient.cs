@@ -168,7 +168,7 @@ namespace NetWork
 			try
 			{
 
-				//if (timerTask1 != null) { timerTask1.Stop(); }
+				if (timerTask1 != null) { timerTask1.Paused=true; }
 
 				TcpSocket.Close();
 			}

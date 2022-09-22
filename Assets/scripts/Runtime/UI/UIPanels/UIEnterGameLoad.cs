@@ -89,7 +89,6 @@ namespace UI
                 this.isGoToBattleScene = true;
 
                 LogUtil.log("跳转战斗场景");
-                //Scene_Manager.Load(1); //跳转战斗场景
 
                 ServiceLocator.Get<GameLogicManager>().init();
 
