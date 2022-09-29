@@ -244,7 +244,7 @@ namespace GameLogic
             //update executeFrameId
             GameData.executeFrameId = frameId;
 
-
+            LogUtil.log("1     ",frameId);
 
             //update
             gameLogic_.update(frameHandles);
