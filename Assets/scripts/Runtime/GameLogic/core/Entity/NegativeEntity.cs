@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameLogic
 {
-    public class Entity{
-
+    public class NegativeEntity:Entity
+    {
     }
 }

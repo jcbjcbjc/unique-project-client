@@ -33,6 +33,12 @@ namespace Services
             AfterInitailize();
         }
 
+        public void Init()
+        {
+            GetOtherService();
+            AfterInitailize();
+        }
+
         internal void GetOtherService()
         {
             static T GetAttribute<T>(MemberInfo member, bool inherit = false) where T : Attribute

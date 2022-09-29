@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace GameLogic
 {
-    public class EntityController
-{
-}
+    public enum EntityType
+    {
+        Character,
+    }
 }
