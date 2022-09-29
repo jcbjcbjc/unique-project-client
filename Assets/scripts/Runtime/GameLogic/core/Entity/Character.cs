@@ -9,13 +9,14 @@ using C2BNet;
 
 namespace GameLogic
 {
-    public  class Character:Entity
+    public  class Character:LiveEntity
     {
         public NUser user;
         int userid;
         string nickname;
         int teamid;
         int cCharacterId;
+
 
         public int Userid
         {

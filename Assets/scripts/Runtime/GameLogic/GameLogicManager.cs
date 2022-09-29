@@ -61,6 +61,9 @@ namespace GameLogic
             if(handleFrameTimer!=null) handleFrameTimer.Paused=true;
             if(recordUserTimer!=null) recordUserTimer.Paused = true;
 
+            ServiceLocator.UnRegister(entityManager_);
+            ServiceLocator.UnRegister(characterManager_);
+
             GameData.release();
            
             eventSystem.RemoveListener<FrameHandleResponse>(EEvent.OnFrameHandle, this.OnFrameHandle);
@@ -77,14 +80,19 @@ namespace GameLogic
             eventSystem.AddListener<LiveFrameResponse>(EEvent.OnLiveFrame, this.OnLiveFrame);
             eventSystem.AddListener<FrameHandle>(EEvent.OnAddOptClient, this.AddPlayerOpt);
 
-            gameLogic_ = new GameCoreLogic();
-
             entityManager_ = new EntityManager();
             characterManager_=new CharacterManager();
-            gameLogic_.Init(characterManager_, entityManager_);
+
+            ServiceLocator.RegisterAndInit(entityManager_);
+            ServiceLocator.RegisterAndInit(characterManager_);
+
+
 
             handleFrameTimer = new Metronome();
             recordUserTimer=new Metronome();
+
+
+            gameLogic_ = new GameCoreLogic();
 
             ////////////////////////////////////////////////////////////////////////////////////////////
 

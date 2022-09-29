@@ -8,19 +8,12 @@ using Managers;
 using C2BNet;
 using UnityEngine;
 using static Assets.scripts.Utils.enums.BattleModeEnum;
+using Services;
 
 namespace GameLogic
 {
     public class GameCoreLogic
     {
-        CharacterManager characterManager_;
-        EntityManager entityManager_;
-
-        public void Init(CharacterManager characterManager, EntityManager entityManager) { 
-            this.characterManager_ = characterManager;
-            this.entityManager_ = entityManager;
-        }
-
         public void update(IList<FrameHandle> frameHandles)
         {
             updateLogic(frameHandles);
@@ -29,7 +22,7 @@ namespace GameLogic
         {
             recordLastPos();
 
-            var characterList = characterManager_.GetCharacterList();
+            var characterList = ServiceLocator.Get<CharacterManager>().GetCharacterList();
 
             //foreach (FrameHandle fh in frameHandles)
             //{

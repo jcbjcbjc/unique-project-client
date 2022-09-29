@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Assets.scripts.Utils;
+using Services;
+
 namespace GameLogic
 {
-    public class CharacterManager 
+    public class CharacterManager :Service
     {
         List<Character> characterList_ = new List<Character>();
 
