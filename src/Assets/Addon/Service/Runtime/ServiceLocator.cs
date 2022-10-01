@@ -37,29 +37,30 @@ namespace Services
             else
                 serviceDict.Add(type, service);
         }
-        internal static void UnRegister(Service service) { 
-            Type type = service.GetType();
-            if (serviceDict.ContainsKey(type))
-            {
-                serviceDict.Remove(type);
-                service = null;
-            }
-            else {
-                Debug.LogWarning($"服务引用的脚本不存在，服务类型为{type}");
-            }
-        }
 
-        internal static void RegisterAndInit(Service service) {
-            Type type = service.GetType();
-            if (serviceDict.ContainsKey(type))
-            {
-                Debug.LogWarning($"服务引用的脚本被修改了，服务类型为{type}");
-                serviceDict[type] = service;
-            }
-            else
-                serviceDict.Add(type, service);
+        //internal static void UnRegister(Service service) { 
+        //    Type type = service.GetType();
+        //    if (serviceDict.ContainsKey(type))
+        //    {
+        //        serviceDict.Remove(type);
+        //        service = null;
+        //    }
+        //    else {
+        //        Debug.LogWarning($"服务引用的脚本不存在，服务类型为{type}");
+        //    }
+        //}
 
-            service.Init();
-        }
+        //internal static void RegisterAndInit(Service service) {
+        //    Type type = service.GetType();
+        //    if (serviceDict.ContainsKey(type))
+        //    {
+        //        Debug.LogWarning($"服务引用的脚本被修改了，服务类型为{type}");
+        //        serviceDict[type] = service;
+        //    }
+        //    else
+        //        serviceDict.Add(type, service);
+
+        //    service.Init();
+        //}
     }
 }

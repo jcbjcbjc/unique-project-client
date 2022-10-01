@@ -10,9 +10,9 @@ namespace Assets.scripts.Utils
 {
     public class LogUtil
     {
-        public static void log(string v, object obj=null,object oo=null)
+        public static void log(string v, object obj=null,object oo=null,object ss=null)
         {
-            Debug.Log(v+obj+oo);
+            Debug.Log(v+obj+oo+ss);
         }
     }
 }

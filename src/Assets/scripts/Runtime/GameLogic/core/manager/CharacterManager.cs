@@ -33,18 +33,22 @@ namespace GameLogic
             }
         }
         public void CreateCharacter(RoomUser roomUser,int index) {
-            Character character = new Character();
+
+            //这里创造角色的方法是错误的应该加载物体再获取脚本
+            //Character character = new Character();
 
 
+            //这里是正确的获取了脚本之后加上
+            //character.Userid = roomUser.UserId;
+            //character.Nickname = roomUser.NickName;
+            //character.Teamid = roomUser.TeamId;
+            //character.CCharacterId = roomUser.CCharacterId;
+            //character.Positionid = index;
 
-
-            character.Userid = roomUser.UserId;
-            character.Nickname = roomUser.NickName;
-            character.Teamid = roomUser.TeamId;
-            character.CCharacterId = roomUser.CCharacterId;
-            character.Positionid = index;
+            LogUtil.log("生成角色的队伍号是", roomUser.TeamId,"角色的userid是",roomUser.UserId);
  
-            AddCharacter(character);
+            //正确的
+            //AddCharacter(character);
         }
 
 
