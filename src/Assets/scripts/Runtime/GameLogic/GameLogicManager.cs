@@ -24,8 +24,6 @@ namespace GameLogic
 {
     public class GameLogicManager:Service
     {
-        EntityManager entityManager_;
-        CharacterManager characterManager_;
         GameCoreLogic gameLogic_;
 
 
@@ -61,9 +59,6 @@ namespace GameLogic
             if(handleFrameTimer!=null) handleFrameTimer.Paused=true;
             if(recordUserTimer!=null) recordUserTimer.Paused = true;
 
-            ServiceLocator.UnRegister(entityManager_);
-            ServiceLocator.UnRegister(characterManager_);
-
             GameData.release();
            
             eventSystem.RemoveListener<FrameHandleResponse>(EEvent.OnFrameHandle, this.OnFrameHandle);
@@ -80,13 +75,6 @@ namespace GameLogic
             eventSystem.AddListener<LiveFrameResponse>(EEvent.OnLiveFrame, this.OnLiveFrame);
             eventSystem.AddListener<FrameHandle>(EEvent.OnAddOptClient, this.AddPlayerOpt);
 
-            entityManager_ = new EntityManager();
-            characterManager_=new CharacterManager();
-
-            ServiceLocator.RegisterAndInit(entityManager_);
-            ServiceLocator.RegisterAndInit(characterManager_);
-
-
 
             handleFrameTimer = new Metronome();
             recordUserTimer=new Metronome();
@@ -100,9 +88,10 @@ namespace GameLogic
             uIGameLoadIn.SetMsg("游戏拼命加载中...");
             
           
-            characterManager_.InitCharacters();
+           ServiceLocator.Get<CharacterManager>().InitCharacters();
 
             // change the GameData
+
             GameData.gameStatus = GameStatus.GameIn;
             GameData.isInGame = true;
 
