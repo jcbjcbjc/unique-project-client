@@ -41,7 +41,7 @@ namespace UI
             this.InitTeamUser(ServiceLocator.Get<User>().room);
 
             //连接到战斗服务器
-            var ipPortArr = ServiceLocator.Get<User>().room.IpPortStr.Split(":");
+            var ipPortArr = ServiceLocator.Get<User>().room.IpPortStr.Split(':');
             NetConfig.UdpIp = ipPortArr[0];
             NetConfig.UdpPort = int.Parse(ipPortArr[2]);
 
@@ -92,6 +92,7 @@ namespace UI
                 ServiceLocator.Get<GameLogicManager>().init();
 
                 CloseUIForm();
+
             }
         }
         /**
