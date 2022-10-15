@@ -83,7 +83,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4965653973887243722}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Assets.scripts.UI.UIPanels.UIMain, Assembly-CSharp
         m_MethodName: Match
         m_Mode: 1
@@ -143,7 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6498995391526277225}
   - component: {fileID: 6071370088767225771}
-  - component: {fileID: 4965653973887243722}
+  - component: {fileID: 1376032229099905057}
   m_Layer: 0
   m_Name: UIMain
   m_TagString: Untagged
@@ -180,7 +180,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6368678117197119678}
   m_CullTransparentMesh: 1
---- !u!114 &4965653973887243722
+--- !u!114 &1376032229099905057
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -189,6 +189,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6368678117197119678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89e1feadd10384a4c80e431a2c8042e9, type: 3}
+  m_Script: {fileID: 11500000, guid: 818332e65540fc34996e23e1816d7b61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

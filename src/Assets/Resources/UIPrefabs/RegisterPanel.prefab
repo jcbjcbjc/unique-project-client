@@ -534,7 +534,7 @@ GameObject:
   - component: {fileID: 5653332586553761175}
   - component: {fileID: 5545606453957885953}
   - component: {fileID: 5638946090125226255}
-  - component: {fileID: 5545844832792368755}
+  - component: {fileID: 3319358693654119985}
   m_Layer: 5
   m_Name: RegisterPanel
   m_TagString: Untagged
@@ -620,7 +620,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &5545844832792368755
+--- !u!114 &3319358693654119985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -629,7 +629,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5577138144900431759}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99e63f9efa620d94ca05c72659da9c6c, type: 3}
+  m_Script: {fileID: 11500000, guid: b89cc68f645174e48ba5edb85d77249d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5577180123715200251

@@ -294,7 +294,7 @@ GameObject:
   - component: {fileID: 4355909114624656593}
   - component: {fileID: 4535138291414220619}
   - component: {fileID: 4343405686716984069}
-  - component: {fileID: 4535609398423822681}
+  - component: {fileID: 8717591930906057590}
   m_Layer: 5
   m_Name: RoomListPanel
   m_TagString: Untagged
@@ -376,7 +376,7 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &4535609398423822681
+--- !u!114 &8717591930906057590
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4567495748617248585}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a57b2a9db23654e44b083778f570fd4d, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ccc0623ef3f0ec4b8970bf68a7bd844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4567579471165954723

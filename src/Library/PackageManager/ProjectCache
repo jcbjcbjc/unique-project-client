@@ -95,6 +95,7 @@ m_ResolvedPackages:
     - 1.17.0
     - 1.17.1
     - 1.17.2
+    - 1.17.6
     - 2.0.0-preview.6
     - 2.0.0-preview.8
     - 2.0.0-preview.15
@@ -118,6 +119,7 @@ m_ResolvedPackages:
     - 1.17.0
     - 1.17.1
     - 1.17.2
+    - 1.17.6
     - 2.0.0-preview.6
     - 2.0.0-preview.8
     - 2.0.0-preview.15
@@ -228,6 +230,7 @@ m_ResolvedPackages:
     - 3.0.13
     - 3.0.14
     - 3.0.15
+    - 3.0.16
     compatible:
     - 3.0.7
     - 3.0.9
@@ -236,7 +239,8 @@ m_ResolvedPackages:
     - 3.0.13
     - 3.0.14
     - 3.0.15
-    verified: 3.0.15
+    - 3.0.16
+    verified: 3.0.16
   dependencies:
   - name: com.unity.ext.nunit
     version: 1.0.6
