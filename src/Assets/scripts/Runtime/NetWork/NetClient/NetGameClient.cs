@@ -143,11 +143,23 @@ namespace NetWork
 		{
 			try
 			{
-				
-				byte[] buffer = msg.ToByteArray();
+				byte[] message;
+				using (MemoryStream stream = new MemoryStream())
+				{
+					msg.WriteTo(stream);
+					message = stream.ToArray();
+				}
+
+				MemoryStream temp = new MemoryStream();
+				CodedOutputStream os = new CodedOutputStream(temp);
+				os.WriteInt32((int)message.Length);
+				msg.WriteTo(os);
+				os.Flush();
+
+				byte[] buffer = temp.ToArray();
 
 				return TcpSocket.Send(buffer);
-            }
+			}
 			catch (Exception ex)
 			{
 				if (Connected == false)

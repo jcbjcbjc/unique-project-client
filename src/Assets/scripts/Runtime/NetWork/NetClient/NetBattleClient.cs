@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Net.Sockets;
 using UnityEngine;
-
 using static MessageDispatcher;
 using C2BNet;
-
-using Assets.scripts.Utils;
-
-using System.IO;
 using Google.Protobuf;
+using Assets.scripts.Utils;
+using System.IO;
 using Services;
 using MyTimer;
 /// <summary>
@@ -132,20 +129,32 @@ namespace NetWork
 				{
 					Debug.Log("服务端断开了连接请检查网络是否连接或重启客户端，原因：" + ex.Message);
 				}
+
 				else
 				{
 					Debug.Log("无法接收消息：" + ex.Message);
 				}
 			}
 		}
-
 		public int SendMessage(C2BNetMessage msg)
 		{
 			try
 			{
+				byte[] message;
+				using (MemoryStream stream = new MemoryStream())
+				{
+					msg.WriteTo(stream);
+					message = stream.ToArray();
+				}
 
-				byte[] buffer = msg.ToByteArray();
+				MemoryStream temp = new MemoryStream();
+				CodedOutputStream os =new CodedOutputStream(temp);
+				os.WriteInt32((int)message.Length);
+				msg.WriteTo(os);
+				os.Flush();
 
+				byte[] buffer = temp.ToArray();
+				
 				return TcpSocket.Send(buffer);
 			}
 			catch (Exception ex)

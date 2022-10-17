@@ -121,8 +121,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2420835486366888781}
-        m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
+      - m_Target: {fileID: 1601541230773035845}
+        m_TargetAssemblyTypeName: UI.GameOver, Assembly-CSharp
         m_MethodName: OnClickReturn
         m_Mode: 1
         m_Arguments:
@@ -142,9 +142,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3055135964791390429}
-  - component: {fileID: 2420835486366888781}
   - component: {fileID: 897125695533032969}
   - component: {fileID: 6233679052251273926}
+  - component: {fileID: 1601541230773035845}
   m_Layer: 5
   m_Name: GameOverPanel
   m_TagString: Untagged
@@ -173,20 +173,6 @@ RectTransform:
   m_AnchoredPosition: {x: -1.9, y: 0.2}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2420835486366888781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3055135964791390428}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb7c67d9c2327504e8814727cbe41116, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ReturnRoom: {fileID: 0}
-  QuitButton: {fileID: 0}
 --- !u!225 &897125695533032969
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -207,3 +193,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3055135964791390428}
   m_CullTransparentMesh: 1
+--- !u!114 &1601541230773035845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3055135964791390428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd71d0c91a6f8a4881a1050288b72af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReturnRoom: {fileID: 3055135964424508386}
+  QuitButton: {fileID: 0}

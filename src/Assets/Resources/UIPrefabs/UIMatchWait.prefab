@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1110157554441847964}
-  - component: {fileID: 8766033325963071791}
+  - component: {fileID: 3382336349555401950}
   m_Layer: 0
   m_Name: UIMatchWait
   m_TagString: Untagged
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8766033325963071791
+--- !u!114 &3382336349555401950
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,6 +41,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1148537039682790578}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c0626909408ab94982e42bddaa6391b, type: 3}
+  m_Script: {fileID: 11500000, guid: d39ec8aecf454fe479f2826110dd23d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
