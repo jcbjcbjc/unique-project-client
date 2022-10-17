@@ -25,13 +25,11 @@ public class Capture : MonoBehaviour
             var frameHandle = new FrameHandle
             {
                 UserId = ServiceLocator.Get<User>().NUser.Id,
-                Opt = 1,
                 OpretionId = 1,
-                OptValue1 = 1
+                OptValue1 = (int)Mathf.Round(hor),
+                OptValue2 = (int)Mathf.Round(ver)
             };
             eventSystem_.Invoke<FrameHandle>(EEvent.OnAddOptClient, frameHandle);
-            ver = 0;
-            hor = 0;
         }
     }
 }

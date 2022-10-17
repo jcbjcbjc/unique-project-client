@@ -13,8 +13,6 @@ namespace Assets.scripts.Utils
         public static void log(string v, object obj=null,object oo=null,object ss=null)
         {
             Debug.Log(v+obj+oo+ss);
-
-
         }
     }
 }

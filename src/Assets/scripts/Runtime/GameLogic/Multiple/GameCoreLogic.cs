@@ -10,16 +10,17 @@ using UnityEngine;
 using static Assets.scripts.Utils.enums.BattleModeEnum;
 using Services;
 using NetWork;
+using Assets.scripts.Utils;
 
 namespace GameLogic
 {
     public class GameCoreLogic
     {
-        public void update(IList<FrameHandle> frameHandles)
+        public void update(int frameId,IList<FrameHandle> frameHandles)
         {
-            updateLogic(frameHandles);
+            updateLogic(frameId,frameHandles);
         }
-        private void updateLogic(IList<FrameHandle> frameHandles)
+        private void updateLogic(int frameId,IList<FrameHandle> frameHandles)
         {
             recordLastPos();
 
@@ -41,6 +42,8 @@ namespace GameLogic
             //        }
             //    }
             //}
+
+       
 
 
             foreach (var character in characterList)

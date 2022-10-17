@@ -179,6 +179,7 @@ namespace GameLogic
             }
             if (!GameData.allFrameHandles.ContainsKey(frameId))
             {
+                LogUtil.log("1          ", response.FrameHandles, frameId);
                 GameData.allFrameHandles.Add(frameId, response.FrameHandles);//收到帧保存起来
             }
         }
@@ -205,7 +206,7 @@ namespace GameLogic
         }
 
         private void OnRepairFrame(RepairFrameResponse response)  {
-            // console.log("OnRepairFrame:{0}", JSON.stringify(response.repairFrames));
+            LogUtil.log("我要补帧了     ");
             foreach (RepairFrame repairFrame in response.RepairFrames) {
                 if (!GameData.allFrameHandles.ContainsKey(repairFrame.Frame)) {
                     GameData.allFrameHandles.Add(repairFrame.Frame, repairFrame.FrameHandles);
@@ -241,10 +242,10 @@ namespace GameLogic
             //update executeFrameId
             GameData.executeFrameId = frameId;
 
-            LogUtil.log("1     ",frameId);
+            //LogUtil.log("1     ",frameId);
 
             //update
-            gameLogic_.update(frameHandles);
+            gameLogic_.update(frameId,frameHandles);
 
 
 

@@ -143,6 +143,7 @@ namespace NetWork
             if (response.Result == Result.Success)
             {//登陆成功逻辑
                 Debug.Log("登陆成功逻辑");
+
                 ServiceLocator.Get<User>().isLogin = true;
                 ServiceLocator.Get<User>().user = response.User;
 

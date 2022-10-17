@@ -29,7 +29,7 @@ namespace NetWork
 
         public void SendFrameHandle(FrameHandlesFromClient frameHandles)
         {
-            LogUtil.log("SendFrameHandle",frameHandles);
+            //LogUtil.log("SendFrameHandle",frameHandles);
             var userId = ServiceLocator.Get<User>().user.Id;
 
             frameHandles.UserId=userId ;
