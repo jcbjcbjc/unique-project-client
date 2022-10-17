@@ -10,8 +10,9 @@
  - 然后打开0场景开始游戏，右侧按钮为匹配，左侧为退出游戏，在两个客户端上按下匹配按钮等待10s左右,会出现物体，**等帧数开始跑之后**按wsad即可使物体同步移动
  
  ### 3 效果图 
-![Y Q`1XI(TTK8})RKSAATC3D](https://user-images.githubusercontent.com/91889375/196090497-ef178c94-0f23-4894-b604-816181f18c09.png)
-![$}X`F3AF NG5JGD1T2_2{L3](https://user-images.githubusercontent.com/91889375/196090411-07f92d5f-7704-485b-86b0-2fafe2ebe5f0.png)
+![Y Q`1XI(TTK8})RKSAATC3D](https://user-images.githubusercontent.com/91889375/196090576-ec4a3566-15d0-4012-a3a4-88ea4e6a7a40.png)
+
+
 
  
  ### 4 主要技术栈
