@@ -7,9 +7,14 @@
  - 目前提供后端服务器进行测试ip和port已设定
  - 后端服务器地址为https://github.com/jcbjcbjc/Moba-Unique-Server
  - 在本地clone两个项目其中一个项目的账号和密码改为1234567891和1234567891现在默认的是123456789和123456789
- - 然后打开0场景开始游戏，右侧按钮为匹配，左侧为退出游戏，在两个客户端上按下匹配按钮等待10s左右,会出现物体，等帧数开始跑之后按wsad即可使物体同步移动
+ - 然后打开0场景开始游戏，右侧按钮为匹配，左侧为退出游戏，在两个客户端上按下匹配按钮等待10s左右,会出现物体，**等帧数开始跑之后**按wsad即可使物体同步移动
  
- ### 3 主要技术栈
+ ### 3 效果图 
+ ![Y Q`1XI(TTK8})RKSAATC3D](https://user-images.githubusercontent.com/91889375/196090404-1c81a158-6f04-4b44-b742-e3cf196b9e6f.png)
+![$}X`F3AF NG5JGD1T2_2{L3](https://user-images.githubusercontent.com/91889375/196090411-07f92d5f-7704-485b-86b0-2fafe2ebe5f0.png)
+
+ 
+ ### 4 主要技术栈
  游戏引擎：Unity
  网络框架：C# .net原生API  由事件驱动
  网络协议：基于UDP的可靠协议KCP
