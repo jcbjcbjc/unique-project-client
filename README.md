@@ -4,7 +4,7 @@
  a Client FrameWork Corresponding to Server FrameWork https://github.com/jcbjcbjc/Moba-Unique-Server
  
  ### 2 demo演示
- - **目前提供后端服务器进行测试ip和port已设定
+ - **目前提供后端服务器进行测试ip和port已设定**
  - 后端服务器地址为https://github.com/jcbjcbjc/Moba-Unique-Server
  - 在本地clone两个项目其中一个项目的账号和密码改为1234567891和1234567891现在默认的是123456789和123456789
  - 然后打开0场景开始游戏，右侧按钮为匹配，左侧为退出游戏，在两个客户端上按下匹配按钮等待10s左右,会出现物体，**等帧数开始跑之后**按wsad即可使物体同步移动
