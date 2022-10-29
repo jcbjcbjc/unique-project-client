@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading;
 using System.IO;
 
-namespace cocosocket4unity
+namespace KCP
 {
     /// <summary>
     /// kcp客戶端程序

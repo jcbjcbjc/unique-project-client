@@ -6,7 +6,7 @@ using System.Net.Sockets;
 using System.Net;
 using NetWork;
 
-namespace cocosocket4unity
+namespace KCP
 {
     public abstract class KcpOnUdp : Output
     {

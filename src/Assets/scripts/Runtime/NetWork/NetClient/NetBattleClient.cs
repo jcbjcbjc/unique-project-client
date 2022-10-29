@@ -13,6 +13,7 @@ using Assets.scripts.Utils;
 using System.IO;
 using Services;
 using MyTimer;
+using KCP;
 /// <summary>
 /// GameLogicLoginService
 /// 
@@ -43,8 +44,8 @@ namespace NetWork
 
 		Socket TcpSocket;
 
-		byte[] TCPreadbuf = new byte[1024 * 1024];
-		byte[] TCPlenBytes = new byte[sizeof(UInt32)];
+		ByteBuf TCPreadbuf = new ByteBuf(1024 * 1024);
+		byte[] buf = new byte[1024 * 1024];
 
 		int buflen = 0;
 
@@ -87,7 +88,7 @@ namespace NetWork
 		}
 		void Start()
 		{
-			TcpSocket.BeginReceive(TCPreadbuf, 0, TCPreadbuf.Length, SocketFlags.None, StartReceiveCallback, TcpSocket);
+			TcpSocket.BeginReceive(buf, 0, buf.Length, SocketFlags.None, StartReceiveCallback, TcpSocket);
 		}
 		void StartReceiveCallback(IAsyncResult ar)
 		{
@@ -96,27 +97,25 @@ namespace NetWork
 				int length = TcpSocket.EndReceive(ar);
 				if (length > 0)
 				{
-					//buflen += length;
-					//Array.Copy(TCPreadbuf, TCPlenBytes, sizeof(Int32));
-					//int msgLength = BitConverter.ToInt32(TCPlenBytes, 0);
-					//if (buflen >= sizeof(Int32) + msgLength)
-					//{
-					//    C2GNetMessage msgs = C2GNetMessage.Parser.ParseFrom(TCPreadbuf, sizeof(Int32), msgLength);
-					//    MessageDispatcher.AddTask(new NetMessage(msgs.MessageType, msgs.Response));
-					//    Array.Copy(TCPreadbuf, sizeof(Int32) + msgLength, TCPreadbuf, 0, length);
-					//    buflen -= sizeof(Int32) + msgLength;
-					//}
-					//TcpSocket.BeginReceive(TCPreadbuf, buflen, TCPreadbuf.Length - buflen, SocketFlags.None, StartReceiveCallback, TcpSocket);
+					TCPreadbuf.WriteBytes(buf, 0, length);
+					Array.Clear(buf, 0, length);
+
+					ByteBuf Out = new ByteBuf(1024 * 1024);
+
+					ProtobufDecoder.Decode(TCPreadbuf, Out);
+					if (Out.isReadable())
+					{
+						C2BNetMessage msgs = C2BNetMessage.Parser.ParseFrom(Out.GetRaw(), 0, Out.ReadableBytes());
+						MessageDispatcher.AddTask(new NetMessage(msgs));
+					}
+
+					TcpSocket.BeginReceive(buf, 0, buf.Length, SocketFlags.None, StartReceiveCallback, TcpSocket);
 
 
-					C2BNetMessage msg = C2BNetMessage.Parser.ParseFrom(TCPreadbuf, 0, length);
+					//C2BNetMessage msg = C2BNetMessage.Parser.ParseFrom(TCPreadbuf, 0, length);
+					//               MessageDispatcher.AddTask(new NetMessage(msg));
 
-
-
-
-					MessageDispatcher.AddTask(new NetMessage(msg));
-
-					TcpSocket.BeginReceive(TCPreadbuf, 0, TCPreadbuf.Length, SocketFlags.None, StartReceiveCallback, TcpSocket);
+					//               TcpSocket.BeginReceive(TCPreadbuf, buflen, TCPreadbuf.Length - buflen, SocketFlags.None, StartReceiveCallback, TcpSocket);
 				}
 				else
 				{
