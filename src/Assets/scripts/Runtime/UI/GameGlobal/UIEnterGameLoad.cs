@@ -48,6 +48,9 @@ namespace UI
             LogUtil.log("战斗服务器地址：" + ip + port);
 
             NetBattleClient.GetInstance().connectToServer(ip, port);
+
+            isGoToBattleScene = false;
+
             eventSystem.AddListener<PercentForwardResponse>(EEvent.OnPercentForward, OnPercentForward);
 
             if (GameData.battleMode == BattleMode.Battle)
@@ -128,7 +131,7 @@ namespace UI
                 timer.Paused = true;
             }
             percent_ = 0;
-            isGoToBattleScene = false;
+            
             base.CloseUIForm();
 
         }
